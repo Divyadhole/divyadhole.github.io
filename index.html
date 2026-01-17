@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Analytics Times - Divya Dhole Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header & Ticker -->
+    <header>
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item">DATA SCIENCE</div>
+                <div class="ticker-item">MACHINE LEARNING</div>
+                <div class="ticker-item">ANALYTICS</div>
+                <div class="ticker-item">VISUALIZATION</div>
+                <div class="ticker-item">PYTHON</div>
+                <div class="ticker-item">R</div>
+                <div class="ticker-item">TENSORFLOW</div>
+                <div class="ticker-item">AWS</div>
+                <div class="ticker-item">SQL</div>
+                <div class="ticker-item">LATEST UPDATES</div>
+            </div>
+        </div>
+        <div class="container" style="padding-bottom: 0;">
+            <div class="brand">THE ANALYTICS TIMES</div>
+            <div class="date-line">
+                <span>Vol. 1, No. 1</span>
+                <span>Tucson, Arizona | <span id="live-time">--:--:--</span></span>
+                <span>Late Edition | <span id="live-date"></span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Story -->
+        <section class="hero-story" style="margin-bottom: 3rem;">
+            <h1 class="headline-huge" style="text-align: center; margin-bottom: 1rem;">THE ANALYTICS TIMES</h1>
+
+            <!-- Subtitle bar -->
+            <div
+                style="background: var(--ink-black); color: white; padding: 0.75rem 2rem; text-align: center; margin-bottom: 2rem;">
+                <h2
+                    style="font-family: var(--font-sans); font-size: 1.2rem; text-transform: uppercase; margin: 0; font-weight: 600; color: white;">
+                    Transforming Raw Data Into Actionable Insights
+                </h2>
+            </div>
+
+            <!-- Featured Image -->
+            <div style="position: relative; width: 100%; margin-bottom: 2rem;">
+                <img src="images/WhatsApp Image 2026-01-17 at 14.35.12.jpeg" alt="University of Arizona Campus"
+                    style="width: 100%; height: auto; border: var(--border-thick); filter: grayscale(100%) contrast(1.1);">
+            </div>
+
+            <!-- Introduction section -->
+            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; align-items: start;">
+                <!-- Left: Profile image -->
+                <div>
+                    <img src="images/profile_webflow.png" alt="Divya Dhole"
+                        style="width: 100%; height: auto; border: var(--border-thick);">
+                    <p
+                        style="font-family: var(--font-sans); font-size: 0.85rem; margin-top: 0.5rem; text-align: center; font-style: italic;">
+                        Divya Dhole, M.S. Data Science
+                    </p>
+                </div>
+
+                <!-- Right: Intro text -->
+                <div>
+                    <h3 class="headline-medium" style="margin-top: 0;">Introduction</h3>
+                    <p style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+                        <strong style="font-size: 1.3rem;">I</strong> am a Master's student in Data Science at the
+                        University of Arizona, putting my skills to use at the intersection of Data Science and Machine
+                        Learning. Throughout my academic journey, I have developed a deep appreciation for the
+                        transformative power of data-driven insights. My coursework in Big Data Technologies,
+                        Statistical Analysis, Predictive Modeling, and Machine Learning has equipped me with both the
+                        theoretical foundation and practical expertise needed to tackle complex analytical challenges.
+                    </p>
+                    <p
+                        style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.8; text-align: justify; margin-top: 1rem;">
+                        I have a passion for uncovering hidden patterns in data and communicating complex insights
+                        through compelling visualizations that tell stories and drive decisions. What excites me most
+                        about data science is not just the technical challenge of building sophisticated models, but the
+                        opportunity to translate raw numbers into narratives that resonate with stakeholders. Whether
+                        I'm processing millions of genomic records to optimize resource planning or analyzing
+                        longitudinal datasets spanning two decades, I approach each project with the mindset that data
+                        has a story to tell and it's my job to bring that story to life in a way that inspires action.
+                    </p>
+                    <p
+                        style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.8; text-align: justify; margin-top: 1rem;">
+                        My experience spans diverse domains including healthcare analytics, cybersecurity, and
+                        transportation safety, where I've consistently demonstrated my ability to bridge the gap between
+                        technical complexity and business value. I believe that the most impactful data science work
+                        happens when advanced analytics meets clear communication, enabling organizations to make
+                        informed decisions that drive real-world outcomes. This philosophy guides everything I do, from
+                        selecting the right algorithms to designing visualizations that make complex insights accessible
+                        to both technical and non-technical audiences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Newspaper Grid -->
+        <div class="newspaper-grid">
+
+            <!-- COLUMN 1: Shorts & Skills -->
+            <div class="col-left">
+                <article class="draggable">
+                    <h3 class="headline-medium">Market Stats</h3>
+                    <div class="infographic-strip" style="flex-direction: column;">
+                        <div class="stat-box">
+                            <span class="stat-val">5+</span>
+                            <span class="stat-lbl">Featured Projects</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-val">M.S.</span>
+                            <span class="stat-lbl">Data Science (UofA)</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="draggable">
+                    <h3 class="headline-medium">Skill Set</h3>
+                    <div class="infographic-strip">
+                        <div class="stat-box"><span class="stat-lbl">Python</span></div>
+                        <div class="stat-box"><span class="stat-lbl">SQL</span></div>
+                        <div class="stat-box"><span class="stat-lbl">R</span></div>
+                        <div class="stat-box"><span class="stat-lbl">TensorFlow</span></div>
+                        <div class="stat-box"><span class="stat-lbl">AWS</span></div>
+                        <div class="stat-box"><span class="stat-lbl">D3.js</span></div>
+                    </div>
+                </article>
+
+                <article class="draggable" style="padding: 0.5rem;">
+                    <img src="images/data-scientist-worker-minimal-infographic-banner-vector-2BFEKGB.jpg"
+                        alt="Data Scientist Infographic" style="width: 100%; filter: none; border: 1px solid #2c2c2c;">
+                </article>
+
+                <article class="draggable" style="padding: 0.5rem;">
+                    <img src="images/download.png" alt="Data Analytics"
+                        style="width: 100%; filter: none; border: 1px solid #2c2c2c; background: white;">
+                </article>
+
+                <div class="classifieds-box">
+                    <h4 style="margin-bottom:0.5rem;">CLASSIFIEDS</h4>
+                    <p style="font-size:0.9rem; font-style: italic;">Seeking Data Science Roles</p>
+                    <a href="mailto:divyadhole@arizona.edu" class="btn-classified">Email Me</a>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="https://linkedin.com/in/divyadhole"
+                            style="text-decoration: underline; font-size: 0.8rem;">LinkedIn</a>
+                        <span style="margin: 0 0.5rem;">|</span>
+                        <a href="https://github.com/Divyadhole"
+                            style="text-decoration: underline; font-size: 0.8rem;">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: Main Feature (About) -->
+            <div class="col-center">
+                <article class="draggable" style="border: none; box-shadow: none; padding: 0;">
+                    <h3 class="headline-large">Exclusive Interview</h3>
+                    <span class="byline">By The Editorial Board</span>
+
+                    <div class="interview-q">Q: TELL US ABOUT YOUR BACKGROUND.</div>
+                    <div class="interview-a">
+                        I am a Master's student in Data Science at the University of Arizona, putting my skills to use
+                        at the intersection of Data Science and Machine Learning. I have a passion for uncovering hidden
+                        patterns in data and transforming complex datasets into clear, actionable insights.
+                    </div>
+                    <div class="interview-a" style="margin-top: 1rem;">
+                        My journey in data science has been driven by curiosity and a desire to solve real-world
+                        problems. I specialize in building end-to-end ML solutions, from data preprocessing and feature
+                        engineering to model deployment and visualization, ensuring that every insight drives meaningful
+                        business decisions.
+                    </div>
+
+                    <div class="interview-q">Q: WHAT DO YOU SPECIALIZE IN?</div>
+                    <div class="interview-a">
+                        My expertise includes Python, SQL, R, and cloud platforms like AWS and Azure. I thrive in
+                        challenging environments where I can apply statistical modeling, predictive analytics, and
+                        machine learning algorithms to extract valuable insights from large-scale datasets.
+                    </div>
+                    <div class="interview-a" style="margin-top: 1rem;">
+                        I have hands-on experience with frameworks like PyTorch, TensorFlow, and Scikit-Learn, as well
+                        as visualization tools such as Power BI, Tableau, and Plotly. Whether it's analyzing millions of
+                        genomic records or forecasting security trends across 500K+ data points, I bring both technical
+                        depth and strategic thinking to every project.
+                    </div>
+
+                    <div class="interview-q">Q: WHAT ARE YOU LOOKING FOR NEXT?</div>
+                    <div class="interview-a">
+                        I am actively seeking opportunities to leverage my technical skills and analytical mindset in a
+                        collaborative team setting. I am eager to contribute to innovative projects that drive
+                        data-informed decision-making and create meaningful impact in healthcare, technology, and
+                        beyond.
+                    </div>
+                    <div class="interview-a" style="margin-top: 1rem;">
+                        My ideal role would allow me to work at the intersection of advanced analytics and real-world
+                        applications, where I can continue exploring cutting-edge technologies like LLMs and Generative
+                        AI while solving problems that matter. I am particularly passionate about projects that combine
+                        technical innovation with social impact, making a tangible difference in people's lives through
+                        intelligent data systems.
+                    </div>
+                </article>
+            </div>
+
+            <!-- COLUMN 3: Projects (Draggable Articles) -->
+            <div class="col-right">
+                <h3 class="headline-medium">Project Reports</h3>
+
+                <!-- Project 1: UFO -->
+                <article class="draggable">
+                    <span class="byline">Lead Analyst & Author</span>
+                    <h3>UFO Sightings: Unveiling the Mystery</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Geospatial analysis identifying strong correlations between sightings and population centers.
+                    </p>
+                    <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        TAGS: R, TidyTuesday, Leaflet
+                    </div>
+                    <a href="#" onclick="openModal('modal-ufo'); return false;"
+                        style="display:block; margin-top: 0.5rem; font-weight: 700; text-decoration: underline;">Read
+                        Full Report →</a>
+                    <div style="margin-top:0.5rem;">
+                        <a href="https://info-526-s24.github.io/project-01-fight-club/" target="_blank"
+                            style="font-size: 0.8rem; font-style: italic;">View Analysis ↗</a>
+                    </div>
+                </article>
+
+                <!-- Project 2: Stocks -->
+                <article class="draggable">
+                    <span class="byline">Financial Data Analyst</span>
+                    <h3>Big Tech Stock Prices</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        12-year stock data analysis using Moving Average strategies (50/200 DMA).
+                    </p>
+                    <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        TAGS: Python, Pandas, Data Viz
+                    </div>
+                    <a href="#" onclick="openModal('modal-stocks'); return false;"
+                        style="display:block; margin-top: 0.5rem; font-weight: 700; text-decoration: underline;">Read
+                        Full Report →</a>
+                    <div style="margin-top:0.5rem;">
+                        <a href="https://info523-s24.github.io/project-01-Tech-Titans/" target="_blank"
+                            style="font-size: 0.8rem; font-style: italic;">View Analysis ↗</a>
+                    </div>
+                </article>
+
+                <!-- Project 3: Evolution -->
+                <article class="draggable">
+                    <span class="byline">Genomic Analytics</span>
+                    <h3>Integrated Bioinformatics Workflow</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Combined genomics and ecological modeling to understand langur evolution.
+                    </p>
+                    <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        TAGS: PSMC, MaxEnt, Genomics
+                    </div>
+                    <a href="#" onclick="openModal('modal-evolution'); return false;"
+                        style="display:block; margin-top: 0.5rem; font-weight: 700; text-decoration: underline;">Read
+                        Full Report →</a>
+                    <div style="margin-top:0.5rem;">
+                        <a href="https://github.com/Divyadhole/Capstone-project" target="_blank"
+                            style="font-size: 0.8rem; font-style: italic;">View Code ↗</a>
+                    </div>
+                </article>
+
+                <!-- Project 4: Cyber -->
+                <article class="draggable">
+                    <span class="byline">Data Analyst Specialist</span>
+                    <h3>Cybersecurity Trends</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Operational analysis identifying Phishing as the dominant attack vector over 20 years.
+                    </p>
+                    <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        TAGS: Power BI, Forecasting
+                    </div>
+                    <a href="#" onclick="openModal('modal-cyber'); return false;"
+                        style="display:block; margin-top: 0.5rem; font-weight: 700; text-decoration: underline;">Read
+                        Full Report →</a>
+                </article>
+
+                <!-- Project 5: Safety -->
+                <article class="draggable">
+                    <span class="byline">Data Researcher</span>
+                    <h3>Safety Operations Modeling</h3>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+                        Predictive modeling using Random Forest to associate speed variance with risk.
+                    </p>
+                    <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #666;">
+                        TAGS: Python, Scikit-Learn
+                    </div>
+                    <a href="#" onclick="openModal('modal-safety'); return false;"
+                        style="display:block; margin-top: 0.5rem; font-weight: 700; text-decoration: underline;">Read
+                        Full Report →</a>
+                </article>
+
+            </div>
+        </div>
+
+        <footer
+            style="text-align: center; padding: 2rem 0; font-family: var(--font-sans); font-size: 0.8rem; border-top: var(--border-thick);">
+            &copy; 2024 The Analytics Times. Edited by Divya Dhole.
+        </footer>
+    </main>
+
+    <!-- Modals Container (Hidden - Preserved Content) -->
+    <div id="modal-container">
+        <!-- UFO Modal -->
+        <div id="modal-ufo" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 style="font-size: 2.5rem;">UFO SIGHTINGS: Unveiling the Mystery</h2>
+                <div class="modal-body" style="margin-top: 2rem;">
+                    <!-- Original Content Inserted Here -->
+                    <h3>Geographic Distribution & Shapes</h3>
+                    <p>We conducted a comprehensive geospatial analysis of UFO sightings to identify regional hotspots
+                        and clustering patterns. By visualizing reporting density against population centers, we
+                        observed a strong correlation between urbanization and sighting frequency, particularly in North
+                        America and Europe. This suggests that while sightings are a global phenomenon, the reporting
+                        infrastructure and cultural propensity to report significantly bias the data towards Western
+                        nations.</p>
+                    <div class="figure-container">
+                        <img src="images/ufo-heatmap.png" alt="Global Heatmap">
+                    </div>
+                    <h4>Focus on the United States</h4>
+                    <p>Refining our analysis to the United States reveal distinct clusters along coastal regions and
+                        major metropolitan hubs. Los Angeles and New York emerge as primary hotspots, which aligns with
+                        higher population density. However, the data also hints at a "Hollywood Effect," where proximity
+                        to media production centers correlates with a higher volume of reports, potentially indicating a
+                        cultural influence on perception and reporting.</p>
+                    <div class="figure-container">
+                        <img src="images/ufo-us-map.png" alt="US Map">
+                    </div>
+                    <h3>Temporal Patterns</h3>
+                    <p>Our longitudinal analysis from 1940 to 2020 highlights a dramatic exponential increase in
+                        sightings coinciding with the digital age. The spike post-1990 strongly correlates with the
+                        widespread adoption of the internet, which democratized the reporting process. Furthermore,
+                        diurnal analysis confirms that over 80% of sightings occur during nocturnal hours, specifically
+                        between 8 PM and midnight, consistent with visibility conditions favorable for observing aerial
+                        anomalies.</p>
+                    <div class="figure-container">
+                        <img src="images/ufo-time-series.png" alt="Time Series">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stocks Modal -->
+        <div id="modal-stocks" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 style="font-size: 2.5rem;">Big Tech Stock Prices</h2>
+                <div class="modal-body" style="margin-top: 2rem;">
+                    <h3>Price Changes Over Time</h3>
+                    <p>This time-series analysis examines the price trajectories of 14 major technology stocks over a
+                        12-year period. The data reveals a secular bull market across the sector, punctuated by
+                        localized volatility events. Most notably, the "V-shaped" recovery following the March 2020
+                        COVID-19 crash demonstrates the sector's resilience and the market's rapid pricing of digital
+                        transformation acceleration. </p>
+                    <div class="figure-container"><img src="images/stock-price-line.png" alt="Stock Price Line"></div>
+                    <h3>Investment Strategy</h3>
+                    <p>To evaluate potential trading strategies, we backtested a dual Moving Average Crossover system
+                        involving the 50-day and 200-day averages. The analysis identified multiple high-confidence
+                        "Golden Cross" buy signals that preceded sustained rallies. Using the 50-day DMA as a dynamic
+                        support level proved more effective for trend-following in this high-growth sector than static
+                        resistance levels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evolution Modal -->
+        <div id="modal-evolution" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 style="font-size: 2.5rem;">Integrated Bioinformatics Workflow</h2>
+                <div class="modal-body" style="margin-top: 2rem;">
+                    <h3>Workflow Architecture</h3>
+                    <div class="figure-container"><img src="images/workflow-diagram.svg" alt="Workflow"></div>
+                    <h3>Species Occurrence Points</h3>
+                    <div class="figure-container"><img src="images/geo-1.png" alt="Geo 1"></div>
+                    <h3>Species Distribution</h3>
+                    <div class="figure-container"><img src="images/geo-2.png" alt="Geo 2"></div>
+                    <h3>Evolutionary Timeline</h3>
+                    <div class="figure-container"><img src="images/geo-3.png" alt="Geo 3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cyber Modal -->
+        <div id="modal-cyber" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 style="font-size: 2.5rem;">Cybersecurity Trends</h2>
+                <div class="modal-body" style="margin-top: 2rem;">
+                    <h3>Incident Trends Over Time</h3>
+                    <p>Analyzing a dataset of over 500,000 security logs, we reconstructed the historical trend of cyber
+                        incidents over two decades. The results show a clear, monotonic increase in attack volume, with
+                        significant inflection points mirroring the release of major vulnerabilities (e.g.,
+                        EternalBlue). This escalating trajectory underscores the growing automated nature of modern
+                        cyber threats.</p>
+                    <div class="figure-container"><img src="images/cyber-trends.svg" alt="Cyber Trends"></div>
+                    <h3>Attack Vectors Analysis</h3>
+                    <p>We categorized incidents by attack vector to determine the most prevalent threat types. Phishing
+                        emerged as the overwhelming leader, accounting for a significant plurality of breaches, followed
+                        by Malware injection and DDoS attacks. This distribution suggests that despite technical
+                        defenses, social engineering remains the most critical vulnerability in organizational security
+                        postures.</p>
+                    <div class="figure-container"><img src="images/cyber-types.svg" alt="Cyber Types"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Modal -->
+        <div id="modal-safety" class="modal">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 style="font-size: 2.5rem;">Safety Operations Modeling</h2>
+                <div class="modal-body" style="margin-top: 2rem;">
+                    <h3>Risk Correlation Analysis</h3>
+                    <p>Using transportation sensor data, we performed a regression analysis to determine the primary
+                        drivers of accident risk. We found a statistically significant positive correlation between
+                        speed variance (not just absolute speed) and the safety risk score. This finding validates the
+                        "Speed Harmonization" theory, suggesting that stabilizing traffic flow is more critical for
+                        safety than simply lowering speed limits.</p>
+                    <div class="figure-container"><img src="images/safety-risk.svg" alt="Safety Risk"></div>
+                    <h3>Model Feature Importance</h3>
+                    <p>To construct a predictive risk model, we evaluated feature importance using a Random Forest
+                        algorithm. 'Speed Variance', 'Adverse Weather Conditions', and 'Traffic Volume' emerged as the
+                        top three predictors. Interestingly, 'Road Type' had a lower predictive power than dynamic
+                        environmental factors, indicating that real-time monitoring is essential for accurate risk
+                        assessment.</p>
+                    <div class="figure-container"><img src="images/safety-features.svg" alt="Safety Features"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

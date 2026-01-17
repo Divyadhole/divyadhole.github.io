@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="background: white;">
+  <!-- Grid -->
+  <line x1="50" y1="250" x2="350" y2="250" stroke="#2c2c2c" stroke-width="2"/>
+  <line x1="50" y1="50" x2="50" y2="250" stroke="#2c2c2c" stroke-width="2"/>
+  
+  <!-- Grid lines -->
+  <line x1="50" y1="200" x2="350" y2="200" stroke="#ccc" stroke-width="1"/>
+  <line x1="50" y1="150" x2="350" y2="150" stroke="#ccc" stroke-width="1"/>
+  <line x1="50" y1="100" x2="350" y2="100" stroke="#ccc" stroke-width="1"/>
+  
+  <!-- Bar Chart -->
+  <rect x="80" y="180" width="40" height="70" fill="#2c2c2c"/>
+  <rect x="140" y="140" width="40" height="110" fill="#2c2c2c"/>
+  <rect x="200" y="100" width="40" height="150" fill="#2c2c2c"/>
+  <rect x="260" y="120" width="40" height="130" fill="#2c2c2c"/>
+  
+  <!-- Title -->
+  <text x="200" y="30" font-family="Georgia, serif" font-size="18" text-anchor="middle" font-weight="bold">DATA TRENDS</text>
+  
+  <!-- Labels -->
+  <text x="100" y="270" font-family="Georgia, serif" font-size="12" text-anchor="middle">Q1</text>
+  <text x="160" y="270" font-family="Georgia, serif" font-size="12" text-anchor="middle">Q2</text>
+  <text x="220" y="270" font-family="Georgia, serif" font-size="12" text-anchor="middle">Q3</text>
+  <text x="280" y="270" font-family="Georgia, serif" font-size="12" text-anchor="middle">Q4</text>
+</svg>

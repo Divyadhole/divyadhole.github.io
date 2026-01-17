@@ -1,0 +1,47 @@
+Divya Dhole
++1 520-283-6806 | divyadhole@arizona.edu | linkedin.com/in/divyadhole
+
+Education
+University of Arizona Tucson, AZ
+Master of Science in Data Science Expected Dec 2025
+Relevant Coursework: Big Data Technologies, Statistical Analysis, Predictive Modeling, Machine Learning, Data Visualization
+
+Shri Sant Gajanan Maharaj College of Engineering Bachelor of Engineering in Electronics and Telecommunication India
+2021
+
+Technical Skills
+Programming Languages: Python (Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn, Plotly), R, Matlab, Java (Academic)
+Machine Learning & AI: Machine Learning Algorithms, Statistical Modeling, Predictive Analytics, PyTorch, TensorFlow, Scikit-Learn, Large Language Models (LLM), Generative AI
+Data Analysis & Visualization: Data Mining Techniques, Statistical Analysis, Exploratory Data Analysis, Advanced Visualization, Dashboard Development, Power BI, Tableau
+Database & Cloud: SQL (PostgreSQL, MySQL), Database Management Systems, Cloud Platforms (AWS, Azure), Big Data Technologies
+Development Tools: Git/GitHub, Version Control, Unix/Linux Shell Scripting, ETL Processes, Data Pipeline Development
+Professional Competencies: Problem-Solving, Cross-functional Collaboration, Technical Communication, Attention to Detail, Process Optimization, Experimental Design
+
+Projects
+Genomic Pipeline Resource Planning | Data Scientist Intern Aug 2025 – Dec 2025
+• Collected, cleaned, and preprocessed large-scale genomic datasets containing millions of records from multiple operational sources, ensuring data quality and integrity for analytical workflows
+• Developed and implemented statistical models and machine learning algorithms to analyze complex datasets, generating actionable insights that improved resource planning efficiency by 25%
+• Designed and conducted experiments to test hypotheses and validate predictive models, continuously monitoring and improving model performance through iterative optimization
+• Collaborated with cross-functional research and engineering teams to understand project requirements, assess processes for automation opportunities, and align analytical solutions with organizational objectives
+• Generated and visualized insights through detailed reports and presentations, effectively conveying complex technical concepts to non-technical stakeholders at technical reviews
+• Skills: Python, SQL, Machine Learning, Statistical Modeling, Data Preprocessing, Predictive Analytics, Data Visualization, Cross-functional Collaboration, Technical Presentations
+
+Cybersecurity Trends Operational Analysis | Data Analyst Specialist Jan 2024 – Apr 2024
+• Analyzed 20-year longitudinal datasets (500K+ records) using advanced statistical models and data mining techniques to identify operational trends and forecast security performance outcomes
+• Developed interactive Power BI dashboards and detailed visualizations to communicate complex analytical findings, supporting data-driven decision-making processes across the organization
+• Assessed manufacturing and operational processes for analytics opportunities, implementing automated reporting solutions that enhanced data quality and integrity standards
+• Prepared and presented technical data and recommendations at executive reviews, translating quantitative analysis into actionable business strategies that informed resource allocation
+• Skills: R, SQL, Power BI, Statistical Analysis, Data Mining, Predictive Analytics, Dashboard Development, Process Assessment, Executive Communication, Problem-Solving
+
+Predictive Modeling for Safety Operations | Data Researcher Jan 2024 – Apr 2024
+• Constructed and evaluated machine learning models for transportation datasets (100K+ records) to identify risk patterns, leveraging regression analysis and predictive analytics techniques
+• Collected and preprocessed data from various sources, implementing data quality controls and validation procedures to ensure accuracy and consistency for model development
+• Conducted statistical experiments to test hypotheses and optimize algorithm performance, continuously improving model accuracy through feature engineering and hyperparameter tuning
+• Coordinated with departmental leaders to understand requirements, documented methodologies, and delivered compelling visualizations that facilitated data-driven process improvements
+• Skills: Python, SQL, Scikit-Learn, Machine Learning, Statistical Modeling, Data Preprocessing, Experimental Design, Feature Engineering, Technical Documentation
+
+Additional Information
+Work Authorization: Eligible to work in the United States with company sponsorship
+Availability: Available for immediate start
+Relocation: Open to relocation to Maple Grove, MN or other Boston Scientific locations
+Attributes: Strong problem-solving skills with attention to detail; Excellent communication abilities for technical and non-technical audiences; Ability to work independently and collaboratively in team environments; Passionate about advancing healthcare through data science innovation
