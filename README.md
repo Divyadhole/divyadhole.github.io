@@ -6,7 +6,7 @@ A newspaper-style data science portfolio showcasing projects in machine learning
 **Visit:** [https://divyadhole.github.io](https://divyadhole.github.io)
 
 ## 👤 About
-Data Science graduate student at the University of Arizona specializing in:
+Data Science graduate from the University of Arizona specializing in:
 - Machine Learning & Predictive Analytics
 - Data Visualization & Storytelling
 - Big Data Technologies
