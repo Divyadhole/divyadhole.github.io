@@ -10,3 +10,6 @@
 - [x] Implement Experience Section <!-- id: 7 -->
 - [x] Finalize Design and Polish <!-- id: 8 -->
 - [x] Verify Website <!-- id: 9 -->
+- [x] Add New Certificates (Copilot, Python, etc.) <!-- id: 10 -->
+- [x] Add "Earned Badges" Section <!-- id: 11 -->
+- [x] Push Updates to GitHub <!-- id: 12 -->
