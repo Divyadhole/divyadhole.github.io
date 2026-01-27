@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Divya Dhole | Data Scientist</title>
-    <link rel="stylesheet" href="style.css?v=1.4">
+    <link rel="stylesheet" href="style.css?v=1.5">
 </head>
 
 <body>
@@ -169,8 +169,8 @@
         <h2 class="section-heading" data-number="03.">Some Things I've Built</h2>
         <div class="projects-grid">
 
-            <!-- Project 1 -->
-            <div class="project-card">
+            <!-- Project 1: Uber -->
+            <div class="project-card" data-id="uber" onclick="openModal('uber')">
                 <div class="project-top">
                     <div class="folder-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
@@ -181,10 +181,10 @@
                         </svg>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Divyadhole/Uber-Analytics-Engineering-Project-" target="_blank"><svg
-                                xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                width="20" height="20">
+                        <a href="https://github.com/Divyadhole/Uber-Analytics-Executive-Dashboard" target="_blank"
+                            onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path
                                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
@@ -202,8 +202,8 @@
                 </ul>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
+            <!-- Project 2: Cybersecurity -->
+            <div class="project-card" data-id="cybersecurity" onclick="openModal('cybersecurity')">
                 <div class="project-top">
                     <div class="folder-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
@@ -214,8 +214,9 @@
                         </svg>
                     </div>
                     <div class="project-links">
-                        <a href="https://github.com/Divyadhole" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-                                role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        <a href="https://github.com/Divyadhole/The-Data-Miners-Datathon-project-" target="_blank"
+                            onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path
                                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
@@ -233,8 +234,8 @@
                 </ul>
             </div>
 
-            <!-- Project 3: Stock Analysis -->
-            <div class="project-card">
+            <!-- Project 3: Tesla Stock -->
+            <div class="project-card" data-id="tesla" onclick="openModal('tesla')">
                 <div class="project-top">
                     <div class="folder-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
@@ -245,7 +246,8 @@
                         </svg>
                     </div>
                     <div class="project-links">
-                        <a href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                        <a href="https://github.com/INFO523-S24/project-01-Tech-Titans" target="_blank"
+                            onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" role="img"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
                                 <path
@@ -255,12 +257,76 @@
                     </div>
                 </div>
                 <h3 class="project-title">Tesla Stock Analysis</h3>
-                <p>Time-series forecasting model for stock prices. utilized ARIMA and LSTM neural networks to predict
-                    future valuations with high accuracy.</p>
+                <p>Time-series forecasting model for stock prices using ARIMA and LSTM neural networks to predict future
+                    valuations with high accuracy.</p>
                 <ul class="project-tech-list">
                     <li>Python</li>
                     <li>Keras</li>
                     <li>Pandas</li>
+                </ul>
+            </div>
+
+            <!-- Project 4: Fight Club -->
+            <div class="project-card" data-id="fightclub" onclick="openModal('fightclub')">
+                <div class="project-top">
+                    <div class="folder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-folder">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/INFO-526-S24/project-01-fight-club" target="_blank"
+                            onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Fight Club Analysis</h3>
+                <p>Data visualization project focusing on key insights and analytics. Part of the INFO 526 Spring 2024
+                    academic coursework.</p>
+                <ul class="project-tech-list">
+                    <li>R</li>
+                    <li>Tidyverse</li>
+                    <li>Quarto</li>
+                </ul>
+            </div>
+
+            <!-- Project 5: Capstone -->
+            <div class="project-card" data-id="capstone" onclick="openModal('capstone')">
+                <div class="project-top">
+                    <div class="folder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-folder">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Divyadhole/Capstone-project" target="_blank"
+                            onclick="event.stopPropagation()"><svg xmlns="http://www.w3.org/2000/svg" role="img"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg></a>
+                    </div>
+                </div>
+                <h3 class="project-title">Bioinformatics Capstone</h3>
+                <p>Integrated workflow for evolutionary analysis. Includes max-entropy distribution modeling, PSMC
+                    demographic reconstruction, and ABBA-BABA testing.</p>
+                <ul class="project-tech-list">
+                    <li>Python</li>
+                    <li>Jupyter</li>
+                    <li>Bioinformatics</li>
                 </ul>
             </div>
 
@@ -341,6 +407,26 @@
     <footer>
         <p>Values Built by Divya Dhole</p>
     </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

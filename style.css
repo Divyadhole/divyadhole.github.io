@@ -721,3 +721,134 @@ footer {
 .hamburger.toggle .line:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* --- Project Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(2, 6, 23, 0.8);
+    /* Dark overlay */
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    margin: auto;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+    animation: slideUp 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close-modal {
+    color: var(--text-secondary);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--code-pink);
+}
+
+.modal-header h2 {
+    color: var(--text-primary);
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.modal-image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-desc {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.modal-desc h3 {
+    color: var(--text-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.modal-desc ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.modal-desc li {
+    margin-bottom: 5px;
+}
+
+.modal-footer {
+    margin-top: 30px;
+    text-align: right;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Make project cards clickable */
+.project-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
