@@ -102,28 +102,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Mobile Navigation ---
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links li');
-
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            // Toggle Nav
-            navLinks.classList.toggle('nav-active');
-            // Burger Animation
-            hamburger.classList.toggle('toggle');
-        });
-    }
-
-    // Close menu when a link is clicked
-    if (links) {
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks) navLinks.classList.remove('nav-active');
-                if (hamburger) hamburger.classList.remove('toggle');
-            });
-        });
-    }
-
 });
