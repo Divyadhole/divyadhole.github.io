@@ -1,16 +1,18 @@
-# The Analytics Times - Portfolio
+# Portfolio - Divya Dhole
 
-A newspaper-style data science portfolio showcasing projects in machine learning, analytics, and visualization.
+A modern, dark-themed Data Scientist portfolio showcasing projects in machine learning, analytics, and big data engineering.
 
 ## 🌐 Live Portfolio
 **Visit:** [https://divyadhole.github.io](https://divyadhole.github.io)
 
-## 👤 About
-Data Science graduate from the University of Arizona specializing in:
-- Machine Learning & Predictive Analytics
-- Data Visualization & Storytelling
-- Big Data Technologies
-- Statistical Modeling
+## 👤 About This Portfolio
+This portfolio features a "Modern Dark" aesthetic with glassmorphism effects, designed to highlight my work as a Data Scientist and Engineer.
+
+**Key Features:**
+- **Hero Section:** Interactive Python code editor visual.
+- **Responsive Design:** Fully compatible with mobile and desktop.
+- **Projects Showcase:** Clean cards with GitHub links and tech stacks.
+- **Certifications & Badges:** Dedicated sections for credentials.
 
 ## 📊 Featured Projects
 - **UFO Sightings Analysis** - Geospatial pattern recognition
@@ -24,8 +26,8 @@ Python | R | SQL | TensorFlow | PyTorch | Scikit-Learn | Power BI | Tableau | AW
 
 ## 📫 Contact
 - **Email:** divyadhole@arizona.edu
-- **LinkedIn:** [linkedin.com/in/divyadhole](https://linkedin.com/in/divyadhole)
+- **LinkedIn:** [linkedin.com/in/divya-dhole](https://www.linkedin.com/in/divya-dhole/)
 - **GitHub:** [github.com/Divyadhole](https://github.com/Divyadhole)
 
 ---
-*Built with HTML, CSS, and JavaScript | Deployed on GitHub Pages*
+*Built with modern HTML5, CSS3, and JavaScript | Deployed on GitHub Pages*
