@@ -9,8 +9,8 @@
     - [x] Verify responsiveness (Mobile/Desktop) <!-- id: 5 -->
     - [x] Implement Mobile Hamburger Menu <!-- id: 6 -->
     - [x] Final visual polish (animations, spacing) <!-- id: 7 -->
-- [ ] **Deployment** <!-- id: 8 -->
-    - [ ] Push to GitHub keys <!-- id: 9 -->
+- [x] **Deployment** <!-- id: 8 -->
+    - [x] Push to GitHub keys <!-- id: 9 -->
 - [x] Add New Certificates (Copilot, Python, etc.) <!-- id: 10 -->
 - [x] Add "Earned Badges" Section <!-- id: 11 -->
 - [x] Push Updates to GitHub <!-- id: 12 -->
