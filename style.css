@@ -233,7 +233,8 @@ nav {
 }
 
 .nav-links li a {
-    color: var(--text-secondary);
+    color: #ffffff;
+    font-weight: 500;
     transition: color 0.2s ease;
 }
 
@@ -242,7 +243,9 @@ nav {
 }
 
 .nav-links li a span {
-    color: var(--blue-primary);
+    color: #ffffff;
+    /* Make numbers white too */
+    margin-right: 5px;
 }
 
 /* --- Hero Section --- */
