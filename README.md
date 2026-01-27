@@ -26,7 +26,7 @@ Python | R | SQL | TensorFlow | PyTorch | Scikit-Learn | Power BI | Tableau | AW
 
 ## 📫 Contact
 - **Email:** divyadhole@arizona.edu
-- **LinkedIn:** [linkedin.com/in/divyadhole](https://www.linkedin.com/in/divyadhole/)
+- **LinkedIn:** [www.linkedin.com/in/divyadhole](https://www.linkedin.com/in/divyadhole)
 - **GitHub:** [github.com/Divyadhole](https://github.com/Divyadhole)
 
 ---
