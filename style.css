@@ -116,7 +116,8 @@ h6 {
 .section-heading::before {
     content: attr(data-number);
     margin-right: 10px;
-    color: var(--accent-cyan);
+    color: #ffffff;
+    /* White numbering */
     font-family: var(--font-mono);
     font-size: clamp(16px, 3vw, 20px);
     font-weight: 400;
@@ -233,17 +234,17 @@ nav {
 }
 
 .nav-links li a {
-    color: #ffffff;
+    color: #ffffff !important;
     font-weight: 500;
     transition: color 0.2s ease;
 }
 
 .nav-links li a:hover {
-    color: var(--blue-primary);
+    color: var(--blue-primary) !important;
 }
 
 .nav-links li a span {
-    color: #ffffff;
+    color: #ffffff !important;
     /* Make numbers white too */
     margin-right: 5px;
 }
