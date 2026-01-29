@@ -15,7 +15,8 @@
 - [x] Add "Earned Badges" Section <!-- id: 11 -->
 - [/] Push Updates to GitHub <!-- id: 12 -->
     - [x] Verify git status
-    - [/] Trigger Rebuild for 404 fix
+    - [x] Trigger Rebuild for 404 fix
+    - [/] Verify live sites are active and separate
 - [x] Add "Machine Learning at Scale" and "SQL Analytics" Badges <!-- id: 13 -->
 
 # Phase 2: Modern Portfolio (HTML/CSS In-Place Rewrite)
