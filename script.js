@@ -67,6 +67,23 @@ const projectData = {
             <p>Python, Jupyter, Snakemake, Dsuite, R</p>
         `,
         github: "https://github.com/Divyadhole/Capstone-project"
+    },
+    ecommerce: {
+        title: "E-commerce Sales Analytics",
+        image: "https://raw.githubusercontent.com/Divyadhole/ecommerce-sales-analytics/main/dashboard_screenshot.png",
+        description: `
+            <p><strong>Interactive sales analytics dashboard with comprehensive business insights.</strong> Professional Power BI-themed dashboard featuring KPI tracking, trend analysis, and geographic visualizations.</p>
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>KPI Dashboard:</strong> Real-time tracking of revenue, profit, orders, and profit margins.</li>
+                <li><strong>Trend Analysis:</strong> Year-over-year sales comparison with interactive visualizations.</li>
+                <li><strong>Geographic Insights:</strong> State-wise performance analysis with interactive maps.</li>
+                <li><strong>Business Recommendations:</strong> Data-driven insights for strategic decision-making.</li>
+            </ul>
+            <h3>Tech Stack</h3>
+            <p>Python, Plotly, Pandas, NumPy, Power BI Design</p>
+        `,
+        github: "https://github.com/Divyadhole/ecommerce-sales-analytics"
     }
 };
 
