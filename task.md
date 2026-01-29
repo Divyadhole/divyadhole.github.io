@@ -13,7 +13,9 @@
     - [x] Push to GitHub keys <!-- id: 9 -->
 - [x] Add New Certificates (Copilot, Python, etc.) <!-- id: 10 -->
 - [x] Add "Earned Badges" Section <!-- id: 11 -->
-- [x] Push Updates to GitHub <!-- id: 12 -->
+- [/] Push Updates to GitHub <!-- id: 12 -->
+    - [x] Verify git status
+    - [/] Trigger Rebuild for 404 fix
 - [x] Add "Machine Learning at Scale" and "SQL Analytics" Badges <!-- id: 13 -->
 
 # Phase 2: Modern Portfolio (HTML/CSS In-Place Rewrite)
