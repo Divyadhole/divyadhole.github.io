@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divya Dhole — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #080c14;
+  --surface:   #0e1420;
+  --card:      #131b2a;
+  --border:    #1e2d45;
+  --border2:   #243552;
+  --text:      #e2eaf8;
+  --muted:     #6b82a8;
+  --faint:     #3a4e6e;
+  --accent:    #3b82f6;
+  --accent2:   #06b6d4;
+  --teal:      #2dd4bf;
+  --green:     #22c55e;
+  --red:       #f87171;
+  --amber:     #fbbf24;
+  --purple:    #a78bfa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(8,12,20,0.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 40px;height:60px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--accent)}
+.logo span{color:var(--text)}
+.nav-links{display:flex;gap:6px}
+.nav-links a{
+  font-size:12px;font-weight:500;color:var(--muted);
+  padding:6px 14px;border-radius:6px;
+  transition:all .2s;
+  border:1px solid transparent;
+}
+.nav-links a:hover{color:var(--text);border-color:var(--border2);background:var(--card)}
+.nav-links a.cta{
+  background:var(--accent);color:white;border-color:var(--accent)
+}
+.nav-links a.cta:hover{opacity:.88}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px 40px 80px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;
+  top:-200px;right:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-150px;left:-100px;
+  width:400px;height:400px;
+  background:radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{
+  max-width:1100px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:600;
+  color:var(--accent2);
+  background:rgba(6,182,212,0.1);
+  border:1px solid rgba(6,182,212,0.25);
+  padding:4px 12px;border-radius:99px;
+  margin-bottom:20px;
+  text-transform:uppercase;letter-spacing:.7px;
+}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1.hero-name{
+  font-size:clamp(2.4rem,5vw,3.8rem);
+  font-weight:700;line-height:1.1;
+  margin-bottom:6px;
+  letter-spacing:-1px;
+}
+h1.hero-name .first{color:var(--text)}
+h1.hero-name .last{color:var(--accent)}
+.hero-role{
+  font-size:1.15rem;color:var(--muted);
+  margin-bottom:16px;font-weight:400;
+}
+.hero-role span{color:var(--accent2)}
+.hero-desc{
+  font-size:1rem;color:var(--muted);line-height:1.75;
+  max-width:520px;margin-bottom:28px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.btn{
+  padding:10px 22px;border-radius:8px;
+  font-size:13px;font-weight:600;
+  cursor:pointer;transition:all .2s;font-family:inherit;
+  text-decoration:none;display:inline-block;
+}
+.btn-primary{background:var(--accent);color:white;border:1px solid var(--accent)}
+.btn-primary:hover{background:#2563eb}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Stats strip */
+.hero-stats{
+  display:flex;gap:28px;padding-top:28px;
+  border-top:1px solid var(--border);
+}
+.stat-item{display:flex;flex-direction:column;gap:2px}
+.stat-num{font-size:1.6rem;font-weight:700;font-family:'DM Mono',monospace;color:var(--text)}
+.stat-num .unit{font-size:1rem;color:var(--accent)}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:500}
+
+/* Terminal card */
+.terminal{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.terminal-bar{
+  background:var(--surface);padding:12px 16px;
+  display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--border);
+}
+.dot{width:10px;height:10px;border-radius:50%}
+.d1{background:#ff5f57}.d2{background:#febc2e}.d3{background:#28c840}
+.terminal-title{
+  flex:1;text-align:center;font-size:11px;
+  color:var(--muted);font-family:'DM Mono',monospace;
+}
+.terminal-body{padding:20px;font-family:'DM Mono',monospace;font-size:12.5px;line-height:1.9}
+.t-comment{color:var(--faint)}
+.t-key{color:var(--accent2)}
+.t-str{color:var(--teal)}
+.t-num{color:var(--amber)}
+.t-kw{color:var(--purple)}
+.t-fn{color:var(--accent)}
+.t-cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:middle;animation:blink 1s infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* ── SECTIONS ── */
+section{padding:100px 40px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{
+  font-size:10px;font-weight:600;color:var(--accent);
+  text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--accent)}
+h2.section-title{
+  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;
+  letter-spacing:-0.5px;margin-bottom:14px;
+}
+.section-sub{font-size:1rem;color:var(--muted);max-width:600px;margin-bottom:50px;line-height:1.7}
+
+/* ── PROGRESS BAR (40 projects) ── */
+.progress-banner{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:12px;padding:24px 28px;margin-bottom:56px;
+  display:flex;align-items:center;gap:24px;
+}
+.progress-text{flex:1}
+.progress-title{font-size:14px;font-weight:600;margin-bottom:4px}
+.progress-sub{font-size:12px;color:var(--muted)}
+.progress-count{font-family:'DM Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent);white-space:nowrap}
+.progress-bar-wrap{flex:2}
+.progress-bar-bg{height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:6px}
+.progress-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:20%;transition:width 1.5s ease}
+.progress-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
+
+/* ── LIVE PROJECT CARDS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.project-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+  transition:all .25s;cursor:pointer;
+  display:flex;flex-direction:column;
+}
+.project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(59,130,246,0.12)}
+.project-card.live{border-color:var(--border2)}
+.project-preview{
+  height:160px;background:var(--surface);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.preview-chart{width:100%;height:100%;padding:16px;display:flex;align-items:flex-end;gap:5px}
+.bar{border-radius:3px 3px 0 0;transition:height .5s}
+.preview-badge{
+  position:absolute;top:10px;right:10px;
+  font-size:9px;font-weight:700;
+  padding:3px 8px;border-radius:99px;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+.live-badge{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
+.building-badge{background:rgba(251,191,36,0.15);color:var(--amber);border:1px solid rgba(251,191,36,0.3)}
+.project-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.project-num{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;font-family:'DM Mono',monospace}
+.project-title{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--text)}
+.project-source{
+  font-size:10.5px;color:var(--accent2);margin-bottom:8px;
+  font-style:italic;
+}
+.project-desc{font-size:12.5px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:14px}
+.project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tag{
+  font-size:10px;font-weight:500;
+  padding:2px 8px;border-radius:4px;
+  background:rgba(59,130,246,0.1);
+  color:var(--accent);border:1px solid rgba(59,130,246,0.2);
+}
+.tag.sql{background:rgba(6,182,212,0.1);color:var(--accent2);border-color:rgba(6,182,212,0.2)}
+.tag.ml{background:rgba(167,139,250,0.1);color:var(--purple);border-color:rgba(167,139,250,0.2)}
+.tag.viz{background:rgba(251,191,36,0.1);color:var(--amber);border-color:rgba(251,191,36,0.2)}
+.project-links{display:flex;gap:8px}
+.project-link{
+  font-size:11px;font-weight:600;padding:5px 12px;
+  border-radius:6px;transition:all .15s;
+}
+.link-live{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
+.link-live:hover{background:rgba(34,197,94,0.2)}
+.link-gh{background:var(--surface);color:var(--muted);border:1px solid var(--border2)}
+.link-gh:hover{color:var(--text);border-color:var(--border)}
+
+/* ── OTHER PROJECTS ── */
+.old-projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:16px}
+.old-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:20px;
+  transition:all .2s;
+}
+.old-card:hover{border-color:var(--border2)}
+.old-card-title{font-size:14px;font-weight:600;margin-bottom:6px}
+.old-card-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.skill-group{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:18px 20px;
+}
+.skill-group-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:12px}
+.skill-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.skill-item:last-child{margin-bottom:0}
+.skill-name{font-size:12.5px;color:var(--text)}
+.skill-bar-bg{flex:1;height:4px;background:var(--border);border-radius:99px;margin:0 12px;overflow:hidden}
+.skill-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.skill-pct{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);min-width:28px;text-align:right}
+
+/* ── DATA NUMBERS SECTION ── */
+.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.number-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:24px;text-align:center;
+}
+.number-card .big{
+  font-size:2.4rem;font-weight:700;font-family:'DM Mono',monospace;
+  color:var(--accent);margin-bottom:4px;
+}
+.number-card .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+
+/* ── CERTS ── */
+.certs-compact{display:flex;flex-wrap:wrap;gap:10px}
+.cert-pill{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:8px;
+  border:1px solid var(--border2);background:var(--card);
+  font-size:12px;font-weight:500;color:var(--muted);
+  transition:all .15s;
+}
+.cert-pill:hover{border-color:var(--accent);color:var(--text)}
+.cert-pill .cert-icon{font-size:14px}
+.cert-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.cert-count{
+  font-size:12px;color:var(--muted);
+  background:var(--card);border:1px solid var(--border);
+  padding:4px 12px;border-radius:99px;font-family:'DM Mono',monospace;
+}
+
+/* ── CONTACT ── */
+.contact-inner{
+  max-width:600px;margin:0 auto;text-align:center;
+}
+.contact-email{
+  display:inline-block;margin-top:24px;
+  font-size:1.3rem;font-weight:600;color:var(--accent);
+  border-bottom:1px solid var(--accent);padding-bottom:2px;
+  transition:opacity .2s;
+}
+.contact-email:hover{opacity:.75}
+.social-links{display:flex;justify-content:center;gap:16px;margin-top:28px}
+.social-link{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 18px;border-radius:8px;
+  border:1px solid var(--border2);
+  font-size:12.5px;font-weight:500;color:var(--muted);
+  transition:all .2s;
+}
+.social-link:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:24px 40px;
+  border-top:1px solid var(--border);
+  font-size:11.5px;color:var(--faint);
+}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);margin:0 40px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .terminal{display:none}
+  .numbers-grid{grid-template-columns:repeat(2,1fr)}
+  nav{padding:0 20px}
+  .nav-links a:not(.cta){display:none}
+  section{padding:70px 20px}
+  .hero{padding:100px 20px 60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="logo">D<span>.</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certs">Certs</a>
+    <a href="mailto:divyadhole@email.com" class="cta">Hire Me</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="about">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">Open to opportunities</div>
+      <h1 class="hero-name">
+        <span class="first">Divya </span><span class="last">Dhole</span>
+      </h1>
+      <div class="hero-role">Data Analyst &amp; <span>Data Scientist</span></div>
+      <p class="hero-desc">
+        MS Data Science @ University of Arizona. I turn real government data —
+        BLS, EPA, Federal Reserve, Census Bureau — into analysis that answers
+        questions people actually care about. Currently building 40 public
+        projects in 20 days.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://github.com/Divyadhole" target="_blank" class="btn btn-outline">GitHub</a>
+        <a href="https://linkedin.com/in/divyadhole" target="_blank" class="btn btn-outline">LinkedIn</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">8<span class="unit">/40</span></div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5<span class="unit">+</span></div>
+          <div class="stat-label">Live Dashboards</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">20<span class="unit">+</span></div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3<span class="unit">yr</span></div>
+          <div class="stat-label">Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div>
+        <div class="terminal-title">analyst_profile.py</div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-comment"># Real data. Real findings. Real impact.</span></div>
+        <div>&nbsp;</div>
+        <div><span class="t-kw">class</span> <span class="t-fn">DataAnalyst</span>:</div>
+        <div>&nbsp;&nbsp;<span class="t-key">name</span> <span class="t-comment">=</span> <span class="t-str">"Divya Dhole"</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">education</span> <span class="t-comment">=</span> <span class="t-str">"MS Data Science, UArizona"</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">stack</span> <span class="t-comment">=</span> [<span class="t-str">"Python"</span>, <span class="t-str">"SQL"</span>, <span class="t-str">"Power BI"</span>]</div>
+        <div>&nbsp;&nbsp;<span class="t-key">data_sources</span> <span class="t-comment">=</span> [</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"BLS"</span>, <span class="t-str">"EPA"</span>, <span class="t-str">"FRED"</span>, <span class="t-str">"Census"</span></div>
+        <div>&nbsp;&nbsp;]</div>
+        <div>&nbsp;&nbsp;<span class="t-key">projects</span> <span class="t-comment">=</span> <span class="t-num">8</span> <span class="t-comment"># and counting...</span></div>
+        <div>&nbsp;&nbsp;<span class="t-key">available</span> <span class="t-comment">=</span> <span class="t-kw">True</span></div>
+        <div>&nbsp;</div>
+        <div>&nbsp;&nbsp;<span class="t-kw">def</span> <span class="t-fn">hire_me</span>(<span class="t-key">self</span>):</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-kw">return</span> <span class="t-str">"Let's talk!"</span> <span class="t-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">40 Projects in 20 Days</h2>
+    <p class="section-sub">Every project uses real government data from BLS, EPA, Federal Reserve, Census Bureau, and more — the same sources that Wall Street analysts and federal economists use daily.</p>
+
+    <!-- Progress bar -->
+    <div class="progress-banner">
+      <div class="progress-text">
+        <div class="progress-title">🔥 40 Projects in 20 Days — Day 5 of 20</div>
+        <div class="progress-sub">2 projects per day · Real government data · Live dashboards · Public repos</div>
+      </div>
+      <div class="progress-count">8 <span style="font-size:1rem;color:var(--muted)">/ 40</span></div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <div class="progress-labels"><span>Day 1</span><span>Day 10</span><span>Day 20</span></div>
+      </div>
+    </div>
+
+    <!-- Live projects grid -->
+    <div class="projects-grid">
+
+      <!-- P5 -->
+      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/great-resignation-bls/','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#0a2e22,#0f1117)">
+          <div class="preview-chart">
+            <div class="bar" style="height:40%;background:#2dd4a0;flex:1"></div>
+            <div class="bar" style="height:55%;background:#2dd4a0;flex:1"></div>
+            <div class="bar" style="height:70%;background:#2dd4a0;flex:1"></div>
+            <div class="bar" style="height:90%;background:#f87171;flex:1"></div>
+            <div class="bar" style="height:100%;background:#f87171;flex:1"></div>
+            <div class="bar" style="height:95%;background:#fbbf24;flex:1"></div>
+            <div class="bar" style="height:75%;background:#2dd4a0;flex:1"></div>
+            <div class="bar" style="height:60%;background:#2dd4a0;flex:1"></div>
+          </div>
+          <div class="preview-badge live-badge">● Live Dashboard</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P05 · Labor Economics</div>
+          <div class="project-title">The Great Resignation</div>
+          <div class="project-source">Data: BLS JOLTS API — real govt data</div>
+          <div class="project-desc">Was the Great Resignation real? Quit rate peaked at 3.0% in Nov 2021 — +19.7% above baseline. Welch t-test: p&lt;0.001, Cohen's d=3.82.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">BLS API</span><span class="tag">scipy</span></div>
+          <div class="project-links">
+            <a href="https://divyadhole.github.io/great-resignation-bls/" target="_blank" class="project-link link-live">Live Dashboard</a>
+            <a href="https://github.com/Divyadhole/great-resignation-bls" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P6 -->
+      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/us-retail-sales-census/','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#020f1e,#041830)">
+          <div class="preview-chart">
+            <div class="bar" style="height:50%;background:#38bdf8;flex:1"></div>
+            <div class="bar" style="height:55%;background:#38bdf8;flex:1"></div>
+            <div class="bar" style="height:30%;background:#f87171;flex:1"></div>
+            <div class="bar" style="height:65%;background:#38bdf8;flex:1"></div>
+            <div class="bar" style="height:80%;background:#06b6d4;flex:1"></div>
+            <div class="bar" style="height:85%;background:#06b6d4;flex:1"></div>
+            <div class="bar" style="height:90%;background:#06b6d4;flex:1"></div>
+            <div class="bar" style="height:95%;background:#06b6d4;flex:1"></div>
+          </div>
+          <div class="preview-badge live-badge">● Live Dashboard</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P06 · Retail / Economy</div>
+          <div class="project-title">What America Buys</div>
+          <div class="project-source">Data: Census Bureau Monthly Retail Trade Survey</div>
+          <div class="project-desc">COVID crashed US retail -23.2% in Apr 2020. Recovered in 4 months. E-commerce accelerated 5.5 years ahead of schedule. $8.5T total in 2023.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">Census API</span><span class="tag viz">seaborn</span></div>
+          <div class="project-links">
+            <a href="https://divyadhole.github.io/us-retail-sales-census/" target="_blank" class="project-link link-live">Live Dashboard</a>
+            <a href="https://github.com/Divyadhole/us-retail-sales-census" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P7 -->
+      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/inflation-wages-fred/','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#0a0f1e,#111827)">
+          <div class="preview-chart" style="align-items:center;padding:20px">
+            <svg width="100%" height="80" viewBox="0 0 200 80" preserveAspectRatio="none">
+              <polyline points="0,60 25,58 50,40 75,20 100,12 125,10 150,18 175,28 200,35" fill="none" stroke="#f87171" stroke-width="2.5"/>
+              <polyline points="0,55 25,53 50,48 75,42 100,38 125,35 150,33 175,32 200,31" fill="none" stroke="#f6c90e" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <div class="preview-badge live-badge">● Live Dashboard</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P07 · Labor Economics</div>
+          <div class="project-title">Are Workers Falling Behind?</div>
+          <div class="project-source">Data: Federal Reserve FRED + BLS</div>
+          <div class="project-desc">Inflation vs wages — workers fell behind for 27 of 48 months. CPI peaked at 9.1% Jun 2022. Fed hiked rates 0.05%→5.33% (fastest since 1980s).</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">FRED API</span><span class="tag">BLS CPI</span></div>
+          <div class="project-links">
+            <a href="https://divyadhole.github.io/inflation-wages-fred/" target="_blank" class="project-link link-live">Live Dashboard</a>
+            <a href="https://github.com/Divyadhole/inflation-wages-fred" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P8 -->
+      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/epa-air-quality/','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#0d1f0f,#132216)">
+          <div class="preview-chart">
+            <div class="bar" style="height:95%;background:#4ade80;flex:1;opacity:.5"></div>
+            <div class="bar" style="height:88%;background:#4ade80;flex:1;opacity:.6"></div>
+            <div class="bar" style="height:80%;background:#4ade80;flex:1;opacity:.7"></div>
+            <div class="bar" style="height:72%;background:#4ade80;flex:1;opacity:.8"></div>
+            <div class="bar" style="height:65%;background:#4ade80;flex:1;opacity:.9"></div>
+            <div class="bar" style="height:45%;background:#4ade80;flex:1"></div>
+            <div class="bar" style="height:42%;background:#4ade80;flex:1"></div>
+            <div class="bar" style="height:44%;background:#f87171;flex:1"></div>
+          </div>
+          <div class="preview-badge live-badge">● Live Dashboard</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P08 · Environment</div>
+          <div class="project-title">Who Breathes Dirty Air?</div>
+          <div class="project-source">Data: US EPA Air Quality System (AQS)</div>
+          <div class="project-desc">PM2.5 down -42% since 2000. But 2023 Canadian wildfire smoke pushed NYC's AQI to 218 — worst in modern US history. LA still most polluted major city.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">EPA API</span><span class="tag viz">seaborn</span></div>
+          <div class="project-links">
+            <a href="https://divyadhole.github.io/epa-air-quality/" target="_blank" class="project-link link-live">Live Dashboard</a>
+            <a href="https://github.com/Divyadhole/epa-air-quality" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 Healthcare -->
+      <div class="project-card" onclick="window.open('https://github.com/Divyadhole/hospital-readmissions','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#1a0820,#0f1117)">
+          <div class="preview-chart" style="align-items:center;padding:20px">
+            <svg width="100%" height="80" viewBox="0 0 200 80">
+              <circle cx="60" cy="40" r="30" fill="none" stroke="#a78bfa" stroke-width="8" stroke-dasharray="94 188" transform="rotate(-90 60 40)"/>
+              <circle cx="60" cy="40" r="30" fill="none" stroke="#334155" stroke-width="8"/>
+              <text x="60" y="45" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="bold">23%</text>
+              <text x="140" y="28" fill="#6b7280" font-size="9">AUC 0.614</text>
+              <text x="140" y="42" fill="#a78bfa" font-size="9">Readmissions</text>
+              <text x="140" y="56" fill="#6b7280" font-size="9">5-fold CV</text>
+            </svg>
+          </div>
+          <div class="preview-badge building-badge">GitHub</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P01 · Healthcare</div>
+          <div class="project-title">Hospital Readmissions Analysis</div>
+          <div class="project-source">Data: Calibrated to CMS HRRP benchmarks</div>
+          <div class="project-desc">23.3% readmission rate. Logistic regression CV AUC: 0.614. Uninsured patients +14% risk. 4-tier risk stratification.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag ml">ML</span><span class="tag sql">SQL</span><span class="tag">scipy</span></div>
+          <div class="project-links">
+            <a href="https://github.com/Divyadhole/hospital-readmissions" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3 Pharma -->
+      <div class="project-card" onclick="window.open('https://github.com/Divyadhole/pharma-payments-analysis','_blank')">
+        <div class="project-preview" style="background:linear-gradient(135deg,#1a0800,#0f1117)">
+          <div class="preview-chart">
+            <div class="bar" style="height:40%;background:#fb923c;flex:1"></div>
+            <div class="bar" style="height:65%;background:#fb923c;flex:1"></div>
+            <div class="bar" style="height:90%;background:#f87171;flex:1"></div>
+            <div class="bar" style="height:100%;background:#f87171;flex:1"></div>
+            <div class="bar" style="height:80%;background:#fb923c;flex:1"></div>
+            <div class="bar" style="height:60%;background:#fb923c;flex:1"></div>
+          </div>
+          <div class="preview-badge building-badge">GitHub</div>
+        </div>
+        <div class="project-body">
+          <div class="project-num">P03 · Investigative</div>
+          <div class="project-title">Follow the Money: Pharma Payments</div>
+          <div class="project-source">Data: CMS Open Payments + Medicare Part D</div>
+          <div class="project-desc">Paid doctors prescribe +64.1% more. Spearman ρ=0.134 (p&lt;0.001). $10k+ recipients prescribe 2.7× more. Mann-Whitney p&lt;0.001.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">CMS Data</span><span class="tag">scipy</span></div>
+          <div class="project-links">
+            <a href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank" class="project-link link-gh">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coming up section -->
+    <div style="margin-top:32px;padding:20px 24px;background:var(--card);border:1px solid var(--border);border-radius:10px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;margin-bottom:10px">⚡ Building Next</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.2)">P09 · Opioid Crisis (DEA + CDC)</span>
+        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.2)">P10 · Food Deserts (USDA)</span>
+        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(59,130,246,.1);color:var(--accent);border:1px solid rgba(59,130,246,.2)">P11 · SEC Fraud (EDGAR API)</span>
+        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2)">P12 · FBI Crime Data</span>
+      </div>
+    </div>
+
+    <!-- Other Projects -->
+    <div style="margin-top:56px">
+      <div class="section-label">Earlier Work</div>
+      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:6px">Other Projects</h3>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Projects from coursework, personal exploration, and professional experience.</p>
+      <div class="old-projects-grid">
+        <div class="old-card">
+          <div class="old-card-title">Uber Analytics Engineering</div>
+          <div class="old-card-desc">Processed 10M+ ride records using GCP, Mage.ai. Visualized urban mobility trends in Looker Studio.</div>
+          <div class="project-tags"><span class="tag">GCP</span><span class="tag">Mage.ai</span><span class="tag">Looker</span></div>
+        </div>
+        <div class="old-card">
+          <div class="old-card-title">Tesla Stock Forecasting</div>
+          <div class="old-card-desc">Time-series forecasting with ARIMA + LSTM neural networks to predict future valuations.</div>
+          <div class="project-tags"><span class="tag ml">Keras</span><span class="tag">ARIMA</span><span class="tag">Python</span></div>
+        </div>
+        <div class="old-card">
+          <div class="old-card-title">Bioinformatics Capstone</div>
+          <div class="old-card-desc">PSMC demographic reconstruction, ABBA-BABA testing, and max-entropy distribution modeling.</div>
+          <div class="project-tags"><span class="tag">Python</span><span class="tag">Bioinformatics</span><span class="tag">Jupyter</span></div>
+        </div>
+        <div class="old-card">
+          <div class="old-card-title">Cybersecurity Dashboard</div>
+          <div class="old-card-desc">Heatmap analysis, attack classification, real-time threat monitoring with Tableau.</div>
+          <div class="project-tags"><span class="tag viz">Tableau</span><span class="tag ml">Scikit-Learn</span><span class="tag">Python</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── BY THE NUMBERS ── -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Data About Me</div>
+    <h2 class="section-title">By the Numbers</h2>
+    <div class="numbers-grid">
+      <div class="number-card">
+        <div class="big">8</div>
+        <div class="lbl">Projects Built (40 planned)</div>
+      </div>
+      <div class="number-card">
+        <div class="big">5</div>
+        <div class="lbl">Live GitHub Pages Dashboards</div>
+      </div>
+      <div class="number-card">
+        <div class="big">20+</div>
+        <div class="lbl">Certifications Earned</div>
+      </div>
+      <div class="number-card">
+        <div class="big">6</div>
+        <div class="lbl">Real Gov APIs Used</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Skills</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-pct">92%</span></div>
+        <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-item"><span class="skill-name">R</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div><span class="skill-pct">65%</span></div>
+        <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div><span class="skill-pct">55%</span></div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Data & ML</div>
+        <div class="skill-item"><span class="skill-name">pandas / NumPy</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-item"><span class="skill-name">TensorFlow / Keras</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div><span class="skill-pct">70%</span></div>
+        <div class="skill-item"><span class="skill-name">scipy / statsmodels</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%"></div></div><span class="skill-pct">78%</span></div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">BI & Visualization</div>
+        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div><span class="skill-pct">80%</span></div>
+        <div class="skill-item"><span class="skill-name">matplotlib / seaborn</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-item"><span class="skill-name">Plotly / Chart.js</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div><span class="skill-pct">72%</span></div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud & Databases</div>
+        <div class="skill-item"><span class="skill-name">AWS (Glue, S3, EC2)</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div><span class="skill-pct">75%</span></div>
+        <div class="skill-item"><span class="skill-name">PostgreSQL / SQLite</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-item"><span class="skill-name">GCP / BigQuery</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div><span class="skill-pct">65%</span></div>
+        <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CERTS ── -->
+<section id="certs">
+  <div class="section-inner">
+    <div class="cert-section-header">
+      <div>
+        <div class="section-label">Credentials</div>
+        <h2 class="section-title" style="margin-bottom:0">Certifications</h2>
+      </div>
+      <div class="cert-count">20+ earned</div>
+    </div>
+    <div class="certs-compact">
+      <div class="cert-pill"><span class="cert-icon">🤖</span>AI:BI Analyst — Databricks</div>
+      <div class="cert-pill"><span class="cert-icon">✨</span>Gen AI Fundamentals — Databricks</div>
+      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Data Science Bootcamp</div>
+      <div class="cert-pill"><span class="cert-icon">🗄️</span>Practical SQL with SQLite</div>
+      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS Glue Getting Started</div>
+      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS Data Foundations</div>
+      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS StationOps</div>
+      <div class="cert-pill"><span class="cert-icon">☁️</span>Dynamic Data Masking — Aurora</div>
+      <div class="cert-pill"><span class="cert-icon">📊</span>Power BI Masterclass</div>
+      <div class="cert-pill"><span class="cert-icon">📊</span>Data Analysis & Viz — Microsoft Copilot</div>
+      <div class="cert-pill"><span class="cert-icon">🐳</span>Docker Deep Dive</div>
+      <div class="cert-pill"><span class="cert-icon">🧠</span>Python for AI & ML</div>
+      <div class="cert-pill"><span class="cert-icon">🤖</span>Building LLMs on AWS</div>
+      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Automation & DS Bootcamp</div>
+      <div class="cert-pill"><span class="cert-icon">📈</span>Business Data Analysis</div>
+      <div class="cert-pill"><span class="cert-icon">🏆</span>ML at Scale — Databricks</div>
+      <div class="cert-pill"><span class="cert-icon">🏆</span>SQL Analytics — Databricks</div>
+      <div class="cert-pill"><span class="cert-icon">📉</span>Visualization for Leaders</div>
+      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Masterclass</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">Get in Touch</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p style="color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:8px">
+      I'm currently looking for Data Analyst and Data Scientist roles. If you have an opportunity, a question, or just want to talk data — my inbox is open.
+    </p>
+    <a href="mailto:divya.dhole@arizona.edu" class="contact-email">divya.dhole@arizona.edu</a>
+    <div class="social-links">
+      <a href="https://github.com/Divyadhole" target="_blank" class="social-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.83-.26.83-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.1-.77.41-1.3.75-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.84.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/divyadhole" target="_blank" class="social-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Built by Divya Dhole · Data Analyst & Data Scientist · University of Arizona MS Data Science 2025
+</footer>
+
+<script>
+// Animate progress bar on load
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const fill = document.querySelector('.progress-bar-fill');
+    if (fill) fill.style.width = '20%';
+  }, 500);
+});
+
+// Smooth active nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--text)' : '';
+  });
+});
+</script>
+</body>
+</html>
