@@ -3,812 +3,840 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divya Dhole — Data Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Divya Dhole — Data Analyst & Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:        #080c14;
-  --surface:   #0e1420;
-  --card:      #131b2a;
-  --border:    #1e2d45;
-  --border2:   #243552;
-  --text:      #e2eaf8;
-  --muted:     #6b82a8;
-  --faint:     #3a4e6e;
-  --accent:    #3b82f6;
-  --accent2:   #06b6d4;
-  --teal:      #2dd4bf;
-  --green:     #22c55e;
-  --red:       #f87171;
-  --amber:     #fbbf24;
-  --purple:    #a78bfa;
-}
-*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050507;--text:#f0eee8;--muted:#5a5850;--accent:#d4f564;--accent2:#7c6dfa;--pink:#f564b4;--teal:#64f5d4;--amber:#f5c664;--red:#f56464;--blue:#64b4f5;--green:#64f5a0;--border:#161618;--card:#0d0d10;--card2:#111115}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
-
-/* ── NAV ── */
-nav {
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(8,12,20,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:0 40px;height:60px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.logo{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--accent)}
-.logo span{color:var(--text)}
-.nav-links{display:flex;gap:6px}
-.nav-links a{
-  font-size:12px;font-weight:500;color:var(--muted);
-  padding:6px 14px;border-radius:6px;
-  transition:all .2s;
-  border:1px solid transparent;
-}
-.nav-links a:hover{color:var(--text);border-color:var(--border2);background:var(--card)}
-.nav-links a.cta{
-  background:var(--accent);color:white;border-color:var(--accent)
-}
-.nav-links a.cta:hover{opacity:.88}
-
-/* ── HERO ── */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:120px 40px 80px;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;
-  top:-200px;right:-200px;
-  width:600px;height:600px;
-  background:radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';position:absolute;
-  bottom:-150px;left:-100px;
-  width:400px;height:400px;
-  background:radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero-grid{
-  max-width:1100px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center;
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:600;
-  color:var(--accent2);
-  background:rgba(6,182,212,0.1);
-  border:1px solid rgba(6,182,212,0.25);
-  padding:4px 12px;border-radius:99px;
-  margin-bottom:20px;
-  text-transform:uppercase;letter-spacing:.7px;
-}
-.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-h1.hero-name{
-  font-size:clamp(2.4rem,5vw,3.8rem);
-  font-weight:700;line-height:1.1;
-  margin-bottom:6px;
-  letter-spacing:-1px;
-}
-h1.hero-name .first{color:var(--text)}
-h1.hero-name .last{color:var(--accent)}
-.hero-role{
-  font-size:1.15rem;color:var(--muted);
-  margin-bottom:16px;font-weight:400;
-}
-.hero-role span{color:var(--accent2)}
-.hero-desc{
-  font-size:1rem;color:var(--muted);line-height:1.75;
-  max-width:520px;margin-bottom:28px;
-}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
-.btn{
-  padding:10px 22px;border-radius:8px;
-  font-size:13px;font-weight:600;
-  cursor:pointer;transition:all .2s;font-family:inherit;
-  text-decoration:none;display:inline-block;
-}
-.btn-primary{background:var(--accent);color:white;border:1px solid var(--accent)}
-.btn-primary:hover{background:#2563eb}
-.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-
-/* Stats strip */
-.hero-stats{
-  display:flex;gap:28px;padding-top:28px;
-  border-top:1px solid var(--border);
-}
-.stat-item{display:flex;flex-direction:column;gap:2px}
-.stat-num{font-size:1.6rem;font-weight:700;font-family:'DM Mono',monospace;color:var(--text)}
-.stat-num .unit{font-size:1rem;color:var(--accent)}
-.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:500}
-
-/* Terminal card */
-.terminal{
-  background:var(--card);border:1px solid var(--border2);
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.5);
-}
-.terminal-bar{
-  background:var(--surface);padding:12px 16px;
-  display:flex;align-items:center;gap:8px;
-  border-bottom:1px solid var(--border);
-}
-.dot{width:10px;height:10px;border-radius:50%}
-.d1{background:#ff5f57}.d2{background:#febc2e}.d3{background:#28c840}
-.terminal-title{
-  flex:1;text-align:center;font-size:11px;
-  color:var(--muted);font-family:'DM Mono',monospace;
-}
-.terminal-body{padding:20px;font-family:'DM Mono',monospace;font-size:12.5px;line-height:1.9}
-.t-comment{color:var(--faint)}
-.t-key{color:var(--accent2)}
-.t-str{color:var(--teal)}
-.t-num{color:var(--amber)}
-.t-kw{color:var(--purple)}
-.t-fn{color:var(--accent)}
-.t-cursor{display:inline-block;width:8px;height:14px;background:var(--accent);vertical-align:middle;animation:blink 1s infinite}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-
-/* ── SECTIONS ── */
-section{padding:100px 40px}
-.section-inner{max-width:1100px;margin:0 auto}
-.section-label{
-  font-size:10px;font-weight:600;color:var(--accent);
-  text-transform:uppercase;letter-spacing:1px;
-  margin-bottom:10px;display:flex;align-items:center;gap:8px;
-}
-.section-label::after{content:'';flex:1;max-width:60px;height:1px;background:var(--accent)}
-h2.section-title{
-  font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;
-  letter-spacing:-0.5px;margin-bottom:14px;
-}
-.section-sub{font-size:1rem;color:var(--muted);max-width:600px;margin-bottom:50px;line-height:1.7}
-
-/* ── PROGRESS BAR (40 projects) ── */
-.progress-banner{
-  background:var(--card);border:1px solid var(--border2);
-  border-radius:12px;padding:24px 28px;margin-bottom:56px;
-  display:flex;align-items:center;gap:24px;
-}
-.progress-text{flex:1}
-.progress-title{font-size:14px;font-weight:600;margin-bottom:4px}
-.progress-sub{font-size:12px;color:var(--muted)}
-.progress-count{font-family:'DM Mono',monospace;font-size:2rem;font-weight:700;color:var(--accent);white-space:nowrap}
-.progress-bar-wrap{flex:2}
-.progress-bar-bg{height:8px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:6px}
-.progress-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:20%;transition:width 1.5s ease}
-.progress-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted)}
-
-/* ── LIVE PROJECT CARDS ── */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
-.project-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;overflow:hidden;
-  transition:all .25s;cursor:pointer;
-  display:flex;flex-direction:column;
-}
-.project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 32px rgba(59,130,246,0.12)}
-.project-card.live{border-color:var(--border2)}
-.project-preview{
-  height:160px;background:var(--surface);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
-.preview-chart{width:100%;height:100%;padding:16px;display:flex;align-items:flex-end;gap:5px}
-.bar{border-radius:3px 3px 0 0;transition:height .5s}
-.preview-badge{
-  position:absolute;top:10px;right:10px;
-  font-size:9px;font-weight:700;
-  padding:3px 8px;border-radius:99px;
-  text-transform:uppercase;letter-spacing:.5px;
-}
-.live-badge{background:rgba(34,197,94,0.15);color:var(--green);border:1px solid rgba(34,197,94,0.3)}
-.building-badge{background:rgba(251,191,36,0.15);color:var(--amber);border:1px solid rgba(251,191,36,0.3)}
-.project-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
-.project-num{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;font-family:'DM Mono',monospace}
-.project-title{font-size:15px;font-weight:600;margin-bottom:6px;color:var(--text)}
-.project-source{
-  font-size:10.5px;color:var(--accent2);margin-bottom:8px;
-  font-style:italic;
-}
-.project-desc{font-size:12.5px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:14px}
-.project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.tag{
-  font-size:10px;font-weight:500;
-  padding:2px 8px;border-radius:4px;
-  background:rgba(59,130,246,0.1);
-  color:var(--accent);border:1px solid rgba(59,130,246,0.2);
-}
-.tag.sql{background:rgba(6,182,212,0.1);color:var(--accent2);border-color:rgba(6,182,212,0.2)}
-.tag.ml{background:rgba(167,139,250,0.1);color:var(--purple);border-color:rgba(167,139,250,0.2)}
-.tag.viz{background:rgba(251,191,36,0.1);color:var(--amber);border-color:rgba(251,191,36,0.2)}
-.project-links{display:flex;gap:8px}
-.project-link{
-  font-size:11px;font-weight:600;padding:5px 12px;
-  border-radius:6px;transition:all .15s;
-}
-.link-live{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
-.link-live:hover{background:rgba(34,197,94,0.2)}
-.link-gh{background:var(--surface);color:var(--muted);border:1px solid var(--border2)}
-.link-gh:hover{color:var(--text);border-color:var(--border)}
-
-/* ── OTHER PROJECTS ── */
-.old-projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:16px}
-.old-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:10px;padding:20px;
-  transition:all .2s;
-}
-.old-card:hover{border-color:var(--border2)}
-.old-card-title{font-size:14px;font-weight:600;margin-bottom:6px}
-.old-card-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:12px}
-
-/* ── SKILLS ── */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.skill-group{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:10px;padding:18px 20px;
-}
-.skill-group-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:12px}
-.skill-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.skill-item:last-child{margin-bottom:0}
-.skill-name{font-size:12.5px;color:var(--text)}
-.skill-bar-bg{flex:1;height:4px;background:var(--border);border-radius:99px;margin:0 12px;overflow:hidden}
-.skill-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
-.skill-pct{font-size:10px;font-family:'DM Mono',monospace;color:var(--muted);min-width:28px;text-align:right}
-
-/* ── DATA NUMBERS SECTION ── */
-.numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.number-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:12px;padding:24px;text-align:center;
-}
-.number-card .big{
-  font-size:2.4rem;font-weight:700;font-family:'DM Mono',monospace;
-  color:var(--accent);margin-bottom:4px;
-}
-.number-card .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-
-/* ── CERTS ── */
-.certs-compact{display:flex;flex-wrap:wrap;gap:10px}
-.cert-pill{
-  display:flex;align-items:center;gap:6px;
-  padding:7px 14px;border-radius:8px;
-  border:1px solid var(--border2);background:var(--card);
-  font-size:12px;font-weight:500;color:var(--muted);
-  transition:all .15s;
-}
-.cert-pill:hover{border-color:var(--accent);color:var(--text)}
-.cert-pill .cert-icon{font-size:14px}
-.cert-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.cert-count{
-  font-size:12px;color:var(--muted);
-  background:var(--card);border:1px solid var(--border);
-  padding:4px 12px;border-radius:99px;font-family:'DM Mono',monospace;
-}
-
-/* ── CONTACT ── */
-.contact-inner{
-  max-width:600px;margin:0 auto;text-align:center;
-}
-.contact-email{
-  display:inline-block;margin-top:24px;
-  font-size:1.3rem;font-weight:600;color:var(--accent);
-  border-bottom:1px solid var(--accent);padding-bottom:2px;
-  transition:opacity .2s;
-}
-.contact-email:hover{opacity:.75}
-.social-links{display:flex;justify-content:center;gap:16px;margin-top:28px}
-.social-link{
-  display:flex;align-items:center;gap:6px;
-  padding:8px 18px;border-radius:8px;
-  border:1px solid var(--border2);
-  font-size:12.5px;font-weight:500;color:var(--muted);
-  transition:all .2s;
-}
-.social-link:hover{border-color:var(--accent);color:var(--accent)}
-
-/* ── FOOTER ── */
-footer{
-  text-align:center;padding:24px 40px;
-  border-top:1px solid var(--border);
-  font-size:11.5px;color:var(--faint);
-}
-
-/* ── DIVIDER ── */
-.divider{height:1px;background:var(--border);margin:0 40px}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .terminal{display:none}
-  .numbers-grid{grid-template-columns:repeat(2,1fr)}
-  nav{padding:0 20px}
-  .nav-links a:not(.cta){display:none}
-  section{padding:70px 20px}
-  .hero{padding:100px 20px 60px}
-}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none}
+/* CURSOR */
+.cur{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;mix-blend-mode:difference}
+.cur-r{width:36px;height:36px;border:1px solid rgba(212,245,100,.35);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
+.cur.g{width:4px;height:4px}
+.cur-r.g{width:56px;height:56px;border-color:rgba(212,245,100,.15)}
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.022;pointer-events:none;z-index:9997}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+.n-logo{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--text)}
+.n-right{display:flex;align-items:center;gap:4px}
+.n-link{font-size:12px;font-weight:500;color:var(--muted);padding:6px 14px;border-radius:99px;text-decoration:none;transition:.2s;border:1px solid transparent}
+.n-link:hover{color:var(--text);border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.n-cta{font-size:12px;font-weight:700;padding:8px 20px;border-radius:99px;background:var(--accent);color:#050507;text-decoration:none;transition:.2s;margin-left:8px}
+.n-cta:hover{transform:scale(1.04);box-shadow:0 0 28px rgba(212,245,100,.35)}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
+.o1{width:520px;height:520px;background:rgba(124,109,250,.18);top:-60px;right:-80px;animation:drift 9s ease-in-out infinite}
+.o2{width:380px;height:380px;background:rgba(212,245,100,.08);bottom:60px;left:-60px;animation:drift 11s ease-in-out infinite reverse 2s}
+.o3{width:280px;height:280px;background:rgba(245,100,180,.07);top:40%;left:40%;animation:drift 13s ease-in-out infinite 4s}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+.chip{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--accent);border:1px solid rgba(212,245,100,.2);background:rgba(212,245,100,.05);padding:5px 14px;border-radius:99px;margin-bottom:28px;width:fit-content}
+.chip-d{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:gp 2s infinite}
+@keyframes gp{0%,100%{box-shadow:0 0 0 0 rgba(212,245,100,.5)}50%{box-shadow:0 0 0 6px rgba(212,245,100,0)}}
+h1.hh{font-size:clamp(4rem,10vw,9.5rem);font-weight:700;line-height:.9;letter-spacing:-5px;margin-bottom:44px}
+.lw{overflow:hidden;display:block}
+.si{display:inline-block;animation:su .9s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}
+@keyframes su{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+.ot{-webkit-text-stroke:2px rgba(240,238,232,.25);color:transparent}
+.lime{color:var(--accent)}
+.hf{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;opacity:0;animation:fi .8s .6s forwards}
+@keyframes fi{to{opacity:1}}
+.hb{font-size:15px;color:var(--muted);line-height:1.75;max-width:400px}
+.hb strong{color:var(--text);font-weight:500}
+.hn{display:flex;gap:44px}
+.hn-i{text-align:right}
+.hn-n{font-family:'DM Mono',monospace;font-size:2.6rem;font-weight:500;line-height:1;color:var(--text)}
+.hn-n .u{font-size:1.1rem;color:var(--accent)}
+.hn-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+/* MARQUEE */
+.mbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
+.mq{display:flex;width:max-content;animation:mqs 22s linear infinite}
+.mi{display:flex;align-items:center;gap:28px;padding:0 28px;border-right:1px solid var(--border);font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.md{color:var(--accent);font-size:7px}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* SECTION */
+.sl{display:flex;align-items:center;gap:12px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:56px}
+.sl::before{content:'';width:22px;height:1px;background:var(--muted)}
+/* PROJECTS */
+.ps{padding:100px 48px}
+.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:56px}
+.stag{font-size:12px;font-weight:600;color:var(--accent);border:1px solid rgba(212,245,100,.2);background:rgba(212,245,100,.05);padding:6px 16px;border-radius:99px}
+/* SECTION DIVIDERS */
+.sec-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:2px;padding:32px 0 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:12px;margin-bottom:0}
+.sec-title::before{content:'';width:20px;height:1px;background:var(--muted)}
+/* CARD */
+.pc{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .35s cubic-bezier(.16,1,.3,1);text-decoration:none;color:inherit;display:block}
+.pc:hover{border-color:rgba(212,245,100,.2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.pc:hover .pa{transform:translate(3px,-3px);color:var(--accent)}
+.pc:hover .pio{opacity:1}
+/* IMG */
+.pi-w{position:relative;overflow:hidden}
+.pi-w svg{display:block;width:100%;transition:transform .5s ease}
+.pc:hover .pi-w svg{transform:scale(1.03)}
+.pio{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,13,16,.95));opacity:.7;transition:opacity .3s}
+.lb{position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#10b981;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);padding:4px 10px;border-radius:99px;z-index:2}
+.lb::before{content:'';width:6px;height:6px;border-radius:50%;background:#10b981;animation:gp 2s infinite}
+.cb{position:absolute;top:16px;left:16px;font-size:9px;font-weight:700;padding:3px 10px;border-radius:6px;z-index:2;text-transform:uppercase;letter-spacing:.5px}
+/* BODY */
+.pb{padding:20px 22px}
+.pm{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.pn{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
+.pa{font-size:20px;color:var(--muted);transition:all .3s}
+.pt{font-size:18px;font-weight:700;letter-spacing:-.5px;margin-bottom:5px}
+.psrc{font-size:11px;color:var(--accent);font-style:italic;margin-bottom:9px}
+.pd{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:13px}
+.pd strong{color:var(--text);font-weight:500}
+.ptags{display:flex;gap:5px;flex-wrap:wrap}
+.ptag{font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:5px;border:1px solid var(--border);color:var(--muted)}
+/* GRID LAYOUTS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.g32{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
+.pc.sm .pt{font-size:14px}
+.pc.sm .pd{font-size:11.5px}
+.pc.sm .pb{padding:15px 17px}
+/* STATS */
+.stats{padding:0 48px;margin:80px 0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.sb{padding:36px 32px;border-right:1px solid var(--border);transition:.25s}
+.sb:last-child{border-right:none}
+.sb:hover{background:rgba(212,245,100,.03)}
+.sn{font-family:'DM Mono',monospace;font-size:3rem;font-weight:500;line-height:1;color:var(--text);margin-bottom:6px}
+.sn .u{font-size:1.4rem;color:var(--accent)}
+.sl2{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+/* ABOUT */
+.about{padding:100px 48px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ah{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-2px;margin-bottom:20px}
+.ah span{color:var(--accent)}
+.ap{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px}
+.ap strong{color:var(--text);font-weight:500}
+.skr{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.sknm{font-size:12px;color:var(--muted);min-width:130px}
+.skb{flex:1;height:2px;background:var(--border);border-radius:99px;overflow:hidden}
+.skf{height:100%;background:var(--accent);border-radius:99px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
+.skp{font-size:10.5px;font-family:'DM Mono',monospace;color:var(--muted);min-width:30px;text-align:right}
+.ac{display:flex;flex-direction:column;gap:12px}
+.acard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;transition:.25s}
+.acard:hover{border-color:rgba(212,245,100,.15);transform:translateX(4px)}
+.acl{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.acv{font-size:1.35rem;font-weight:700;letter-spacing:-.3px}
+.acs{font-size:11.5px;color:var(--muted);margin-top:3px}
+.pgb{height:3px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:12px}
+.pgf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;animation:pf 2s .5s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes pf{to{width:20%}}
+/* CERTS */
+.certs{padding:80px 48px;border-top:1px solid var(--border)}
+.cgrid{display:flex;flex-wrap:wrap;gap:10px}
+.cpill{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;padding:8px 16px;border-radius:8px;border:1px solid var(--border);color:var(--muted);background:var(--card);transition:.2s;text-decoration:none}
+.cpill:hover{border-color:rgba(212,245,100,.2);color:var(--text)}
+/* CONTACT */
+.contact{padding:120px 48px;border-top:1px solid var(--border);text-align:center}
+.coh{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:12px}
+.coh::before,.coh::after{content:'';width:40px;height:1px;background:var(--border)}
+.cbig{font-size:clamp(3.5rem,9vw,8rem);font-weight:700;line-height:.92;letter-spacing:-4px;margin-bottom:48px}
+.cbig .out{-webkit-text-stroke:2px rgba(240,238,232,.2);color:transparent}
+.clinks{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.clink{display:flex;align-items:center;gap:9px;padding:13px 26px;border-radius:12px;border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:.25s}
+.clink:hover{color:var(--text);border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.04);transform:translateY(-2px)}
+.clink.p{background:var(--accent);color:#050507;border-color:var(--accent)}
+.clink.p:hover{box-shadow:0 0 40px rgba(212,245,100,.3);transform:translateY(-3px)}
+footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+/* REVEAL */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.vis{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
+<div class="cur" id="C"></div>
+<div class="cur-r" id="CR"></div>
 
-<!-- ── NAV ── -->
 <nav>
-  <div class="logo">D<span>.</span></div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#certs">Certs</a>
-    <a href="mailto:divyadhole@email.com" class="cta">Hire Me</a>
+  <div class="n-logo">DD.</div>
+  <div class="n-right">
+    <a href="#sprint" class="n-link">Sprint</a>
+    <a href="#other" class="n-link">All Work</a>
+    <a href="#about" class="n-link">About</a>
+    <a href="#certs" class="n-link">Certs</a>
+    <a href="#contact" class="n-link">Contact</a>
+    <a href="mailto:divya@arizona.edu" class="n-cta">Hire Me</a>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
-<section class="hero" id="about">
-  <div class="hero-grid">
-    <div>
-      <div class="hero-tag">Open to opportunities</div>
-      <h1 class="hero-name">
-        <span class="first">Divya </span><span class="last">Dhole</span>
-      </h1>
-      <div class="hero-role">Data Analyst &amp; <span>Data Scientist</span></div>
-      <p class="hero-desc">
-        MS Data Science @ University of Arizona. I turn real government data —
-        BLS, EPA, Federal Reserve, Census Bureau — into analysis that answers
-        questions people actually care about. Currently building 40 public
-        projects in 20 days.
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="https://github.com/Divyadhole" target="_blank" class="btn btn-outline">GitHub</a>
-        <a href="https://linkedin.com/in/divyadhole" target="_blank" class="btn btn-outline">LinkedIn</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">8<span class="unit">/40</span></div>
-          <div class="stat-label">Projects Built</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5<span class="unit">+</span></div>
-          <div class="stat-label">Live Dashboards</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">20<span class="unit">+</span></div>
-          <div class="stat-label">Certifications</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">3<span class="unit">yr</span></div>
-          <div class="stat-label">Experience</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Terminal -->
-    <div class="terminal">
-      <div class="terminal-bar">
-        <div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div>
-        <div class="terminal-title">analyst_profile.py</div>
-      </div>
-      <div class="terminal-body">
-        <div><span class="t-comment"># Real data. Real findings. Real impact.</span></div>
-        <div>&nbsp;</div>
-        <div><span class="t-kw">class</span> <span class="t-fn">DataAnalyst</span>:</div>
-        <div>&nbsp;&nbsp;<span class="t-key">name</span> <span class="t-comment">=</span> <span class="t-str">"Divya Dhole"</span></div>
-        <div>&nbsp;&nbsp;<span class="t-key">education</span> <span class="t-comment">=</span> <span class="t-str">"MS Data Science, UArizona"</span></div>
-        <div>&nbsp;&nbsp;<span class="t-key">stack</span> <span class="t-comment">=</span> [<span class="t-str">"Python"</span>, <span class="t-str">"SQL"</span>, <span class="t-str">"Power BI"</span>]</div>
-        <div>&nbsp;&nbsp;<span class="t-key">data_sources</span> <span class="t-comment">=</span> [</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"BLS"</span>, <span class="t-str">"EPA"</span>, <span class="t-str">"FRED"</span>, <span class="t-str">"Census"</span></div>
-        <div>&nbsp;&nbsp;]</div>
-        <div>&nbsp;&nbsp;<span class="t-key">projects</span> <span class="t-comment">=</span> <span class="t-num">8</span> <span class="t-comment"># and counting...</span></div>
-        <div>&nbsp;&nbsp;<span class="t-key">available</span> <span class="t-comment">=</span> <span class="t-kw">True</span></div>
-        <div>&nbsp;</div>
-        <div>&nbsp;&nbsp;<span class="t-kw">def</span> <span class="t-fn">hire_me</span>(<span class="t-key">self</span>):</div>
-        <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-kw">return</span> <span class="t-str">"Let's talk!"</span> <span class="t-cursor"></span></div>
-      </div>
+<section class="hero">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="chip"><span class="chip-d"></span>Open to full-time roles — Tucson, AZ</div>
+  <h1 class="hh">
+    <span class="lw"><span class="si d1">Divya</span> <span class="si d2 ot">Dhole</span></span>
+    <span class="lw"><span class="si d3 lime">Data</span> <span class="si d4">Analyst</span></span>
+  </h1>
+  <div class="hf">
+    <p class="hb">MS Data Science at University of Arizona. I turn real government data from <strong>BLS, EPA, Federal Reserve</strong> and the <strong>Census Bureau</strong> into analysis that answers questions people actually care about. Currently building <strong>40 projects in 20 days.</strong></p>
+    <div class="hn">
+      <div class="hn-i"><div class="hn-n">8<span class="u">/40</span></div><div class="hn-l">Projects Built</div></div>
+      <div class="hn-i"><div class="hn-n">5<span class="u">+</span></div><div class="hn-l">Live Dashboards</div></div>
+      <div class="hn-i"><div class="hn-n">23</div><div class="hn-l">GitHub Repos</div></div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="mbar"><div class="mq">
+  <div class="mi">Python<span class="md">✦</span></div><div class="mi">SQL<span class="md">✦</span></div><div class="mi">Power BI<span class="md">✦</span></div><div class="mi">BLS JOLTS API<span class="md">✦</span></div><div class="mi">Federal Reserve FRED<span class="md">✦</span></div><div class="mi">EPA AQS<span class="md">✦</span></div><div class="mi">Census Bureau<span class="md">✦</span></div><div class="mi">Machine Learning<span class="md">✦</span></div><div class="mi">Tableau<span class="md">✦</span></div><div class="mi">scikit-learn<span class="md">✦</span></div><div class="mi">AWS<span class="md">✦</span></div><div class="mi">GCP<span class="md">✦</span></div><div class="mi">Databricks<span class="md">✦</span></div><div class="mi">XGBoost<span class="md">✦</span></div>
+  <div class="mi">Python<span class="md">✦</span></div><div class="mi">SQL<span class="md">✦</span></div><div class="mi">Power BI<span class="md">✦</span></div><div class="mi">BLS JOLTS API<span class="md">✦</span></div><div class="mi">Federal Reserve FRED<span class="md">✦</span></div><div class="mi">EPA AQS<span class="md">✦</span></div><div class="mi">Census Bureau<span class="md">✦</span></div><div class="mi">Machine Learning<span class="md">✦</span></div><div class="mi">Tableau<span class="md">✦</span></div><div class="mi">scikit-learn<span class="md">✦</span></div><div class="mi">AWS<span class="md">✦</span></div><div class="mi">GCP<span class="md">✦</span></div><div class="mi">Databricks<span class="md">✦</span></div><div class="mi">XGBoost<span class="md">✦</span></div>
+</div></div>
 
-<!-- ── PROJECTS ── -->
-<section id="projects">
-  <div class="section-inner">
-    <div class="section-label">Portfolio</div>
-    <h2 class="section-title">40 Projects in 20 Days</h2>
-    <p class="section-sub">Every project uses real government data from BLS, EPA, Federal Reserve, Census Bureau, and more — the same sources that Wall Street analysts and federal economists use daily.</p>
+<!-- ═══ 40-PROJECT SPRINT ═══ -->
+<section class="ps" id="sprint">
+  <div class="ph rv">
+    <div class="sl">40 Projects Sprint</div>
+    <div class="stag">8 of 40 complete · Day 5 of 20</div>
+  </div>
 
-    <!-- Progress bar -->
-    <div class="progress-banner">
-      <div class="progress-text">
-        <div class="progress-title">🔥 40 Projects in 20 Days — Day 5 of 20</div>
-        <div class="progress-sub">2 projects per day · Real government data · Live dashboards · Public repos</div>
+  <!-- Featured 2 -->
+  <div class="g2">
+    <a href="https://divyadhole.github.io/great-resignation-bls/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(45,212,160,.12);color:#2dd4a0;border:1px solid rgba(45,212,160,.25)">Labor / BLS</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0a1f15"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#1a3a25" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1a3a25" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1a3a25" stroke-width=".5"/>
+        <line x1="40" y1="185" x2="560" y2="185" stroke="#2dd4a0" stroke-width="1" stroke-dasharray="6,4" opacity=".5"/>
+        <rect x="48" y="158" width="20" height="27" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="75" y="154" width="20" height="31" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="102" y="150" width="20" height="35" rx="2" fill="#2dd4a0" opacity=".75"/><rect x="129" y="153" width="20" height="32" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="156" y="148" width="20" height="37" rx="2" fill="#2dd4a0" opacity=".75"/>
+        <rect x="183" y="170" width="20" height="15" rx="2" fill="#f87171" opacity=".9"/><rect x="210" y="175" width="20" height="10" rx="2" fill="#f87171" opacity=".9"/>
+        <rect x="237" y="128" width="20" height="57" rx="2" fill="#2dd4a0" opacity=".8"/><rect x="264" y="112" width="20" height="73" rx="2" fill="#2dd4a0" opacity=".85"/><rect x="291" y="96" width="20" height="89" rx="2" fill="#fbbf24" opacity=".9"/><rect x="318" y="88" width="20" height="97" rx="2" fill="#fbbf24"/>
+        <rect x="345" y="82" width="20" height="103" rx="2" fill="#f87171"/><rect x="372" y="88" width="20" height="97" rx="2" fill="#f87171" opacity=".9"/><rect x="399" y="82" width="20" height="103" rx="2" fill="#f87171"/>
+        <rect x="426" y="110" width="20" height="75" rx="2" fill="#fbbf24" opacity=".85"/><rect x="453" y="135" width="20" height="50" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="480" y="148" width="20" height="37" rx="2" fill="#2dd4a0" opacity=".65"/><rect x="507" y="153" width="20" height="32" rx="2" fill="#2dd4a0" opacity=".6"/><rect x="534" y="157" width="20" height="28" rx="2" fill="#2dd4a0" opacity=".55"/>
+        <circle cx="358" cy="80" r="5" fill="#f87171"/><line x1="358" y1="75" x2="410" y2="42" stroke="#f87171" stroke-width="1"/><text x="415" y="38" fill="#f87171" font-size="12" font-family="monospace" font-weight="bold">3.0% PEAK</text>
+        <text x="48" y="250" fill="#2dd4a0" font-size="9" font-family="monospace" opacity=".6">2019</text><text x="183" y="250" fill="#f87171" font-size="9" font-family="monospace" opacity=".7">COVID</text><text x="310" y="250" fill="#fbbf24" font-size="9" font-family="monospace" opacity=".8">Great Resignation</text><text x="500" y="250" fill="#2dd4a0" font-size="9" font-family="monospace" opacity=".6">2023</text>
+        </svg><div class="pio"></div>
       </div>
-      <div class="progress-count">8 <span style="font-size:1rem;color:var(--muted)">/ 40</span></div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-bg">
-          <div class="progress-bar-fill"></div>
-        </div>
-        <div class="progress-labels"><span>Day 1</span><span>Day 10</span><span>Day 20</span></div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P05 · Labor Economics</span><span class="pa">&#8599;</span></div>
+        <div class="pt">The Great Resignation</div>
+        <div class="psrc">BLS JOLTS API — Real Government Data</div>
+        <div class="pd">Quit rate peaked at <strong>3.0%</strong> in Nov 2021, +19.7% above baseline. Workers behind inflation for <strong>27 of 48 months.</strong> Welch t-test p&lt;0.001, Cohen's d=3.82.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">scipy</span><span class="ptag">BLS API</span><span class="ptag">SQLite</span></div>
       </div>
-    </div>
+    </a>
 
-    <!-- Live projects grid -->
-    <div class="projects-grid">
-
-      <!-- P5 -->
-      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/great-resignation-bls/','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#0a2e22,#0f1117)">
-          <div class="preview-chart">
-            <div class="bar" style="height:40%;background:#2dd4a0;flex:1"></div>
-            <div class="bar" style="height:55%;background:#2dd4a0;flex:1"></div>
-            <div class="bar" style="height:70%;background:#2dd4a0;flex:1"></div>
-            <div class="bar" style="height:90%;background:#f87171;flex:1"></div>
-            <div class="bar" style="height:100%;background:#f87171;flex:1"></div>
-            <div class="bar" style="height:95%;background:#fbbf24;flex:1"></div>
-            <div class="bar" style="height:75%;background:#2dd4a0;flex:1"></div>
-            <div class="bar" style="height:60%;background:#2dd4a0;flex:1"></div>
-          </div>
-          <div class="preview-badge live-badge">● Live Dashboard</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P05 · Labor Economics</div>
-          <div class="project-title">The Great Resignation</div>
-          <div class="project-source">Data: BLS JOLTS API — real govt data</div>
-          <div class="project-desc">Was the Great Resignation real? Quit rate peaked at 3.0% in Nov 2021 — +19.7% above baseline. Welch t-test: p&lt;0.001, Cohen's d=3.82.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">BLS API</span><span class="tag">scipy</span></div>
-          <div class="project-links">
-            <a href="https://divyadhole.github.io/great-resignation-bls/" target="_blank" class="project-link link-live">Live Dashboard</a>
-            <a href="https://github.com/Divyadhole/great-resignation-bls" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+    <a href="https://divyadhole.github.io/inflation-wages-fred/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(246,201,14,.1);color:#f6c90e;border:1px solid rgba(246,201,14,.2)">FRED / Economics</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0a0f1e"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#1e2a3a" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1e2a3a" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1e2a3a" stroke-width=".5"/>
+        <polyline points="40,195 80,193 120,190 160,185 200,200 240,165 280,95 320,48 360,44 400,56 440,75 480,115 520,140 560,145" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="40,195 80,193 120,190 160,185 200,200 240,165 280,95 320,48 360,44 400,56 440,75 480,115 520,140 560,145 560,240 40,240" fill="rgba(248,113,113,0.06)"/>
+        <polyline points="40,205 80,202 120,198 160,193 200,190 240,186 280,178 320,168 360,154 400,143 440,135 480,128 520,124 560,120" fill="none" stroke="#f6c90e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="40,210 80,210 120,210 160,210 200,210 240,210 280,210 320,210 360,205 400,172 440,94 480,62 520,57 560,57" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,4" stroke-linecap="round"/>
+        <circle cx="340" cy="44" r="5" fill="#f87171"/><line x1="340" y1="39" x2="390" y2="20" stroke="#f87171" stroke-width="1"/><text x="395" y="16" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">9.1% peak</text>
+        <rect x="40" y="248" width="10" height="3" rx="1" fill="#f87171"/><text x="55" y="253" fill="#f87171" font-size="9" font-family="monospace" opacity=".8">Inflation</text>
+        <rect x="110" y="248" width="10" height="3" rx="1" fill="#f6c90e"/><text x="125" y="253" fill="#f6c90e" font-size="9" font-family="monospace" opacity=".8">Wages</text>
+        <rect x="178" y="248" width="10" height="2" rx="1" fill="#a78bfa"/><text x="193" y="253" fill="#a78bfa" font-size="9" font-family="monospace" opacity=".8">Fed Rate</text>
+        </svg><div class="pio"></div>
       </div>
-
-      <!-- P6 -->
-      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/us-retail-sales-census/','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#020f1e,#041830)">
-          <div class="preview-chart">
-            <div class="bar" style="height:50%;background:#38bdf8;flex:1"></div>
-            <div class="bar" style="height:55%;background:#38bdf8;flex:1"></div>
-            <div class="bar" style="height:30%;background:#f87171;flex:1"></div>
-            <div class="bar" style="height:65%;background:#38bdf8;flex:1"></div>
-            <div class="bar" style="height:80%;background:#06b6d4;flex:1"></div>
-            <div class="bar" style="height:85%;background:#06b6d4;flex:1"></div>
-            <div class="bar" style="height:90%;background:#06b6d4;flex:1"></div>
-            <div class="bar" style="height:95%;background:#06b6d4;flex:1"></div>
-          </div>
-          <div class="preview-badge live-badge">● Live Dashboard</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P06 · Retail / Economy</div>
-          <div class="project-title">What America Buys</div>
-          <div class="project-source">Data: Census Bureau Monthly Retail Trade Survey</div>
-          <div class="project-desc">COVID crashed US retail -23.2% in Apr 2020. Recovered in 4 months. E-commerce accelerated 5.5 years ahead of schedule. $8.5T total in 2023.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">Census API</span><span class="tag viz">seaborn</span></div>
-          <div class="project-links">
-            <a href="https://divyadhole.github.io/us-retail-sales-census/" target="_blank" class="project-link link-live">Live Dashboard</a>
-            <a href="https://github.com/Divyadhole/us-retail-sales-census" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P07 · Economics</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Are Workers Falling Behind?</div>
+        <div class="psrc">Federal Reserve FRED + BLS CPI</div>
+        <div class="pd">CPI peaked at <strong>9.1%</strong> in June 2022. Fed hiked from <strong>0.05% to 5.33%</strong> in 18 months — fastest tightening cycle since Paul Volcker in the 1980s.</div>
+        <div class="ptags"><span class="ptag">FRED API</span><span class="ptag">BLS</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
       </div>
+    </a>
+  </div>
 
-      <!-- P7 -->
-      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/inflation-wages-fred/','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#0a0f1e,#111827)">
-          <div class="preview-chart" style="align-items:center;padding:20px">
-            <svg width="100%" height="80" viewBox="0 0 200 80" preserveAspectRatio="none">
-              <polyline points="0,60 25,58 50,40 75,20 100,12 125,10 150,18 175,28 200,35" fill="none" stroke="#f87171" stroke-width="2.5"/>
-              <polyline points="0,55 25,53 50,48 75,42 100,38 125,35 150,33 175,32 200,31" fill="none" stroke="#f6c90e" stroke-width="2.5"/>
-            </svg>
-          </div>
-          <div class="preview-badge live-badge">● Live Dashboard</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P07 · Labor Economics</div>
-          <div class="project-title">Are Workers Falling Behind?</div>
-          <div class="project-source">Data: Federal Reserve FRED + BLS</div>
-          <div class="project-desc">Inflation vs wages — workers fell behind for 27 of 48 months. CPI peaked at 9.1% Jun 2022. Fed hiked rates 0.05%→5.33% (fastest since 1980s).</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">FRED API</span><span class="tag">BLS CPI</span></div>
-          <div class="project-links">
-            <a href="https://divyadhole.github.io/inflation-wages-fred/" target="_blank" class="project-link link-live">Live Dashboard</a>
-            <a href="https://github.com/Divyadhole/inflation-wages-fred" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+  <!-- Row of 3 -->
+  <div class="g3">
+    <a href="https://divyadhole.github.io/epa-air-quality/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(100,245,212,.1);color:#64f5d4;border:1px solid rgba(100,245,212,.2)">EPA / Environment</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#0d1f0f"/>
+        <line x1="0" y1="55" x2="400" y2="55" stroke="#1a3a1f" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#1a3a1f" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#1a3a1f" stroke-width=".5"/>
+        <!-- Heatmap style bars -->
+        <rect x="20" y="140" width="32" height="40" rx="3" fill="#22c55e" opacity=".3"/><text x="36" y="132" fill="#6b7280" font-size="8" text-anchor="middle" font-family="monospace">2000</text>
+        <rect x="58" y="120" width="32" height="60" rx="3" fill="#22c55e" opacity=".4"/>
+        <rect x="96" y="100" width="32" height="80" rx="3" fill="#22c55e" opacity=".5"/>
+        <rect x="134" y="75" width="32" height="105" rx="3" fill="#4ade80" opacity=".6"/>
+        <rect x="172" y="60" width="32" height="120" rx="3" fill="#4ade80" opacity=".7"/><text x="188" y="52" fill="#4ade80" font-size="8" text-anchor="middle" font-family="monospace">2019</text>
+        <rect x="210" y="70" width="32" height="110" rx="3" fill="#4ade80" opacity=".65"/>
+        <rect x="248" y="68" width="32" height="112" rx="3" fill="#4ade80" opacity=".7"/>
+        <rect x="286" y="65" width="32" height="115" rx="3" fill="#4ade80" opacity=".72"/>
+        <rect x="324" y="55" width="32" height="125" rx="3" fill="#f87171" opacity=".85"/><text x="340" y="47" fill="#f87171" font-size="8" text-anchor="middle" font-family="monospace">2023</text>
+        <line x1="20" y1="135" x2="370" y2="135" stroke="#4ade80" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+        <text x="380" y="138" fill="#4ade80" font-size="8" font-family="monospace" opacity=".5">NAAQS</text>
+        <text x="20" y="210" fill="#64f5d4" font-size="9" font-family="monospace" opacity=".7">PM2.5 down -42% since 2000 · NYC AQI 218 in 2023</text>
+        </svg><div class="pio"></div>
       </div>
-
-      <!-- P8 -->
-      <div class="project-card live" onclick="window.open('https://divyadhole.github.io/epa-air-quality/','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#0d1f0f,#132216)">
-          <div class="preview-chart">
-            <div class="bar" style="height:95%;background:#4ade80;flex:1;opacity:.5"></div>
-            <div class="bar" style="height:88%;background:#4ade80;flex:1;opacity:.6"></div>
-            <div class="bar" style="height:80%;background:#4ade80;flex:1;opacity:.7"></div>
-            <div class="bar" style="height:72%;background:#4ade80;flex:1;opacity:.8"></div>
-            <div class="bar" style="height:65%;background:#4ade80;flex:1;opacity:.9"></div>
-            <div class="bar" style="height:45%;background:#4ade80;flex:1"></div>
-            <div class="bar" style="height:42%;background:#4ade80;flex:1"></div>
-            <div class="bar" style="height:44%;background:#f87171;flex:1"></div>
-          </div>
-          <div class="preview-badge live-badge">● Live Dashboard</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P08 · Environment</div>
-          <div class="project-title">Who Breathes Dirty Air?</div>
-          <div class="project-source">Data: US EPA Air Quality System (AQS)</div>
-          <div class="project-desc">PM2.5 down -42% since 2000. But 2023 Canadian wildfire smoke pushed NYC's AQI to 218 — worst in modern US history. LA still most polluted major city.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">EPA API</span><span class="tag viz">seaborn</span></div>
-          <div class="project-links">
-            <a href="https://divyadhole.github.io/epa-air-quality/" target="_blank" class="project-link link-live">Live Dashboard</a>
-            <a href="https://github.com/Divyadhole/epa-air-quality" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P08 · Environment</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Who Breathes Dirty Air?</div>
+        <div class="psrc">US EPA Air Quality System (AQS)</div>
+        <div class="pd">PM2.5 down <strong>-42%</strong> since 2000. But 2023 Canadian wildfire smoke pushed <strong>NYC AQI to 218</strong> — worst in modern US history.</div>
+        <div class="ptags"><span class="ptag">EPA API</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">seaborn</span></div>
       </div>
+    </a>
 
-      <!-- P1 Healthcare -->
-      <div class="project-card" onclick="window.open('https://github.com/Divyadhole/hospital-readmissions','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#1a0820,#0f1117)">
-          <div class="preview-chart" style="align-items:center;padding:20px">
-            <svg width="100%" height="80" viewBox="0 0 200 80">
-              <circle cx="60" cy="40" r="30" fill="none" stroke="#a78bfa" stroke-width="8" stroke-dasharray="94 188" transform="rotate(-90 60 40)"/>
-              <circle cx="60" cy="40" r="30" fill="none" stroke="#334155" stroke-width="8"/>
-              <text x="60" y="45" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="bold">23%</text>
-              <text x="140" y="28" fill="#6b7280" font-size="9">AUC 0.614</text>
-              <text x="140" y="42" fill="#a78bfa" font-size="9">Readmissions</text>
-              <text x="140" y="56" fill="#6b7280" font-size="9">5-fold CV</text>
-            </svg>
-          </div>
-          <div class="preview-badge building-badge">GitHub</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P01 · Healthcare</div>
-          <div class="project-title">Hospital Readmissions Analysis</div>
-          <div class="project-source">Data: Calibrated to CMS HRRP benchmarks</div>
-          <div class="project-desc">23.3% readmission rate. Logistic regression CV AUC: 0.614. Uninsured patients +14% risk. 4-tier risk stratification.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag ml">ML</span><span class="tag sql">SQL</span><span class="tag">scipy</span></div>
-          <div class="project-links">
-            <a href="https://github.com/Divyadhole/hospital-readmissions" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+    <a href="https://divyadhole.github.io/us-retail-sales-census/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">Census / Retail</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#020f1e"/>
+        <line x1="0" y1="55" x2="400" y2="55" stroke="#0e3a6e" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#0e3a6e" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#0e3a6e" stroke-width=".5"/>
+        <rect x="25" y="90" width="50" height="85" rx="3" fill="#38bdf8" opacity=".5"/><text x="50" y="205" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">2019</text>
+        <rect x="90" y="100" width="50" height="75" rx="3" fill="#f87171" opacity=".7"/><text x="115" y="205" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">2020</text>
+        <rect x="155" y="60" width="50" height="115" rx="3" fill="#38bdf8" opacity=".75"/><text x="180" y="205" text-anchor="middle" fill="#38bdf8" font-size="8" font-family="monospace">2021</text>
+        <rect x="220" y="45" width="50" height="130" rx="3" fill="#38bdf8" opacity=".85"/><text x="245" y="205" text-anchor="middle" fill="#38bdf8" font-size="8" font-family="monospace">2022</text>
+        <rect x="285" y="38" width="50" height="137" rx="3" fill="#06b6d4"/><text x="310" y="205" text-anchor="middle" fill="#06b6d4" font-size="8" font-family="monospace">2023</text>
+        <text x="285" y="30" fill="#06b6d4" font-size="10" font-family="monospace" font-weight="bold">$8.5T</text>
+        <text x="90" y="92" fill="#f87171" font-size="8" font-family="monospace" text-anchor="middle">COVID</text><text x="90" y="101" fill="#f87171" font-size="8" font-family="monospace" text-anchor="middle">crash</text>
+        </svg><div class="pio"></div>
       </div>
-
-      <!-- P3 Pharma -->
-      <div class="project-card" onclick="window.open('https://github.com/Divyadhole/pharma-payments-analysis','_blank')">
-        <div class="project-preview" style="background:linear-gradient(135deg,#1a0800,#0f1117)">
-          <div class="preview-chart">
-            <div class="bar" style="height:40%;background:#fb923c;flex:1"></div>
-            <div class="bar" style="height:65%;background:#fb923c;flex:1"></div>
-            <div class="bar" style="height:90%;background:#f87171;flex:1"></div>
-            <div class="bar" style="height:100%;background:#f87171;flex:1"></div>
-            <div class="bar" style="height:80%;background:#fb923c;flex:1"></div>
-            <div class="bar" style="height:60%;background:#fb923c;flex:1"></div>
-          </div>
-          <div class="preview-badge building-badge">GitHub</div>
-        </div>
-        <div class="project-body">
-          <div class="project-num">P03 · Investigative</div>
-          <div class="project-title">Follow the Money: Pharma Payments</div>
-          <div class="project-source">Data: CMS Open Payments + Medicare Part D</div>
-          <div class="project-desc">Paid doctors prescribe +64.1% more. Spearman ρ=0.134 (p&lt;0.001). $10k+ recipients prescribe 2.7× more. Mann-Whitney p&lt;0.001.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag sql">SQL</span><span class="tag">CMS Data</span><span class="tag">scipy</span></div>
-          <div class="project-links">
-            <a href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank" class="project-link link-gh">GitHub</a>
-          </div>
-        </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P06 · Retail / Economy</span><span class="pa">&#8599;</span></div>
+        <div class="pt">What America Buys</div>
+        <div class="psrc">Census Bureau Monthly Retail Trade Survey</div>
+        <div class="pd">COVID crashed retail <strong>-23.2%</strong> in April 2020. Recovered in 4 months. E-commerce accelerated <strong>5.5 years</strong> ahead of schedule. Total 2023: $8.5T.</div>
+        <div class="ptags"><span class="ptag">Census API</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
       </div>
+    </a>
 
-    </div>
-
-    <!-- Coming up section -->
-    <div style="margin-top:32px;padding:20px 24px;background:var(--card);border:1px solid var(--border);border-radius:10px">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;margin-bottom:10px">⚡ Building Next</div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.2)">P09 · Opioid Crisis (DEA + CDC)</span>
-        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.2)">P10 · Food Deserts (USDA)</span>
-        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(59,130,246,.1);color:var(--accent);border:1px solid rgba(59,130,246,.2)">P11 · SEC Fraud (EDGAR API)</span>
-        <span style="font-size:12px;padding:4px 12px;border-radius:6px;background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2)">P12 · FBI Crime Data</span>
+    <a href="https://github.com/Divyadhole/hospital-readmissions" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">Healthcare / CMS</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#0e0817"/>
+        <!-- Donut chart -->
+        <circle cx="130" cy="110" r="70" fill="none" stroke="#1e1333" stroke-width="20"/>
+        <circle cx="130" cy="110" r="70" fill="none" stroke="#a78bfa" stroke-width="20" stroke-dasharray="103 336" stroke-dashoffset="0" transform="rotate(-90 130 110)" opacity=".8"/>
+        <circle cx="130" cy="110" r="70" fill="none" stroke="#534ab7" stroke-width="20" stroke-dasharray="230 209" stroke-dashoffset="-103" transform="rotate(-90 130 110)" opacity=".4"/>
+        <text x="130" y="105" text-anchor="middle" fill="#a78bfa" font-size="22" font-weight="bold" font-family="monospace">23.3%</text>
+        <text x="130" y="122" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">readmission</text>
+        <!-- Risk tiers -->
+        <rect x="225" y="40" width="12" height="12" rx="2" fill="#f87171"/><text x="242" y="50" fill="#e8eaf0" font-size="10" font-family="monospace">Critical</text>
+        <rect x="225" y="62" width="12" height="12" rx="2" fill="#fbbf24"/><text x="242" y="72" fill="#e8eaf0" font-size="10" font-family="monospace">High</text>
+        <rect x="225" y="84" width="12" height="12" rx="2" fill="#a78bfa"/><text x="242" y="94" fill="#e8eaf0" font-size="10" font-family="monospace">Moderate</text>
+        <rect x="225" y="106" width="12" height="12" rx="2" fill="#4ade80"/><text x="242" y="116" fill="#e8eaf0" font-size="10" font-family="monospace">Low</text>
+        <text x="225" y="150" fill="#6b7280" font-size="9" font-family="monospace">AUC: 0.614</text>
+        <text x="225" y="164" fill="#6b7280" font-size="9" font-family="monospace">5-fold CV</text>
+        <text x="225" y="178" fill="#a78bfa" font-size="9" font-family="monospace">p &lt; 0.001</text>
+        </svg><div class="pio"></div>
       </div>
-    </div>
-
-    <!-- Other Projects -->
-    <div style="margin-top:56px">
-      <div class="section-label">Earlier Work</div>
-      <h3 style="font-size:1.2rem;font-weight:600;margin-bottom:6px">Other Projects</h3>
-      <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Projects from coursework, personal exploration, and professional experience.</p>
-      <div class="old-projects-grid">
-        <div class="old-card">
-          <div class="old-card-title">Uber Analytics Engineering</div>
-          <div class="old-card-desc">Processed 10M+ ride records using GCP, Mage.ai. Visualized urban mobility trends in Looker Studio.</div>
-          <div class="project-tags"><span class="tag">GCP</span><span class="tag">Mage.ai</span><span class="tag">Looker</span></div>
-        </div>
-        <div class="old-card">
-          <div class="old-card-title">Tesla Stock Forecasting</div>
-          <div class="old-card-desc">Time-series forecasting with ARIMA + LSTM neural networks to predict future valuations.</div>
-          <div class="project-tags"><span class="tag ml">Keras</span><span class="tag">ARIMA</span><span class="tag">Python</span></div>
-        </div>
-        <div class="old-card">
-          <div class="old-card-title">Bioinformatics Capstone</div>
-          <div class="old-card-desc">PSMC demographic reconstruction, ABBA-BABA testing, and max-entropy distribution modeling.</div>
-          <div class="project-tags"><span class="tag">Python</span><span class="tag">Bioinformatics</span><span class="tag">Jupyter</span></div>
-        </div>
-        <div class="old-card">
-          <div class="old-card-title">Cybersecurity Dashboard</div>
-          <div class="old-card-desc">Heatmap analysis, attack classification, real-time threat monitoring with Tableau.</div>
-          <div class="project-tags"><span class="tag viz">Tableau</span><span class="tag ml">Scikit-Learn</span><span class="tag">Python</span></div>
-        </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P01 · Healthcare</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Hospital Readmissions</div>
+        <div class="psrc">CMS HRRP Benchmarks</div>
+        <div class="pd">23.3% readmission rate. Logistic regression CV AUC: <strong>0.614.</strong> Uninsured patients +14% risk. 4-tier risk stratification model.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">SQL</span><span class="ptag">scikit-learn</span></div>
       </div>
-    </div>
+    </a>
+  </div>
+
+  <!-- Row of 3 -->
+  <div class="g3">
+    <a href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2)">Investigative / CMS</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#1c0800"/>
+        <!-- Scatter plot -->
+        <line x1="50" y1="170" x2="370" y2="170" stroke="#4a2e15" stroke-width="1"/><line x1="50" y1="170" x2="50" y2="30" stroke="#4a2e15" stroke-width="1"/>
+        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Pharma Payments ($)</text>
+        <text x="20" y="100" fill="#6b7280" font-size="9" font-family="monospace" transform="rotate(-90 20 100)">Prescriptions</text>
+        <!-- Dots - no payment group -->
+        <circle cx="80" cy="140" r="4" fill="#fb923c" opacity=".6"/><circle cx="90" cy="150" r="3" fill="#fb923c" opacity=".5"/><circle cx="100" cy="130" r="4" fill="#fb923c" opacity=".6"/><circle cx="110" cy="145" r="3" fill="#fb923c" opacity=".5"/><circle cx="85" cy="160" r="4" fill="#fb923c" opacity=".6"/>
+        <!-- Dots - paid group -->
+        <circle cx="200" cy="90" r="5" fill="#f87171" opacity=".7"/><circle cx="230" cy="70" r="6" fill="#f87171" opacity=".8"/><circle cx="260" cy="50" r="7" fill="#f87171" opacity=".85"/><circle cx="290" cy="45" r="8" fill="#f87171" opacity=".9"/><circle cx="320" cy="38" r="7" fill="#f87171" opacity=".85"/>
+        <!-- Trend line -->
+        <line x1="60" y1="160" x2="360" y2="40" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="8,4" opacity=".6"/>
+        <text x="240" y="185" fill="#f87171" font-size="10" font-family="monospace" font-weight="bold">+64.1% MORE</text>
+        <text x="240" y="197" fill="#6b7280" font-size="9" font-family="monospace">if doctor was paid</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P03 · Investigative</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Follow the Money: Pharma</div>
+        <div class="psrc">CMS Open Payments + Medicare Part D</div>
+        <div class="pd">Paid doctors prescribe <strong>+64.1% more.</strong> Spearman r=0.134, p&lt;0.001. $10k+ recipients prescribe <strong>2.7x more.</strong></div>
+        <div class="ptags"><span class="ptag">CMS Data</span><span class="ptag">Python</span><span class="ptag">scipy</span><span class="ptag">SQL</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/er-wait-time-analysis" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(100,180,245,.1);color:#64b4f5;border:1px solid rgba(100,180,245,.2)">Healthcare / SQL</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#020a18"/>
+        <line x1="0" y1="55" x2="400" y2="55" stroke="#0e2a45" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#0e2a45" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#0e2a45" stroke-width=".5"/>
+        <!-- Hourly bar chart -->
+        <rect x="15" y="145" width="20" height="30" rx="2" fill="#64b4f5" opacity=".4"/>
+        <rect x="38" y="135" width="20" height="40" rx="2" fill="#64b4f5" opacity=".5"/>
+        <rect x="61" y="120" width="20" height="55" rx="2" fill="#64b4f5" opacity=".6"/>
+        <rect x="84" y="100" width="20" height="75" rx="2" fill="#64b4f5" opacity=".7"/>
+        <rect x="107" y="80" width="20" height="95" rx="2" fill="#f87171" opacity=".8"/>
+        <rect x="130" y="65" width="20" height="110" rx="2" fill="#f87171" opacity=".9"/>
+        <rect x="153" y="70" width="20" height="105" rx="2" fill="#f87171" opacity=".85"/>
+        <rect x="176" y="85" width="20" height="90" rx="2" fill="#fbbf24" opacity=".7"/>
+        <rect x="199" y="100" width="20" height="75" rx="2" fill="#64b4f5" opacity=".7"/>
+        <rect x="222" y="115" width="20" height="60" rx="2" fill="#64b4f5" opacity=".65"/>
+        <rect x="245" y="130" width="20" height="45" rx="2" fill="#64b4f5" opacity=".6"/>
+        <rect x="268" y="140" width="20" height="35" rx="2" fill="#64b4f5" opacity=".5"/>
+        <rect x="291" y="120" width="20" height="55" rx="2" fill="#fbbf24" opacity=".65"/>
+        <rect x="314" y="105" width="20" height="70" rx="2" fill="#f87171" opacity=".75"/>
+        <rect x="337" y="90" width="20" height="85" rx="2" fill="#f87171" opacity=".8"/>
+        <rect x="360" y="100" width="20" height="75" rx="2" fill="#fbbf24" opacity=".65"/>
+        <line x1="15" y1="100" x2="385" y2="100" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="6,3" opacity=".6"/>
+        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Avg Door-to-Doc: 79.7 min · LWBS: 2.23%</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P02 · Healthcare SQL</span><span class="pa">&#8599;</span></div>
+        <div class="pt">ER Wait Time Analysis</div>
+        <div class="psrc">ACEP Benchmarks · 8,000 visits</div>
+        <div class="pd">Avg door-to-doc <strong>79.7 min</strong> (target &lt;60). LWBS rate <strong>2.23%.</strong> Night shift adds +55% wait. 10 SQL window function queries.</div>
+        <div class="ptags"><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">Excel</span><span class="ptag">SQLite</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/retail-sales-analysis" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(245,198,100,.1);color:#f5c664;border:1px solid rgba(245,198,100,.2)">Retail / EDA</span>
+        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#1a1200"/>
+        <!-- Seasonality heatmap style -->
+        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Monthly Revenue Seasonality Index</text>
+        <g>
+          <rect x="20" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".3"/><text x="34" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">85</text>
+          <rect x="52" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".35"/><text x="66" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">87</text>
+          <rect x="84" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".5"/><text x="98" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">96</text>
+          <rect x="116" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".55"/><text x="130" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">98</text>
+          <rect x="148" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="162" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">100</text>
+          <rect x="180" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".55"/><text x="194" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">98</text>
+          <rect x="212" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="226" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">101</text>
+          <rect x="244" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".65"/><text x="258" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">103</text>
+          <rect x="276" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="290" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">99</text>
+          <rect x="308" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".7"/><text x="322" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">107</text>
+          <rect x="340" y="35" width="28" height="28" rx="3" fill="#fb923c" opacity=".8"/><text x="354" y="54" text-anchor="middle" fill="#fb923c" font-size="8" font-family="monospace">118</text>
+          <rect x="372" y="35" width="20" height="28" rx="3" fill="#f87171"/><text x="382" y="54" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">131</text>
+        </g>
+        <text x="20" y="82" fill="#6b7280" font-size="8" font-family="monospace">Jan Feb Mar Apr May Jun  Jul Aug Sep Oct  Nov  Dec</text>
+        <!-- RFM chart -->
+        <text x="200" y="105" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">RFM Customer Segments</text>
+        <rect x="20" y="115" width="60" height="60" rx="5" fill="#f87171" opacity=".2"/><text x="50" y="148" text-anchor="middle" fill="#f87171" font-size="9" font-family="monospace">Champion</text><text x="50" y="161" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">12%</text>
+        <rect x="88" y="115" width="60" height="60" rx="5" fill="#f5c664" opacity=".2"/><text x="118" y="148" text-anchor="middle" fill="#f5c664" font-size="9" font-family="monospace">Loyal</text><text x="118" y="161" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">28%</text>
+        <rect x="156" y="115" width="60" height="60" rx="5" fill="#4ade80" opacity=".2"/><text x="186" y="148" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">Potential</text><text x="186" y="161" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">35%</text>
+        <rect x="224" y="115" width="60" height="60" rx="5" fill="#fb923c" opacity=".2"/><text x="254" y="148" text-anchor="middle" fill="#fb923c" font-size="9" font-family="monospace">At Risk</text><text x="254" y="161" text-anchor="middle" fill="#fb923c" font-size="8" font-family="monospace">18%</text>
+        <rect x="292" y="115" width="60" height="60" rx="5" fill="#6b7280" opacity=".2"/><text x="322" y="148" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Lost</text><text x="322" y="161" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">7%</text>
+        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">50,000 transactions · 10 stores · $8.97M revenue</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P04 · Retail EDA</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Retail Sales Analysis</div>
+        <div class="psrc">50,000 transactions · 10 stores · 3 years</div>
+        <div class="pd">Seasonality index, RFM customer segmentation using NTILE(), YoY growth with LAG(). $8.97M total revenue across 10 product categories.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">seaborn</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ═══ OTHER / PRE-EXISTING WORK ═══ -->
+  <div class="sec-title rv" id="other">All Other Projects</div>
+
+  <!-- Row of 4 smaller -->
+  <div class="g4" style="margin-top:20px">
+    <a href="https://github.com/Divyadhole/Detecting-Service-Gaps-and-Bias-Signals-in-Hospital-Reviews" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2);font-size:8px">NLP / Healthcare</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#0e0817"/>
+        <!-- Sentiment bars -->
+        <text x="150" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Hospital Review Sentiment</text>
+        <rect x="20" y="40" width="70" height="14" rx="3" fill="#4ade80" opacity=".7"/><text x="95" y="51" fill="#4ade80" font-size="9" font-family="monospace">Positive 58%</text>
+        <rect x="20" y="62" width="42" height="14" rx="3" fill="#fbbf24" opacity=".7"/><text x="67" y="73" fill="#fbbf24" font-size="9" font-family="monospace">Neutral 35%</text>
+        <rect x="20" y="84" width="8" height="14" rx="3" fill="#f87171" opacity=".7"/><text x="32" y="95" fill="#f87171" font-size="9" font-family="monospace">Negative 7%</text>
+        <!-- Word cloud style -->
+        <text x="20" y="125" fill="#a78bfa" font-size="11" font-family="monospace" font-weight="bold">wait</text>
+        <text x="65" y="120" fill="#a78bfa" font-size="8" font-family="monospace">staff</text>
+        <text x="100" y="128" fill="#a78bfa" font-size="13" font-family="monospace" font-weight="bold">care</text>
+        <text x="145" y="118" fill="#a78bfa" font-size="9" font-family="monospace">billing</text>
+        <text x="195" y="125" fill="#f87171" font-size="10" font-family="monospace">bias</text>
+        <text x="235" y="120" fill="#f87171" font-size="8" font-family="monospace">gap</text>
+        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">MIT License · Python</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">NLP</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Hospital Review Bias Detection</div>
+        <div class="psrc">Python · MIT License</div>
+        <div class="pd">Detecting service gaps and bias signals in hospital reviews using NLP sentiment analysis.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">NLP</span><span class="ptag">ML</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/Uber-Analytics-Executive-Dashboard" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(100,245,100,.1);color:#64f564;border:1px solid rgba(100,245,100,.2);font-size:8px">GCP / Analytics</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#050f05"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">10M+ Ride Records · Looker Studio</text>
+        <!-- Map dots simulation -->
+        <circle cx="80" cy="70" r="20" fill="none" stroke="#64f564" stroke-width="1" opacity=".3"/>
+        <circle cx="80" cy="70" r="12" fill="none" stroke="#64f564" stroke-width="1" opacity=".5"/>
+        <circle cx="80" cy="70" r="5" fill="#64f564" opacity=".8"/>
+        <circle cx="150" cy="90" r="15" fill="none" stroke="#fbbf24" stroke-width="1" opacity=".3"/>
+        <circle cx="150" cy="90" r="8" fill="none" stroke="#fbbf24" stroke-width="1" opacity=".5"/>
+        <circle cx="150" cy="90" r="4" fill="#fbbf24" opacity=".8"/>
+        <circle cx="220" cy="60" r="25" fill="none" stroke="#f87171" stroke-width="1" opacity=".3"/>
+        <circle cx="220" cy="60" r="16" fill="none" stroke="#f87171" stroke-width="1" opacity=".5"/>
+        <circle cx="220" cy="60" r="7" fill="#f87171" opacity=".8"/>
+        <!-- KPIs -->
+        <text x="20" y="130" fill="#64f564" font-size="11" font-family="monospace" font-weight="bold">10M+</text>
+        <text x="20" y="142" fill="#6b7280" font-size="8" font-family="monospace">rides</text>
+        <text x="90" y="130" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">GCP</text>
+        <text x="90" y="142" fill="#6b7280" font-size="8" font-family="monospace">pipeline</text>
+        <text x="155" y="130" fill="#64f564" font-size="11" font-family="monospace" font-weight="bold">Looker</text>
+        <text x="155" y="142" fill="#6b7280" font-size="8" font-family="monospace">dashboard</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Analytics</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Uber Analytics Dashboard</div>
+        <div class="psrc">GCP · Mage.ai · Looker Studio</div>
+        <div class="pd">Full-stack analytics on 10M+ ride records. Urban mobility trends visualized in Looker Studio.</div>
+        <div class="ptags"><span class="ptag">GCP</span><span class="ptag">Mage.ai</span><span class="ptag">Looker</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/HR-Recruitment-Funnel" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(245,100,180,.1);color:#f564b4;border:1px solid rgba(245,100,180,.2);font-size:8px">HR / ML</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#1a0818"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Recruitment Funnel Analysis</text>
+        <!-- Funnel -->
+        <polygon points="30,35 270,35 230,65 70,65" fill="#f564b4" opacity=".7"/>
+        <polygon points="70,70 230,70 200,100 100,100" fill="#f564b4" opacity=".55"/>
+        <polygon points="100,105 200,105 180,135 120,135" fill="#f564b4" opacity=".4"/>
+        <polygon points="120,140 180,140 165,155 135,155" fill="#f564b4" opacity=".3"/>
+        <text x="150" y="55" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace" font-weight="bold">Applications</text>
+        <text x="150" y="88" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace">Screening</text>
+        <text x="150" y="122" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace">Interview</text>
+        <text x="150" y="150" text-anchor="middle" fill="#fef9e7" font-size="8" font-family="monospace">Offer</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">HR Analytics</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">HR Recruitment Funnel</div>
+        <div class="psrc">Python · SQL · Streamlit</div>
+        <div class="pd">Enterprise ML-powered recruitment intelligence platform transforming HR data into actionable insights.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Streamlit</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/ecommerce-sales-analytics" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2);font-size:8px">E-commerce / BI</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#020f1e"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">KPI Dashboard · YoY Trends</text>
+        <!-- KPI boxes -->
+        <rect x="15" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
+        <text x="46" y="46" text-anchor="middle" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">$2.4M</text>
+        <text x="46" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Revenue</text>
+        <rect x="84" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
+        <text x="115" y="46" text-anchor="middle" fill="#4ade80" font-size="11" font-family="monospace" font-weight="bold">+18%</text>
+        <text x="115" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">YoY Growth</text>
+        <rect x="153" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
+        <text x="184" y="46" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">3.2%</text>
+        <text x="184" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Conv Rate</text>
+        <rect x="222" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
+        <text x="253" y="46" text-anchor="middle" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">$84</text>
+        <text x="253" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Avg Order</text>
+        <!-- Mini line chart -->
+        <polyline points="15,140 55,125 95,130 135,105 175,95 215,88 255,75 285,68" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="15,140 55,125 95,130 135,105 175,95 215,88 255,75 285,68 285,155 15,155" fill="rgba(56,189,248,0.06)"/>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">E-commerce</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">E-commerce Analytics</div>
+        <div class="psrc">Python · Plotly · Power BI</div>
+        <div class="pd">Interactive sales dashboard with KPI tracking, YoY trends, and geographic visualizations.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Plotly</span><span class="ptag">Power BI</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Row of 4 -->
+  <div class="g4">
+    <a href="https://github.com/Divyadhole/Coffee-Sales-Dashboard" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(245,198,100,.1);color:#f5c664;border:1px solid rgba(245,198,100,.2);font-size:8px">Jupyter / EDA</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#1a1000"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Coffee Sales by Product</text>
+        <rect x="20" y="40" width="35" height="95" rx="3" fill="#f5c664" opacity=".8"/><text x="37" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Espresso</text>
+        <rect x="65" y="60" width="35" height="75" rx="3" fill="#fb923c" opacity=".75"/><text x="82" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Latte</text>
+        <rect x="110" y="50" width="35" height="85" rx="3" fill="#f5c664" opacity=".7"/><text x="127" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Cappucino</text>
+        <rect x="155" y="75" width="35" height="60" rx="3" fill="#fb923c" opacity=".65"/><text x="172" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Mocha</text>
+        <rect x="200" y="85" width="35" height="50" rx="3" fill="#f5c664" opacity=".6"/><text x="217" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Cold Brew</text>
+        <rect x="245" y="95" width="35" height="40" rx="3" fill="#fb923c" opacity=".5"/><text x="262" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Other</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">EDA</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Coffee Sales Dashboard</div>
+        <div class="psrc">Jupyter Notebook</div>
+        <div class="pd">Sales analysis and visualization across coffee product categories with trend analysis.</div>
+        <div class="ptags"><span class="ptag">Jupyter</span><span class="ptag">pandas</span><span class="ptag">matplotlib</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/The-Data-Miners-Datathon-project-" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(100,245,212,.1);color:#64f5d4;border:1px solid rgba(100,245,212,.2);font-size:8px">R / Datathon</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#050f1a"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Data Miners Datathon</text>
+        <!-- Scatter plot -->
+        <line x1="30" y1="130" x2="280" y2="130" stroke="#1a3a4e" stroke-width="1"/>
+        <line x1="30" y1="130" x2="30" y2="30" stroke="#1a3a4e" stroke-width="1"/>
+        <circle cx="60" cy="110" r="4" fill="#64f5d4" opacity=".7"/>
+        <circle cx="80" cy="95" r="5" fill="#64f5d4" opacity=".75"/>
+        <circle cx="100" cy="80" r="4" fill="#64f5d4" opacity=".7"/>
+        <circle cx="130" cy="70" r="6" fill="#fbbf24" opacity=".8"/>
+        <circle cx="160" cy="55" r="5" fill="#fbbf24" opacity=".75"/>
+        <circle cx="190" cy="50" r="7" fill="#fbbf24" opacity=".8"/>
+        <circle cx="220" cy="40" r="5" fill="#4ade80" opacity=".8"/>
+        <circle cx="250" cy="35" r="6" fill="#4ade80" opacity=".85"/>
+        <line x1="50" y1="115" x2="260" y2="32" stroke="#64f5d4" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Team project · R language</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Competition</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Data Miners Datathon</div>
+        <div class="psrc">R · Team Project</div>
+        <div class="pd">Competitive datathon project with team analysis and data-driven insights using R.</div>
+        <div class="ptags"><span class="ptag">R</span><span class="ptag">tidyverse</span><span class="ptag">ggplot2</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/Capstone-project" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2);font-size:8px">Bioinformatics</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#0e0817"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">PSMC Demographic Reconstruction</text>
+        <!-- DNA-like visualization -->
+        <path d="M 50 40 Q 100 80 50 120" fill="none" stroke="#a78bfa" stroke-width="2" opacity=".7"/>
+        <path d="M 80 40 Q 30 80 80 120" fill="none" stroke="#c084fc" stroke-width="2" opacity=".7"/>
+        <line x1="50" y1="47" x2="80" y2="47" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <line x1="37" y1="60" x2="92" y2="60" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <line x1="33" y1="73" x2="96" y2="73" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <line x1="35" y1="86" x2="94" y2="86" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <line x1="42" y1="99" x2="87" y2="99" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <line x1="50" y1="112" x2="80" y2="112" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
+        <!-- Info -->
+        <text x="115" y="55" fill="#a78bfa" font-size="9" font-family="monospace">PSMC Analysis</text>
+        <text x="115" y="72" fill="#6b7280" font-size="8" font-family="monospace">ABBA-BABA test</text>
+        <text x="115" y="89" fill="#6b7280" font-size="8" font-family="monospace">Max-entropy dist.</text>
+        <text x="115" y="106" fill="#6b7280" font-size="8" font-family="monospace">Evolutionary analysis</text>
+        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Python · Jupyter · Bioinformatics</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Capstone</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Bioinformatics Capstone</div>
+        <div class="psrc">Python · Jupyter</div>
+        <div class="pd">PSMC demographic reconstruction, ABBA-BABA testing, and max-entropy distribution modeling.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Bioinformatics</span><span class="ptag">Jupyter</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/Ex-06-Classifying-Spam-Emails" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2);font-size:8px">ML / Classification</span>
+        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#180808"/>
+        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Spam Email Classifier — Confusion Matrix</text>
+        <!-- Confusion matrix -->
+        <rect x="70" y="35" width="70" height="60" rx="3" fill="#4ade80" opacity=".2" stroke="#4ade80" stroke-width=".5"/>
+        <text x="105" y="62" text-anchor="middle" fill="#4ade80" font-size="16" font-family="monospace" font-weight="bold">TP</text>
+        <text x="105" y="80" text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">97.2%</text>
+        <rect x="145" y="35" width="70" height="60" rx="3" fill="#f87171" opacity=".15" stroke="#f87171" stroke-width=".5"/>
+        <text x="180" y="62" text-anchor="middle" fill="#f87171" font-size="16" font-family="monospace" font-weight="bold">FP</text>
+        <text x="180" y="80" text-anchor="middle" fill="#f87171" font-size="10" font-family="monospace">2.8%</text>
+        <rect x="70" y="100" width="70" height="40" rx="3" fill="#f87171" opacity=".1" stroke="#f87171" stroke-width=".5"/>
+        <text x="105" y="125" text-anchor="middle" fill="#f87171" font-size="12" font-family="monospace">FN</text>
+        <rect x="145" y="100" width="70" height="40" rx="3" fill="#4ade80" opacity=".1" stroke="#4ade80" stroke-width=".5"/>
+        <text x="180" y="125" text-anchor="middle" fill="#4ade80" font-size="12" font-family="monospace">TN</text>
+        <text x="150" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Naive Bayes + SVM classifier</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">ML Classification</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Spam Email Classifier</div>
+        <div class="psrc">Python · Jupyter Notebook</div>
+        <div class="pd">Spam classification using Naive Bayes and SVM. Confusion matrix analysis and feature importance.</div>
+        <div class="ptags"><span class="ptag">Python</span><span class="ptag">scikit-learn</span><span class="ptag">NLP</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Row of 3 remaining -->
+  <div class="g3">
+    <a href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(100,245,160,.1);color:#64f5a0;border:1px solid rgba(100,245,160,.2);font-size:8px">R / Academic</span>
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#050f0a"/>
+        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Data Science and Public Interest · INFO536</text>
+        <polyline points="30,120 70,100 110,85 150,70 190,65 230,55 270,45 310,40 350,35" fill="none" stroke="#64f5a0" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="30,130 70,125 110,118 150,105 190,95 230,80 270,65 310,58 350,52" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3" stroke-linecap="round"/>
+        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">R · tidyverse · ggplot2 · UArizona coursework</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Academic</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Data Science and Public Interest</div>
+        <div class="psrc">R · UArizona INFO536</div>
+        <div class="pd">Graduate coursework exploring data science applications in public policy and social interest domains.</div>
+        <div class="ptags"><span class="ptag">R</span><span class="ptag">tidyverse</span><span class="ptag">ggplot2</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/Group-3" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2);font-size:8px">R / Group Project</span>
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#020a14"/>
+        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Public Interest Research · Group Project</text>
+        <circle cx="100" cy="90" r="50" fill="rgba(56,189,248,0.08)" stroke="#38bdf8" stroke-width="1" opacity=".6"/>
+        <circle cx="200" cy="90" r="50" fill="rgba(100,245,160,0.08)" stroke="#64f5a0" stroke-width="1" opacity=".6"/>
+        <circle cx="300" cy="90" r="50" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="1" opacity=".6"/>
+        <text x="100" y="94" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="monospace">Data</text>
+        <text x="200" y="94" text-anchor="middle" fill="#64f5a0" font-size="9" font-family="monospace">Public</text>
+        <text x="300" y="94" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">Policy</text>
+        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Collaborative R project · UArizona</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Team Project</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">Group Data Science Project</div>
+        <div class="psrc">R · Data Science and Public Interest</div>
+        <div class="pd">Collaborative research project exploring data science for public interest outcomes.</div>
+        <div class="ptags"><span class="ptag">R</span><span class="ptag">Collaboration</span><span class="ptag">Research</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/INFO-536-Data-science-public-interset" target="_blank" class="pc sm rv">
+      <div class="pi-w">
+        <span class="cb" style="background:rgba(212,245,100,.1);color:#d4f564;border:1px solid rgba(212,245,100,.2);font-size:8px">R / Research</span>
+        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#080c00"/>
+        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">INFO-536 Research Analysis</text>
+        <rect x="30" y="50" width="70" height="80" rx="3" fill="#d4f564" opacity=".15" stroke="#d4f564" stroke-width=".5"/><text x="65" y="95" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Analysis</text>
+        <rect x="115" y="70" width="70" height="60" rx="3" fill="#d4f564" opacity=".2" stroke="#d4f564" stroke-width=".5"/><text x="150" y="105" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Insight</text>
+        <rect x="200" y="40" width="70" height="90" rx="3" fill="#d4f564" opacity=".25" stroke="#d4f564" stroke-width=".5"/><text x="235" y="90" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Impact</text>
+        <rect x="285" y="60" width="70" height="70" rx="3" fill="#d4f564" opacity=".15" stroke="#d4f564" stroke-width=".5"/><text x="320" y="100" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Policy</text>
+        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">R · Public interest research · UArizona</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">Research</span><span class="pa" style="font-size:16px">&#8599;</span></div>
+        <div class="pt">INFO-536 Data Science Research</div>
+        <div class="psrc">R · UArizona Graduate Course</div>
+        <div class="pd">Research on data science applications for public interest and social impact analysis.</div>
+        <div class="ptags"><span class="ptag">R</span><span class="ptag">Research</span><span class="ptag">Public Policy</span></div>
+      </div>
+    </a>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- STATS -->
+<div class="stats rv">
+  <div class="sb"><div class="sn">23</div><div class="sl2">GitHub Repos</div></div>
+  <div class="sb"><div class="sn">8<span class="u">/40</span></div><div class="sl2">Sprint Projects</div></div>
+  <div class="sb"><div class="sn">5<span class="u">+</span></div><div class="sl2">Live Dashboards</div></div>
+  <div class="sb"><div class="sn">20<span class="u">+</span></div><div class="sl2">Certifications</div></div>
+</div>
 
-<!-- ── BY THE NUMBERS ── -->
-<section>
-  <div class="section-inner">
-    <div class="section-label">Data About Me</div>
-    <h2 class="section-title">By the Numbers</h2>
-    <div class="numbers-grid">
-      <div class="number-card">
-        <div class="big">8</div>
-        <div class="lbl">Projects Built (40 planned)</div>
-      </div>
-      <div class="number-card">
-        <div class="big">5</div>
-        <div class="lbl">Live GitHub Pages Dashboards</div>
-      </div>
-      <div class="number-card">
-        <div class="big">20+</div>
-        <div class="lbl">Certifications Earned</div>
-      </div>
-      <div class="number-card">
-        <div class="big">6</div>
-        <div class="lbl">Real Gov APIs Used</div>
-      </div>
-    </div>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="rv">
+    <div class="ah">Real data.<br><span>Real findings.</span><br>Real impact.</div>
+    <p class="ap">I'm a <strong>Data Analyst and Scientist</strong> pursuing my MS in Data Science at the University of Arizona (2024-2025). My work focuses on real government APIs — the same sources that economists, journalists, and policy makers use daily. ROC-AUC 0.978 with XGBoost.</p>
+    <div class="skr"><span class="sknm">Python</span><div class="skb"><div class="skf" data-w="92"></div></div><span class="skp">92%</span></div>
+    <div class="skr"><span class="sknm">SQL</span><div class="skb"><div class="skf" data-w="88"></div></div><span class="skp">88%</span></div>
+    <div class="skr"><span class="sknm">Power BI</span><div class="skb"><div class="skf" data-w="85"></div></div><span class="skp">85%</span></div>
+    <div class="skr"><span class="sknm">Machine Learning</span><div class="skb"><div class="skf" data-w="82"></div></div><span class="skp">82%</span></div>
+    <div class="skr"><span class="sknm">R</span><div class="skb"><div class="skf" data-w="70"></div></div><span class="skp">70%</span></div>
+    <div class="skr"><span class="sknm">AWS</span><div class="skb"><div class="skf" data-w="75"></div></div><span class="skp">75%</span></div>
+  </div>
+  <div class="ac rv">
+    <div class="acard"><div class="acl">Education</div><div class="acv">MS Data Science</div><div class="acs">University of Arizona · 2024-2025</div></div>
+    <div class="acard"><div class="acl">Sprint</div><div class="acv">40 Projects / 20 Days</div><div class="acs">Day 5 of 20 · 8 complete</div><div class="pgb"><div class="pgf"></div></div></div>
+    <div class="acard"><div class="acl">Best Score</div><div class="acv" style="color:var(--accent)">ROC-AUC 0.978</div><div class="acs">XGBoost model</div></div>
+    <div class="acard"><div class="acl">Location</div><div class="acv">Tucson, AZ</div><div class="acs">Open to remote and relocation</div></div>
+    <div class="acard"><div class="acl">Status</div><div class="acv" style="color:var(--accent)">Open to Work</div><div class="acs">Full-time Data Analyst or Data Scientist</div></div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ── SKILLS ── -->
-<section id="skills">
-  <div class="section-inner">
-    <div class="section-label">Skills</div>
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div><span class="skill-pct">92%</span></div>
-        <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
-        <div class="skill-item"><span class="skill-name">R</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div><span class="skill-pct">65%</span></div>
-        <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div><span class="skill-pct">55%</span></div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Data & ML</div>
-        <div class="skill-item"><span class="skill-name">pandas / NumPy</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div><span class="skill-pct">90%</span></div>
-        <div class="skill-item"><span class="skill-name">scikit-learn</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
-        <div class="skill-item"><span class="skill-name">TensorFlow / Keras</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div><span class="skill-pct">70%</span></div>
-        <div class="skill-item"><span class="skill-name">scipy / statsmodels</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:78%"></div></div><span class="skill-pct">78%</span></div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">BI & Visualization</div>
-        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
-        <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div><span class="skill-pct">80%</span></div>
-        <div class="skill-item"><span class="skill-name">matplotlib / seaborn</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div><span class="skill-pct">88%</span></div>
-        <div class="skill-item"><span class="skill-name">Plotly / Chart.js</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:72%"></div></div><span class="skill-pct">72%</span></div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Cloud & Databases</div>
-        <div class="skill-item"><span class="skill-name">AWS (Glue, S3, EC2)</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div><span class="skill-pct">75%</span></div>
-        <div class="skill-item"><span class="skill-name">PostgreSQL / SQLite</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div><span class="skill-pct">85%</span></div>
-        <div class="skill-item"><span class="skill-name">GCP / BigQuery</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div><span class="skill-pct">65%</span></div>
-        <div class="skill-item"><span class="skill-name">Git / GitHub</span><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div><span class="skill-pct">82%</span></div>
-      </div>
-
-    </div>
+<!-- CERTS -->
+<section class="certs" id="certs">
+  <div class="sl rv">Certifications · 20+ Earned</div>
+  <div class="cgrid rv">
+    <a href="#" class="cpill">🤖 AI:BI Analyst — Databricks</a>
+    <a href="#" class="cpill">✨ Gen AI Fundamentals — Databricks</a>
+    <a href="#" class="cpill">🏆 ML at Scale — Databricks</a>
+    <a href="#" class="cpill">📊 SQL Analytics — Databricks</a>
+    <a href="#" class="cpill">🐍 Python Data Science Bootcamp</a>
+    <a href="#" class="cpill">🗄️ Practical SQL with SQLite</a>
+    <a href="#" class="cpill">🐍 Python Automation and DS</a>
+    <a href="#" class="cpill">🧠 Python for AI and ML</a>
+    <a href="#" class="cpill">🐍 Python Masterclass</a>
+    <a href="#" class="cpill">☁️ AWS Glue Getting Started</a>
+    <a href="#" class="cpill">☁️ AWS Data Foundations</a>
+    <a href="#" class="cpill">☁️ AWS StationOps</a>
+    <a href="#" class="cpill">☁️ Building LLMs on AWS</a>
+    <a href="#" class="cpill">☁️ Dynamic Data Masking — Aurora</a>
+    <a href="#" class="cpill">📊 Power BI Masterclass</a>
+    <a href="#" class="cpill">📊 Data Analysis and Viz — Copilot</a>
+    <a href="#" class="cpill">📈 Business Data Analysis</a>
+    <a href="#" class="cpill">📉 Visualization for Leaders</a>
+    <a href="#" class="cpill">🐳 Docker Deep Dive</a>
+    <a href="#" class="cpill">📝 Data Analysis with Copilot</a>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ── CERTS ── -->
-<section id="certs">
-  <div class="section-inner">
-    <div class="cert-section-header">
-      <div>
-        <div class="section-label">Credentials</div>
-        <h2 class="section-title" style="margin-bottom:0">Certifications</h2>
-      </div>
-      <div class="cert-count">20+ earned</div>
-    </div>
-    <div class="certs-compact">
-      <div class="cert-pill"><span class="cert-icon">🤖</span>AI:BI Analyst — Databricks</div>
-      <div class="cert-pill"><span class="cert-icon">✨</span>Gen AI Fundamentals — Databricks</div>
-      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Data Science Bootcamp</div>
-      <div class="cert-pill"><span class="cert-icon">🗄️</span>Practical SQL with SQLite</div>
-      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS Glue Getting Started</div>
-      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS Data Foundations</div>
-      <div class="cert-pill"><span class="cert-icon">☁️</span>AWS StationOps</div>
-      <div class="cert-pill"><span class="cert-icon">☁️</span>Dynamic Data Masking — Aurora</div>
-      <div class="cert-pill"><span class="cert-icon">📊</span>Power BI Masterclass</div>
-      <div class="cert-pill"><span class="cert-icon">📊</span>Data Analysis & Viz — Microsoft Copilot</div>
-      <div class="cert-pill"><span class="cert-icon">🐳</span>Docker Deep Dive</div>
-      <div class="cert-pill"><span class="cert-icon">🧠</span>Python for AI & ML</div>
-      <div class="cert-pill"><span class="cert-icon">🤖</span>Building LLMs on AWS</div>
-      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Automation & DS Bootcamp</div>
-      <div class="cert-pill"><span class="cert-icon">📈</span>Business Data Analysis</div>
-      <div class="cert-pill"><span class="cert-icon">🏆</span>ML at Scale — Databricks</div>
-      <div class="cert-pill"><span class="cert-icon">🏆</span>SQL Analytics — Databricks</div>
-      <div class="cert-pill"><span class="cert-icon">📉</span>Visualization for Leaders</div>
-      <div class="cert-pill"><span class="cert-icon">🐍</span>Python Masterclass</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label" style="justify-content:center">Get in Touch</div>
-    <h2 class="section-title">Let's Work Together</h2>
-    <p style="color:var(--muted);font-size:1rem;line-height:1.7;margin-bottom:8px">
-      I'm currently looking for Data Analyst and Data Scientist roles. If you have an opportunity, a question, or just want to talk data — my inbox is open.
-    </p>
-    <a href="mailto:divya.dhole@arizona.edu" class="contact-email">divya.dhole@arizona.edu</a>
-    <div class="social-links">
-      <a href="https://github.com/Divyadhole" target="_blank" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.4.6.1.83-.26.83-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.06 1.82 2.8 1.3 3.48.99.1-.77.41-1.3.75-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02 0 2.05.14 3.01.4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.84.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
-      </a>
-      <a href="https://linkedin.com/in/divyadhole" target="_blank" class="social-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.59 0 4.25 2.36 4.25 5.43v6.31zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
-        LinkedIn
-      </a>
-    </div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="coh rv">Get In Touch</div>
+  <h2 class="cbig rv">Let's work<br><span class="out">together.</span></h2>
+  <div class="clinks rv">
+    <a href="mailto:divya@arizona.edu" class="clink p">Send an Email</a>
+    <a href="https://github.com/Divyadhole" target="_blank" class="clink">GitHub · 23 repos</a>
+    <a href="https://www.linkedin.com/in/divya" target="_blank" class="clink">LinkedIn</a>
   </div>
 </section>
 
 <footer>
-  Built by Divya Dhole · Data Analyst & Data Scientist · University of Arizona MS Data Science 2025
+  <span>Divya Dhole · 2025</span>
+  <span style="color:var(--accent)">Open to Data Analyst / Data Scientist roles</span>
+  <span>MS Data Science · University of Arizona</span>
 </footer>
 
 <script>
-// Animate progress bar on load
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const fill = document.querySelector('.progress-bar-fill');
-    if (fill) fill.style.width = '20%';
-  }, 500);
+// CURSOR
+var C=document.getElementById('C'),CR=document.getElementById('CR');
+var cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;C.style.left=cx+'px';C.style.top=cy+'px'});
+(function loop(){rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,.pc').forEach(function(el){
+  el.addEventListener('mouseenter',function(){C.classList.add('g');CR.classList.add('g')});
+  el.addEventListener('mouseleave',function(){C.classList.remove('g');CR.classList.remove('g')});
 });
-
-// Smooth active nav
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+// SCROLL REVEAL
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      e.target.querySelectorAll('.skf').forEach(function(b){b.style.width=b.dataset.w+'%'});
+    }
   });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--text)' : '';
-  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(function(el,i){
+  el.style.transitionDelay=(i%6)*.06+'s';
+  obs.observe(el);
 });
 </script>
 </body>
