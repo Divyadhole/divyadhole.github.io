@@ -13,7 +13,7 @@
 ### Data Analyst · Data Scientist · MS Data Science @ UArizona
 
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-divyadhole.github.io-d4f564?style=for-the-badge&labelColor=050507)](https://divyadhole.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/divya)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/divyadhole/)
 [![GitHub](https://img.shields.io/badge/GitHub-25_Repos-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Divyadhole)
 [![Status](https://img.shields.io/badge/Status-Open_to_Work-22c55e?style=for-the-badge)](mailto:divya@arizona.edu)
 
@@ -110,7 +110,7 @@ I build analysis using the **same data sources** that Wall Street analysts, fede
 ┌──────────────────────────────────────────────────────┐
 │                                                      │
 │   📧  divya.dhole@arizona.edu                        │
-│   🔗  linkedin.com/in/divya                          │
+│   🔗  linkedin.com/in/divyadhole/
 │   💻  github.com/Divyadhole                          │
 │   🌐  divyadhole.github.io                           │
 │                                                      │
