@@ -544,6 +544,89 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
   </div>
 
   <!-- ═══ OTHER / PRE-EXISTING WORK ═══ -->
+  <!-- P14 + P15 Solar Projects — SOLON targeted -->
+  <div class="g2">
+
+    <a href="https://solar-roi-calculator.streamlit.app" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live App</span>
+        <span class="cb" style="background:rgba(255,107,53,.12);color:#FF6B35;border:1px solid rgba(255,107,53,.25)">Solar / Finance / Streamlit</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0d1a0a"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#1a3010" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1a3010" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1a3010" stroke-width=".5"/>
+        <!-- Cumulative cash flow curve -->
+        <path d="M40,200 C80,198 120,195 160,188 C200,182 220,175 240,165 C260,155 270,140 280,120 C290,100 295,80 300,55" fill="none" stroke="#f87171" stroke-width="2.5" opacity=".9"/>
+        <path d="M300,55 C310,40 330,35 360,38 C390,41 430,50 480,65 C510,73 540,85 560,95" fill="none" stroke="#4ade80" stroke-width="2.5" opacity=".9"/>
+        <!-- Zero line -->
+        <line x1="40" y1="200" x2="560" y2="200" stroke="#6b7280" stroke-width=".8" stroke-dasharray="4,3"/>
+        <!-- Payback marker -->
+        <line x1="300" y1="30" x2="300" y2="220" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,4"/>
+        <text x="308" y="48" fill="#fbbf24" font-size="9" font-family="monospace" font-weight="bold">Payback 7.3yr</text>
+        <!-- Annotations -->
+        <rect x="380" y="30" width="175" height="70" rx="5" fill="#0d1a0a" stroke="#FF6B35" stroke-width=".5"/>
+        <text x="468" y="50" text-anchor="middle" fill="#FF6B35" font-size="10" font-family="monospace" font-weight="bold">100kW · Arizona</text>
+        <text x="468" y="65" text-anchor="middle" fill="#4ade80" font-size="12" font-family="monospace" font-weight="bold">IRR 12.7%</text>
+        <text x="468" y="80" text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">NPV $147K</text>
+        <text x="468" y="92" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">30% ITC · MACRS</text>
+        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">Cumulative cash flow · Red = pre-payback · Green = positive</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P14 · Solar ROI Calculator</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Solar Project Financial Calculator</div>
+        <div class="psrc">EIA Commercial Rates + NREL Solar Resource</div>
+        <div class="pd">Select a state → auto-fills real EIA utility rate + NREL capacity factor → instant <strong>IRR, NPV, payback period</strong>. 30% ITC + MACRS depreciation modeled. Downloadable Excel proposal report. Built to match SOLON's exact financial modeling requirements.</div>
+        <div class="ptags"><span class="ptag">IRR/NPV</span><span class="ptag">EIA API</span><span class="ptag">NREL</span><span class="ptag">Streamlit</span><span class="ptag">Excel</span></div>
+      </div>
+    </a>
+
+    <a href="https://divyadhole.github.io/solar-incentive-intelligence/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(39,174,96,.1);color:#27AE60;border:1px solid rgba(39,174,96,.2)">Solar / Policy / Market Research</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#060f08"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#0a2010" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#0a2010" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#0a2010" stroke-width=".5"/>
+        <!-- State IRR bars -->
+        <rect x="18"  y="28"  width="18" height="172" rx="2" fill="#f59e0b"/><text x="27" y="20" text-anchor="middle" fill="#f59e0b" font-size="7" font-family="monospace">HI 38%</text>
+        <rect x="42"  y="90"  width="18" height="110" rx="2" fill="#4ade80" opacity=".9"/>
+        <rect x="66"  y="112" width="18" height="88"  rx="2" fill="#4ade80" opacity=".85"/>
+        <rect x="90"  y="120" width="18" height="80"  rx="2" fill="#4ade80" opacity=".8"/>
+        <rect x="114" y="122" width="18" height="78"  rx="2" fill="#FF6B35" opacity=".9"/><text x="123" y="114" text-anchor="middle" fill="#FF6B35" font-size="7" font-family="monospace">AZ #5</text>
+        <rect x="138" y="124" width="18" height="76"  rx="2" fill="#4ade80" opacity=".8"/>
+        <rect x="162" y="130" width="18" height="70"  rx="2" fill="#4ade80" opacity=".75"/>
+        <rect x="186" y="138" width="18" height="62"  rx="2" fill="#4ade80" opacity=".7"/>
+        <rect x="210" y="143" width="18" height="57"  rx="2" fill="#4ade80" opacity=".7"/>
+        <rect x="234" y="148" width="18" height="52"  rx="2" fill="#60a5fa" opacity=".75"/>
+        <rect x="258" y="153" width="18" height="47"  rx="2" fill="#60a5fa" opacity=".7"/>
+        <rect x="282" y="158" width="18" height="42"  rx="2" fill="#60a5fa" opacity=".7"/>
+        <rect x="306" y="163" width="18" height="37"  rx="2" fill="#60a5fa" opacity=".65"/>
+        <rect x="330" y="168" width="18" height="32"  rx="2" fill="#6b7280" opacity=".65"/>
+        <rect x="354" y="173" width="18" height="27"  rx="2" fill="#6b7280" opacity=".6"/>
+        <rect x="378" y="177" width="18" height="23"  rx="2" fill="#f87171" opacity=".7"/>
+        <rect x="402" y="181" width="18" height="19"  rx="2" fill="#f87171" opacity=".65"/>
+        <!-- Hurdle rate line -->
+        <line x1="18" y1="168" x2="540" y2="168" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,3" opacity=".7"/>
+        <text x="445" y="164" fill="#a78bfa" font-size="8" font-family="monospace">8% hurdle rate</text>
+        <!-- Score inset -->
+        <rect x="455" y="25" width="120" height="85" rx="4" fill="#0a1a0c" stroke="#27AE60" stroke-width=".5"/>
+        <text x="515" y="44"  text-anchor="middle" fill="#27AE60" font-size="9" font-family="monospace" font-weight="bold">AZ Rank #5</text>
+        <text x="515" y="60"  text-anchor="middle" fill="#4ade80" font-size="14" font-family="monospace" font-weight="bold">13.0%</text>
+        <text x="515" y="75"  text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">IRR</text>
+        <text x="515" y="90"  text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">7.2yr payback</text>
+        <text x="515" y="104" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">EIA 11.7¢/kWh</text>
+        <text x="18" y="250" fill="#6b7280" font-size="9" font-family="monospace">State IRR ranking · EIA rates + NREL solar · Arizona = SOLON home market</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P15 · Solar Incentive Intelligence</span><span class="pa">&#8599;</span></div>
+        <div class="pt">US Solar Incentive &amp; Market Dashboard</div>
+        <div class="psrc">EIA Open Data + NREL Solar Resource + DSIRE</div>
+        <div class="pd">All 50 states ranked for commercial solar economics. Arizona ranks <strong>#5 nationally</strong> — IRR 13.0%, 7.2yr payback. Real EIA utility rates, NREL solar resource, and DSIRE state incentive programs combined into one composite score.</div>
+        <div class="ptags"><span class="ptag">EIA API</span><span class="ptag">NREL</span><span class="ptag">DSIRE</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
+      </div>
+    </a>
+
+  </div>
+
   <!-- P13 -->
   <div class="g2" style="margin-bottom:16px">
     <a href="https://divyadhole.github.io/fema-disasters-poverty/" target="_blank" class="pc rv">
