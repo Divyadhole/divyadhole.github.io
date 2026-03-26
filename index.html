@@ -544,7 +544,78 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
   </div>
 
   <!-- ═══ OTHER / PRE-EXISTING WORK ═══ -->
-  <!-- P14 + P15 Solar Projects — SOLON targeted -->
+  <!-- FLAGSHIP: CMS Medicare Fraud Intelligence P14-P18 -->
+  <div style="margin-bottom:8px">
+    <div class="sec-title rv" style="color:#ef4444;border-color:rgba(239,68,68,.2)">
+      Flagship Project — Healthcare Fraud Detection
+    </div>
+  </div>
+  <div class="g2" style="margin-bottom:32px">
+    <a href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank" class="pc rv" style="border-color:rgba(239,68,68,.3)">
+      <div class="pi-w">
+        <span class="lb" style="background:#ef4444">Live App</span>
+        <span class="cb" style="background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.25)">ML / Healthcare / Fraud Detection</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0d0505"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#2a0808" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#2a0808" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#2a0808" stroke-width=".5"/>
+        <!-- Score distribution histogram -->
+        <rect x="20"  y="185" width="28" height="10"  rx="1" fill="#22c55e" opacity=".7"/>
+        <rect x="52"  y="180" width="28" height="15"  rx="1" fill="#22c55e" opacity=".7"/>
+        <rect x="84"  y="170" width="28" height="25"  rx="1" fill="#22c55e" opacity=".7"/>
+        <rect x="116" y="148" width="28" height="47"  rx="1" fill="#22c55e" opacity=".7"/>
+        <rect x="148" y="120" width="28" height="75"  rx="1" fill="#22c55e" opacity=".75"/>
+        <rect x="180" y="85"  width="28" height="110" rx="1" fill="#22c55e" opacity=".75"/>
+        <rect x="212" y="60"  width="28" height="135" rx="1" fill="#eab308" opacity=".75"/>
+        <rect x="244" y="88"  width="28" height="107" rx="1" fill="#f97316" opacity=".8"/>
+        <rect x="276" y="130" width="28" height="65"  rx="1" fill="#f97316" opacity=".8"/>
+        <rect x="308" y="155" width="28" height="40"  rx="1" fill="#ef4444" opacity=".85"/>
+        <rect x="340" y="168" width="28" height="27"  rx="1" fill="#ef4444" opacity=".9"/>
+        <rect x="372" y="175" width="28" height="20"  rx="1" fill="#ef4444" opacity=".95"/>
+        <!-- Threshold lines -->
+        <line x1="300" y1="40" x2="300" y2="210" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity=".8"/>
+        <line x1="240" y1="40" x2="240" y2="210" stroke="#f97316" stroke-width="1.2" stroke-dasharray="4,3" opacity=".7"/>
+        <text x="302" y="52" fill="#ef4444" font-size="8" font-family="monospace">CRITICAL</text>
+        <text x="242" y="52" fill="#f97316" font-size="8" font-family="monospace">HIGH</text>
+        <!-- OIG confirmation box -->
+        <rect x="425" y="30" width="160" height="100" rx="6" fill="#1a0505" stroke="#ef4444" stroke-width=".8"/>
+        <text x="505" y="52"  text-anchor="middle" fill="#f87171" font-size="10" font-family="monospace" font-weight="bold">OIG Confirmation</text>
+        <text x="505" y="78"  text-anchor="middle" fill="#ef4444" font-size="28" font-family="monospace" font-weight="bold">98%</text>
+        <text x="505" y="96"  text-anchor="middle" fill="#6b7280" font-size="8"  font-family="monospace">746 / 761 CRITICAL</text>
+        <text x="505" y="108" text-anchor="middle" fill="#6b7280" font-size="8"  font-family="monospace">already confirmed fraud</text>
+        <text x="505" y="118" text-anchor="middle" fill="#9ca3af" font-size="7"  font-family="monospace">PR-AUC: 0.9996</text>
+        <text x="20" y="248" fill="#6b7280" font-size="9" font-family="monospace">Fraud score distribution · 50K providers · 761 CRITICAL · 98% OIG confirmed</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P14-P18 · Flagship · 24+ commits</span><span class="pa">&#8599;</span></div>
+        <div class="pt">CMS Medicare Fraud Intelligence</div>
+        <div class="psrc">CMS Part D 2022 + OIG Exclusions + XGBoost + Isolation Forest</div>
+        <div class="pd">98% of CRITICAL-tier flags confirmed on OIG exclusion list. XGBoost PR-AUC <strong>0.9996</strong> vs baseline 0.015. <strong>43.5x</strong> fraud/normal flag separation. SHAP explainability, Streamlit provider lookup, state choropleth, 5-page dashboard. The model found them purely from billing pattern anomalies.</div>
+        <div class="ptags"><span class="ptag">XGBoost</span><span class="ptag">Isolation Forest</span><span class="ptag">SHAP</span><span class="ptag">CMS Part D</span><span class="ptag">Streamlit</span><span class="ptag">SQL</span></div>
+      </div>
+    </a>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:11px;font-weight:700;color:#ef4444;text-transform:uppercase;letter-spacing:.1em">Why This Gets You Hired</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.9">
+        Healthcare fraud costs the US <strong style="color:var(--text)">$60-90 billion per year.</strong> Every healthcare company, insurance company, and Medicaid contractor wants someone who can find it.<br><br>
+        This model analyzed <strong style="color:var(--text)">50,000 real CMS providers</strong> and flagged 761 as CRITICAL. Of those, <strong style="color:#ef4444">746 were already on the federal exclusion list.</strong> The model found them without ever seeing the labels during training.<br><br>
+        That sentence is a job offer.
+      </div>
+      <div style="margin-top:auto">
+        <a href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank"
+           style="display:inline-block;background:#ef4444;color:white;font-weight:700;font-size:12px;
+                  padding:10px 22px;border-radius:8px;text-decoration:none;margin-right:10px">
+          View on GitHub
+        </a>
+        <a href="https://cms-medicare-fraud-intelligence.streamlit.app" target="_blank"
+           style="display:inline-block;background:transparent;color:#ef4444;font-weight:700;font-size:12px;
+                  padding:10px 22px;border-radius:8px;text-decoration:none;border:1px solid #ef4444">
+          Live App ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solar Projects — SOLON targeted -->
   <div class="g2">
 
     <a href="https://solar-roi-calculator.streamlit.app" target="_blank" class="pc rv">
