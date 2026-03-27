@@ -180,7 +180,100 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
       <div class="hn-i"><div class="hn-n"</span>27</div><div class="hn-l">GitHub Repos</div></div>
     </div>
   </div>
-</section>
+
+  <!-- P16 US Housing Affordability -->
+  <div class="g2" style="margin-bottom:32px">
+    <a href="https://divyadhole.github.io/us-housing-affordability/" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb">Live</span>
+        <span class="cb" style="background:rgba(46,134,171,.1);color:#2E86AB;border:1px solid rgba(46,134,171,.2)">Census ACS / HUD / FRED</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#080c12"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#141e2b" stroke-width=".5"/>
+        <!-- Price-to-income line chart 2000-2023 -->
+        <polyline points="40,178 67,172 94,163 121,158 148,144 175,133 202,129 229,131 256,142 283,150 310,154 337,156 364,148 391,143 418,140 445,135 472,120 499,85 526,72 553,95" fill="none" stroke="#2E86AB" stroke-width="2.5" opacity=".9"/>
+        <!-- Fill below line -->
+        <polygon points="40,178 67,172 94,163 121,158 148,144 175,133 202,129 229,131 256,142 283,150 310,154 337,156 364,148 391,143 418,140 445,135 472,120 499,85 526,72 553,95 553,210 40,210" fill="#2E86AB" opacity=".08"/>
+        <!-- 3x affordable threshold -->
+        <line x1="40" y1="180" x2="570" y2="180" stroke="#27AE60" stroke-width="1.2" stroke-dasharray="5,3" opacity=".7"/>
+        <text x="44" y="176" fill="#27AE60" font-size="8" font-family="monospace">3x affordable</text>
+        <!-- Peak annotation -->
+        <circle cx="499" cy="85" r="5" fill="#E74C3C" opacity=".9"/>
+        <text x="464" y="78" fill="#E74C3C" font-size="8" font-family="monospace" font-weight="bold">2022 peak: 6.1x</text>
+        <!-- Key stats box -->
+        <rect x="405" y="110" width="155" height="88" rx="5" fill="#0d1520" stroke="#2E86AB" stroke-width=".5"/>
+        <text x="482" y="130" text-anchor="middle" fill="#2E86AB" font-size="9" font-family="monospace" font-weight="bold">Payment Burden 2023</text>
+        <text x="482" y="158" text-anchor="middle" fill="#E74C3C" font-size="26" font-family="monospace" font-weight="bold">34.7%</text>
+        <text x="482" y="175" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">vs 28% lender guideline</text>
+        <text x="482" y="190" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">12 states in crisis tier</text>
+        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">Price-to-income ratio 2000–2023 · 3.9x → 6.1x peak · Sources: FRED + Census ACS + HUD</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P16 · US Housing Affordability Crisis</span><span class="pa">&#8599;</span></div>
+        <div class="pt">Housing Affordability Analysis 2000–2023</div>
+        <div class="psrc">Census ACS + HUD Fair Market Rents + FRED</div>
+        <div class="pd">Home prices rose 161% from 2000 to 2023 while incomes rose 85%. Price-to-income hit <strong>6.1x</strong> in 2022. Monthly payment burden reached <strong>34.7%</strong> of income in 2023 vs the 28% lender guideline. 12 states in crisis or severely unaffordable tier. Hawaii worst at 9.6x.</div>
+        <div class="ptags"><span class="ptag">Census ACS</span><span class="ptag">HUD</span><span class="ptag">FRED</span><span class="ptag">SQL</span><span class="ptag">Python</span></div>
+      </div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/us-housing-affordability" target="_blank" class="pc rv">
+      <div class="pi-w">
+        <span class="lb" style="background:#374151">GitHub</span>
+        <span class="cb" style="background:rgba(39,174,96,.1);color:#27AE60;border:1px solid rgba(39,174,96,.2)">Policy / Economics</span>
+        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#080c12"/>
+        <line x1="0" y1="65" x2="600" y2="65" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#141e2b" stroke-width=".5"/>
+        <!-- State affordability bars (sorted) -->
+        <rect x="15"  y="50"  width="10" height="148" rx="1" fill="#E74C3C" opacity=".85"/><text x="20"  y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">HI</text>
+        <rect x="29"  y="55"  width="10" height="143" rx="1" fill="#E74C3C" opacity=".85"/><text x="34"  y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">CA</text>
+        <rect x="43"  y="82"  width="10" height="116" rx="1" fill="#E67E22" opacity=".85"/>
+        <rect x="57"  y="85"  width="10" height="113" rx="1" fill="#E67E22" opacity=".85"/>
+        <rect x="71"  y="88"  width="10" height="110" rx="1" fill="#E67E22" opacity=".85"/>
+        <rect x="85"  y="90"  width="10" height="108" rx="1" fill="#E67E22" opacity=".85"/>
+        <rect x="99"  y="93"  width="10" height="105" rx="1" fill="#E67E22" opacity=".85"/>
+        <rect x="113" y="98"  width="10" height="100" rx="1" fill="#F39C12" opacity=".85"/>
+        <rect x="127" y="100" width="10" height="98"  rx="1" fill="#F39C12" opacity=".85"/>
+        <rect x="141" y="103" width="10" height="95"  rx="1" fill="#F39C12" opacity=".85"/>
+        <rect x="155" y="108" width="10" height="90"  rx="1" fill="#F39C12" opacity=".85"/>
+        <rect x="169" y="112" width="10" height="86"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="183" y="115" width="10" height="83"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="197" y="118" width="10" height="80"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="211" y="120" width="10" height="78"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="225" y="123" width="10" height="75"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="239" y="128" width="10" height="70"  rx="1" fill="#3498DB" opacity=".8"/>
+        <rect x="253" y="132" width="10" height="66"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="267" y="135" width="10" height="63"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="281" y="138" width="10" height="60"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="295" y="142" width="10" height="56"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="309" y="145" width="10" height="53"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="323" y="150" width="10" height="48"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="337" y="155" width="10" height="43"  rx="1" fill="#27AE60" opacity=".8"/>
+        <rect x="351" y="158" width="10" height="40"  rx="1" fill="#27AE60" opacity=".8"/><text x="356" y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">IA</text>
+        <!-- Iowa annotation -->
+        <line x1="356" y1="198" x2="356" y2="212" stroke="#27AE60" stroke-width=".8"/>
+        <!-- Legend box -->
+        <rect x="390" y="40" width="190" height="110" rx="5" fill="#0d1520" stroke="#374151" stroke-width=".5"/>
+        <text x="485" y="60"  text-anchor="middle" fill="#f0eee8" font-size="9" font-family="monospace" font-weight="bold">State Rankings 2022</text>
+        <rect x="400" y="70" width="10" height="8" rx="1" fill="#E74C3C" opacity=".85"/><text x="415" y="78" fill="#9ca3af" font-size="8" font-family="monospace">Crisis &gt;8x</text>
+        <rect x="400" y="82" width="10" height="8" rx="1" fill="#E67E22" opacity=".85"/><text x="415" y="90" fill="#9ca3af" font-size="8" font-family="monospace">Severely unaffordable 6-8x</text>
+        <rect x="400" y="94" width="10" height="8" rx="1" fill="#F39C12" opacity=".85"/><text x="415" y="102" fill="#9ca3af" font-size="8" font-family="monospace">Unaffordable 4-6x</text>
+        <rect x="400" y="106" width="10" height="8" rx="1" fill="#3498DB" opacity=".8"/><text x="415" y="114" fill="#9ca3af" font-size="8" font-family="monospace">Moderate 3-4x</text>
+        <rect x="400" y="118" width="10" height="8" rx="1" fill="#27AE60" opacity=".8"/><text x="415" y="126" fill="#9ca3af" font-size="8" font-family="monospace">Affordable &lt;3x</text>
+        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">All 50 states ranked by price-to-income ratio · Iowa (3.0x) to Hawaii (9.6x)</text>
+        </svg><div class="pio"></div>
+      </div>
+      <div class="pb">
+        <div class="pm"><span class="pn">P16 · State Rankings + SQL Analysis</span><span class="pa">&#8599;</span></div>
+        <div class="pt">50-State Affordability Rankings</div>
+        <div class="psrc">Census ACS B19013_001E + HUD FMR + FRED MSPUS</div>
+        <div class="pd">Hawaii (9.6x) to Iowa (3.0x) — every state ranked by price-to-income ratio. 7 SQL queries with LAG() trends and RANK() window functions. 6-sheet Excel workbook. Why the Iowa exception exists and why Washington state has great sun but terrible solar economics.</div>
+        <div class="ptags"><span class="ptag">LAG() / RANK()</span><span class="ptag">SQLite</span><span class="ptag">matplotlib</span><span class="ptag">Excel</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- end P16 -->
+  </section>
 
 <div class="mbar"><div class="mq">
   <div class="mi">Python<span class="md">✦</span></div><div class="mi">SQL<span class="md">✦</span></div><div class="mi">Power BI<span class="md">✦</span></div><div class="mi">BLS JOLTS API<span class="md">✦</span></div><div class="mi">Federal Reserve FRED<span class="md">✦</span></div><div class="mi">EPA AQS<span class="md">✦</span></div><div class="mi">Census Bureau<span class="md">✦</span></div><div class="mi">Machine Learning<span class="md">✦</span></div><div class="mi">Tableau<span class="md">✦</span></div><div class="mi">scikit-learn<span class="md">✦</span></div><div class="mi">AWS<span class="md">✦</span></div><div class="mi">GCP<span class="md">✦</span></div><div class="mi">Databricks<span class="md">✦</span></div><div class="mi">XGBoost<span class="md">✦</span></div>
