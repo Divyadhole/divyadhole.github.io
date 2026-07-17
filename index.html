@@ -99,6 +99,37 @@ h1.hh{font-size:clamp(4rem,10vw,9.5rem);font-weight:700;line-height:.9;letter-sp
 .pc.sm .pt{font-size:14px}
 .pc.sm .pd{font-size:11.5px}
 .pc.sm .pb{padding:15px 17px}
+/* AI SYSTEMS LAB */
+.lab-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin:0 0 16px}
+.lab-copy{background:linear-gradient(135deg,rgba(212,245,100,.08),rgba(124,109,250,.08));border:1px solid rgba(212,245,100,.14);border-radius:20px;padding:28px}
+.lab-k{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.lab-h{font-size:clamp(2rem,4vw,4.2rem);font-weight:700;line-height:.95;letter-spacing:-2px;margin-bottom:16px}
+.lab-p{font-size:14px;color:var(--muted);line-height:1.8;max-width:680px}
+.lab-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lab-m{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,.025)}
+.lab-m strong{display:block;font-family:'DM Mono',monospace;font-size:2rem;line-height:1;color:var(--accent);margin-bottom:6px}
+.lab-m span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.ai-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
+.ai-card{position:relative;min-height:250px;background:linear-gradient(180deg,var(--card),#09090b);border:1px solid var(--border);border-radius:18px;padding:18px;text-decoration:none;color:inherit;overflow:hidden;transition:.3s cubic-bezier(.16,1,.3,1)}
+.ai-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,var(--glow,rgba(212,245,100,.16)),transparent 42%);opacity:.9;pointer-events:none}
+.ai-card:hover{transform:translateY(-5px);border-color:rgba(212,245,100,.22);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.ai-top{position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.ai-idx{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
+.ai-live{font-size:9px;font-weight:800;color:#10b981;border:1px solid rgba(16,185,129,.28);background:rgba(16,185,129,.09);padding:3px 8px;border-radius:99px}
+.ai-glyph{position:relative;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:grid;place-items:center;margin-bottom:18px}
+.ai-glyph svg{width:40px;height:40px}
+.ai-card h3{position:relative;font-size:17px;line-height:1.15;letter-spacing:-.4px;margin-bottom:9px}
+.ai-card p{position:relative;font-size:11.5px;color:var(--muted);line-height:1.65;margin-bottom:14px}
+.ai-tags{position:relative;display:flex;flex-wrap:wrap;gap:5px}
+.ai-tags span{font-size:9px;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:2px 7px}
+.repo-atlas{border:1px solid var(--border);border-radius:20px;background:var(--card);padding:22px;margin-bottom:36px}
+.atlas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:18px}
+.atlas-head h3{font-size:22px;letter-spacing:-.5px}
+.atlas-head p{font-size:12px;color:var(--muted);line-height:1.6;max-width:520px}
+.repo-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.repo-chip{font-size:11px;color:var(--muted);text-decoration:none;border:1px solid var(--border);background:rgba(255,255,255,.025);padding:7px 10px;border-radius:10px;transition:.2s}
+.repo-chip:hover{color:var(--text);border-color:rgba(212,245,100,.22);background:rgba(212,245,100,.05);transform:translateY(-2px)}
+.repo-chip.prime{color:var(--accent);border-color:rgba(212,245,100,.2)}
 /* STATS */
 .stats{padding:0 48px;margin:80px 0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:20px;overflow:hidden}
 .sb{padding:36px 32px;border-right:1px solid var(--border);transition:.25s}
@@ -147,6 +178,25 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
 /* REVEAL */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .rv.vis{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){
+  .ai-grid{grid-template-columns:repeat(2,1fr)}
+  .lab-intro{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  body{cursor:auto}
+  nav{padding:18px 20px;gap:12px;align-items:flex-start}
+  .n-right{flex-wrap:wrap;justify-content:flex-end}
+  .hero,.ps,.about,.certs,.contact{padding-left:20px;padding-right:20px}
+  .hf,.ph,.atlas-head{flex-direction:column;align-items:flex-start}
+  .hn,.stats,.g2,.g3,.g4,.g32,.ai-grid,.lab-panel{grid-template-columns:1fr;display:grid}
+  .stats{padding:0;margin:44px 20px}
+  .sb{border-right:none;border-bottom:1px solid var(--border)}
+  .sb:last-child{border-bottom:none}
+  .lab-h{font-size:2.5rem}
+  .ai-card{min-height:auto}
+  .about{grid-template-columns:1fr;gap:40px}
+  h1.hh{letter-spacing:-3px}
+}
 </style>
 </head>
 <body>
@@ -157,6 +207,7 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="n-logo">DD.</div>
   <div class="n-right">
     
+    <a href="#ai-lab" class="n-link">AI Lab</a>
     <a href="#other" class="n-link">All Work</a>
     <a href="#about" class="n-link">About</a>
     <a href="#certs" class="n-link">Certs</a>
@@ -175,9 +226,9 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
   <div class="hf">
     <p class="hb">MS Data Science at University of Arizona. I turn real government data from <strong>BLS, EPA, Federal Reserve</strong> and the <strong>Census Bureau</strong> into analysis that answers questions people actually care about. I use real government APIs — BLS, CMS, EPA, FRED, FBI, FEMA — to build analysis that answers questions people actually care about.</p>
     <div class="hn">
-      <div class="hn-i"><div class="hn-n">13</div><div class="hn-l">Projects Built</div></div>
+      <div class="hn-i"><div class="hn-n">40<span class="u">+</span></div><div class="hn-l">Projects Built</div></div>
       <div class="hn-i"><div class="hn-n">5<span class="u">+</span></div><div class="hn-l">Live Dashboards</div></div>
-      <div class="hn-i"><div class="hn-n"</span>27</div><div class="hn-l">GitHub Repos</div></div>
+      <div class="hn-i"><div class="hn-n">44</div><div class="hn-l">GitHub Repos</div></div>
     </div>
   </div>
 
@@ -911,6 +962,158 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
     </a>
   </div>
 
+  <div class="sec-title rv" id="ai-lab">AI Systems Lab · 2026 Portfolio Stack</div>
+
+  <div class="lab-intro rv">
+    <div class="lab-copy">
+      <div class="lab-k">Modern AI engineering portfolio</div>
+      <div class="lab-h">Production-shaped AI systems, not toy notebooks.</div>
+      <p class="lab-p">This layer highlights the projects most aligned with 2026 AI startup hiring: RAG, structured outputs, two-tower retrieval, LLM evaluation, document intelligence, enterprise search, multi-agent systems, responsible AI, analytics experimentation, and meeting intelligence.</p>
+    </div>
+    <div class="lab-panel">
+      <div class="lab-m"><strong>10</strong><span>Flagship AI systems</span></div>
+      <div class="lab-m"><strong>7</strong><span>Live portfolio apps</span></div>
+      <div class="lab-m"><strong>4</strong><span>Retrieval / eval projects</span></div>
+      <div class="lab-m"><strong>100%</strong><span>Public repos</span></div>
+    </div>
+  </div>
+
+  <div class="ai-grid">
+    <a href="https://github.com/Divyadhole/document-qa-rag" target="_blank" class="ai-card rv" style="--glow:rgba(100,245,212,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-01</span><span class="ai-live">Repo</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="10" width="36" height="42" rx="6" fill="none" stroke="#64f5d4" stroke-width="2"/><path d="M20 24h20M20 31h20M20 38h12" stroke="#64f5d4" stroke-width="2" stroke-linecap="round"/></svg></div>
+      <h3>Document Q&amp;A With RAG</h3>
+      <p>Grounded PDF question answering with chunk scoring, citations, and hallucination-safe fallback.</p>
+      <div class="ai-tags"><span>RAG</span><span>FastAPI</span><span>React</span></div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/structured-data-extraction" target="_blank" class="ai-card rv" style="--glow:rgba(100,180,245,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-02</span><span class="ai-live">Repo</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M16 14h28v32H16z" fill="none" stroke="#64b4f5" stroke-width="2"/><path d="M22 24h16M22 31h11M22 38h18" stroke="#64b4f5" stroke-width="2" stroke-linecap="round"/><circle cx="42" cy="24" r="3" fill="#64b4f5"/></svg></div>
+      <h3>Structured Data Extraction</h3>
+      <p>Typed job-posting extraction with Pydantic validation, async batch processing, and metrics.</p>
+      <div class="ai-tags"><span>Pydantic</span><span>LLM Outputs</span><span>Metrics</span></div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/two-tower-retrieval-system" target="_blank" class="ai-card rv" style="--glow:rgba(124,109,250,.2)">
+      <div class="ai-top"><span class="ai-idx">AI-03</span><span class="ai-live">Repo</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="14" width="12" height="32" rx="3" fill="none" stroke="#7c6dfa" stroke-width="2"/><rect x="36" y="14" width="12" height="32" rx="3" fill="none" stroke="#7c6dfa" stroke-width="2"/><path d="M24 22h12M24 38h12" stroke="#7c6dfa" stroke-width="2"/></svg></div>
+      <h3>Two-Tower Retrieval System</h3>
+      <p>E-commerce retrieval with query and item towers, personalization signals, and ranking metrics.</p>
+      <div class="ai-tags"><span>Retrieval</span><span>Embeddings</span><span>Search</span></div>
+    </a>
+
+    <a href="https://divyadhole.github.io/enterprise-ai-os/" target="_blank" class="ai-card rv" style="--glow:rgba(212,245,100,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-04</span><span class="ai-live">Live</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="6" fill="#d4f564"/><circle cx="15" cy="18" r="4" fill="#d4f564"/><circle cx="45" cy="18" r="4" fill="#d4f564"/><circle cx="18" cy="45" r="4" fill="#d4f564"/><circle cx="44" cy="43" r="4" fill="#d4f564"/><path d="M19 20l8 7M41 21l-8 6M22 42l6-8M40 40l-7-7" stroke="#d4f564" stroke-width="2"/></svg></div>
+      <h3>Enterprise AI Operating System</h3>
+      <p>Multi-agent enterprise task runner with tools, observability roadmap, Docker, and CI.</p>
+      <div class="ai-tags"><span>Agents</span><span>FastAPI</span><span>Docker</span></div>
+    </a>
+
+    <a href="https://divyadhole.github.io/llm-evaluation-platform/" target="_blank" class="ai-card rv" style="--glow:rgba(245,198,100,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-05</span><span class="ai-live">Live</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M14 42l10-12 8 6 14-20" fill="none" stroke="#f5c664" stroke-width="3" stroke-linecap="round"/><path d="M14 46h34" stroke="#f5c664" stroke-width="2"/></svg></div>
+      <h3>LLM Evaluation Platform</h3>
+      <p>Prompt testing, golden datasets, model comparison, quality gates, and evaluation dashboard.</p>
+      <div class="ai-tags"><span>Evals</span><span>Quality Gates</span><span>LLMOps</span></div>
+    </a>
+
+    <a href="https://divyadhole.github.io/document-intelligence-platform/" target="_blank" class="ai-card rv" style="--glow:rgba(245,100,180,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-06</span><span class="ai-live">Live</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="12" width="36" height="36" rx="8" fill="none" stroke="#f564b4" stroke-width="2"/><path d="M21 25h18M21 32h18M21 39h10" stroke="#f564b4" stroke-width="2"/><path d="M39 12v10h9" stroke="#f564b4" stroke-width="2"/></svg></div>
+      <h3>Document Intelligence Platform</h3>
+      <p>OCR-ready extraction, risk detection, citations, human review, and audit trail workflow.</p>
+      <div class="ai-tags"><span>OCR</span><span>Review</span><span>Audit</span></div>
+    </a>
+
+    <a href="https://divyadhole.github.io/enterprise-knowledge-engine/" target="_blank" class="ai-card rv" style="--glow:rgba(100,245,160,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-07</span><span class="ai-live">Live</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><circle cx="20" cy="22" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><circle cx="40" cy="22" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><circle cx="30" cy="42" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><path d="M26 24h8M24 28l4 8M36 28l-4 8" stroke="#64f5a0" stroke-width="2"/></svg></div>
+      <h3>Enterprise Knowledge Engine</h3>
+      <p>Hybrid retrieval, reranking, graph signals, analytics, and enterprise search dashboard.</p>
+      <div class="ai-tags"><span>Search</span><span>Rerank</span><span>Graph</span></div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/responsible-ai-support-ticket-intelligence" target="_blank" class="ai-card rv" style="--glow:rgba(245,100,100,.18)">
+      <div class="ai-top"><span class="ai-idx">AI-08</span><span class="ai-live">Repo</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M30 10l18 8v12c0 12-8 18-18 22-10-4-18-10-18-22V18z" fill="none" stroke="#f56464" stroke-width="2"/><path d="M22 31l5 5 11-12" stroke="#f56464" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      <h3>Responsible AI Ticket Intelligence</h3>
+      <p>Support routing with human oversight, fairness monitoring, SQL analytics, and dashboard.</p>
+      <div class="ai-tags"><span>Responsible AI</span><span>Fairness</span><span>SQL</span></div>
+    </a>
+
+    <a href="https://github.com/Divyadhole/product-analytics-ab-testing" target="_blank" class="ai-card rv" style="--glow:rgba(100,180,245,.16)">
+      <div class="ai-top"><span class="ai-idx">AI-09</span><span class="ai-live">Repo</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M15 44V18M30 44V12M45 44V25" stroke="#64b4f5" stroke-width="5" stroke-linecap="round"/><path d="M12 46h38" stroke="#64b4f5" stroke-width="2"/></svg></div>
+      <h3>Product Analytics A/B Testing</h3>
+      <p>SQL funnels, experiment guardrails, statistical testing, CI, and executive dashboard.</p>
+      <div class="ai-tags"><span>A/B Tests</span><span>SQL</span><span>Stats</span></div>
+    </a>
+
+    <a href="https://divyadhole.github.io/meeting-ai/" target="_blank" class="ai-card rv" style="--glow:rgba(245,198,100,.16)">
+      <div class="ai-top"><span class="ai-idx">AI-10</span><span class="ai-live">Live</span></div>
+      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="13" y="16" width="34" height="28" rx="8" fill="none" stroke="#f5c664" stroke-width="2"/><path d="M22 28h16M22 35h10" stroke="#f5c664" stroke-width="2" stroke-linecap="round"/><circle cx="42" cy="20" r="5" fill="#f5c664"/></svg></div>
+      <h3>Meeting AI</h3>
+      <p>Evidence-grounded meeting intelligence with summaries, citations, and evaluation workflow.</p>
+      <div class="ai-tags"><span>Meetings</span><span>Summaries</span><span>Evals</span></div>
+    </a>
+  </div>
+
+  <div class="repo-atlas rv">
+    <div class="atlas-head">
+      <h3>GitHub Repository Atlas</h3>
+      <p>Every public repo is reachable here, while the cards above keep the strongest portfolio story front and center.</p>
+    </div>
+    <div class="repo-cloud">
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/document-qa-rag" target="_blank">document-qa-rag</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/structured-data-extraction" target="_blank">structured-data-extraction</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/two-tower-retrieval-system" target="_blank">two-tower-retrieval-system</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/enterprise-ai-os" target="_blank">enterprise-ai-os</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/llm-evaluation-platform" target="_blank">llm-evaluation-platform</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/document-intelligence-platform" target="_blank">document-intelligence-platform</a>
+      <a class="repo-chip prime" href="https://github.com/Divyadhole/enterprise-knowledge-engine" target="_blank">enterprise-knowledge-engine</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/product-analytics-ab-testing" target="_blank">product-analytics-ab-testing</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/responsible-ai-support-ticket-intelligence" target="_blank">responsible-ai-support-ticket-intelligence</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/meeting-ai" target="_blank">meeting-ai</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/solar-roi-calculator" target="_blank">solar-roi-calculator</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/us-student-loan-analysis" target="_blank">us-student-loan-analysis</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/prescription-drug-pricing" target="_blank">prescription-drug-pricing</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank">cms-medicare-fraud-intelligence</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/solar-incentive-intelligence" target="_blank">solar-incentive-intelligence</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/us-housing-affordability" target="_blank">us-housing-affordability</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/fema-disasters-poverty" target="_blank">fema-disasters-poverty</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/fbi-crime-data-analysis" target="_blank">fbi-crime-data-analysis</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/sec-edgar-fortune500" target="_blank">sec-edgar-fortune500</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/inflation-wages-fred" target="_blank">inflation-wages-fred</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/us-retail-sales-census" target="_blank">us-retail-sales-census</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/great-resignation-bls" target="_blank">great-resignation-bls</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/retail-sales-analysis" target="_blank">retail-sales-analysis</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank">pharma-payments-analysis</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/er-wait-time-analysis" target="_blank">er-wait-time-analysis</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/hospital-readmissions" target="_blank">hospital-readmissions</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/food-deserts-usda" target="_blank">food-deserts-usda</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/opioid-crisis-dea-cdc" target="_blank">opioid-crisis-dea-cdc</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/epa-air-quality" target="_blank">epa-air-quality</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Detecting-Service-Gaps-and-Bias-Signals-in-Hospital-Reviews" target="_blank">hospital-review-bias-signals</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Uber-Analytics-Executive-Dashboard" target="_blank">uber-analytics-dashboard</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/HR-Recruitment-Funnel" target="_blank">hr-recruitment-funnel</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/ecommerce-sales-analytics" target="_blank">ecommerce-sales-analytics</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Coffee-Sales-Dashboard" target="_blank">coffee-sales-dashboard</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/daily-data-analyst-job-scan" target="_blank">daily-data-analyst-job-scan</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/The-Data-Miners-Datathon-project-" target="_blank">data-miners-datathon</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Capstone-project" target="_blank">capstone-project</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/demo_project" target="_blank">demo-project</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank">info536-spring2025</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Group-3" target="_blank">group-3</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/INFO-536-Data-science-public-interset" target="_blank">info536-public-interest</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Ex-06-Classifying-Spam-Emails" target="_blank">spam-email-classifier</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/divyadhole.github.io" target="_blank">portfolio-source</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/Divyadhole" target="_blank">github-profile-readme</a>
+      <a class="repo-chip" href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank">info536-fork</a>
+    </div>
+  </div>
+
   <div class="sec-title rv" id="other">All Other Projects</div>
 
   <!-- Row of 4 smaller -->
@@ -1216,9 +1419,9 @@ footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify
 
 <!-- STATS -->
 <div class="stats rv">
-  <div class="sb"><div class="sn"</span>27</div><div class="sl2">GitHub Repos</div></div>
-  <div class="sb"><div class="sn">13</div><div class="sl2">Projects Built</div></div>
-  <div class="sb"><div class="sn">5<span class="u">+</span></div><div class="sl2">Live Dashboards</div></div>
+  <div class="sb"><div class="sn">44</div><div class="sl2">GitHub Repos</div></div>
+  <div class="sb"><div class="sn">40<span class="u">+</span></div><div class="sl2">Projects Built</div></div>
+  <div class="sb"><div class="sn">15<span class="u">+</span></div><div class="sl2">Live Dashboards</div></div>
   <div class="sb"><div class="sn">20<span class="u">+</span></div><div class="sl2">Certifications</div></div>
 </div>
 
