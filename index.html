@@ -1,1517 +1,981 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Divya Dhole — Data Analyst & Scientist</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#050507;--text:#f0eee8;--muted:#5a5850;--accent:#d4f564;--accent2:#7c6dfa;--pink:#f564b4;--teal:#64f5d4;--amber:#f5c664;--red:#f56464;--blue:#64b4f5;--green:#64f5a0;--border:#161618;--card:#0d0d10;--card2:#111115}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none}
-/* CURSOR */
-.cur{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s;mix-blend-mode:difference}
-.cur-r{width:36px;height:36px;border:1px solid rgba(212,245,100,.35);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
-.cur.g{width:4px;height:4px}
-.cur-r.g{width:56px;height:56px;border-color:rgba(212,245,100,.15)}
-/* NOISE */
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.022;pointer-events:none;z-index:9997}
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
-.n-logo{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--text)}
-.n-right{display:flex;align-items:center;gap:4px}
-.n-link{font-size:12px;font-weight:500;color:var(--muted);padding:6px 14px;border-radius:99px;text-decoration:none;transition:.2s;border:1px solid transparent}
-.n-link:hover{color:var(--text);border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
-.n-cta{font-size:12px;font-weight:700;padding:8px 20px;border-radius:99px;background:var(--accent);color:#050507;text-decoration:none;transition:.2s;margin-left:8px}
-.n-cta:hover{transform:scale(1.04);box-shadow:0 0 28px rgba(212,245,100,.35)}
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 48px 72px;position:relative;overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none}
-.o1{width:520px;height:520px;background:rgba(124,109,250,.18);top:-60px;right:-80px;animation:drift 9s ease-in-out infinite}
-.o2{width:380px;height:380px;background:rgba(212,245,100,.08);bottom:60px;left:-60px;animation:drift 11s ease-in-out infinite reverse 2s}
-.o3{width:280px;height:280px;background:rgba(245,100,180,.07);top:40%;left:40%;animation:drift 13s ease-in-out infinite 4s}
-@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;color:var(--accent);border:1px solid rgba(212,245,100,.2);background:rgba(212,245,100,.05);padding:5px 14px;border-radius:99px;margin-bottom:28px;width:fit-content}
-.chip-d{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:gp 2s infinite}
-@keyframes gp{0%,100%{box-shadow:0 0 0 0 rgba(212,245,100,.5)}50%{box-shadow:0 0 0 6px rgba(212,245,100,0)}}
-h1.hh{font-size:clamp(4rem,10vw,9.5rem);font-weight:700;line-height:.9;letter-spacing:-5px;margin-bottom:44px}
-.lw{overflow:hidden;display:block}
-.si{display:inline-block;animation:su .9s cubic-bezier(.16,1,.3,1) both}
-.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.28s}
-@keyframes su{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
-.ot{-webkit-text-stroke:2px rgba(240,238,232,.25);color:transparent}
-.lime{color:var(--accent)}
-.hf{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;opacity:0;animation:fi .8s .6s forwards}
-@keyframes fi{to{opacity:1}}
-.hb{font-size:15px;color:var(--muted);line-height:1.75;max-width:400px}
-.hb strong{color:var(--text);font-weight:500}
-.hn{display:flex;gap:44px}
-.hn-i{text-align:right}
-.hn-n{font-family:'DM Mono',monospace;font-size:2.6rem;font-weight:500;line-height:1;color:var(--text)}
-.hn-n .u{font-size:1.1rem;color:var(--accent)}
-.hn-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
-/* MARQUEE */
-.mbar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden}
-.mq{display:flex;width:max-content;animation:mqs 22s linear infinite}
-.mi{display:flex;align-items:center;gap:28px;padding:0 28px;border-right:1px solid var(--border);font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
-.md{color:var(--accent);font-size:7px}
-@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* SECTION */
-.sl{display:flex;align-items:center;gap:12px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:56px}
-.sl::before{content:'';width:22px;height:1px;background:var(--muted)}
-/* PROJECTS */
-.ps{padding:100px 48px}
-.ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:56px}
-.stag{font-size:12px;font-weight:600;color:var(--accent);border:1px solid rgba(212,245,100,.2);background:rgba(212,245,100,.05);padding:6px 16px;border-radius:99px}
-/* SECTION DIVIDERS */
-.sec-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:2px;padding:32px 0 20px;border-top:1px solid var(--border);display:flex;align-items:center;gap:12px;margin-bottom:0}
-.sec-title::before{content:'';width:20px;height:1px;background:var(--muted)}
-/* CARD */
-.pc{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;transition:all .35s cubic-bezier(.16,1,.3,1);text-decoration:none;color:inherit;display:block}
-.pc:hover{border-color:rgba(212,245,100,.2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.pc:hover .pa{transform:translate(3px,-3px);color:var(--accent)}
-.pc:hover .pio{opacity:1}
-/* IMG */
-.pi-w{position:relative;overflow:hidden}
-.pi-w svg{display:block;width:100%;transition:transform .5s ease}
-.pc:hover .pi-w svg{transform:scale(1.03)}
-.pio{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(13,13,16,.95));opacity:.7;transition:opacity .3s}
-.lb{position:absolute;top:16px;right:16px;display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;color:#10b981;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);padding:4px 10px;border-radius:99px;z-index:2}
-.lb::before{content:'';width:6px;height:6px;border-radius:50%;background:#10b981;animation:gp 2s infinite}
-.cb{position:absolute;top:16px;left:16px;font-size:9px;font-weight:700;padding:3px 10px;border-radius:6px;z-index:2;text-transform:uppercase;letter-spacing:.5px}
-/* BODY */
-.pb{padding:20px 22px}
-.pm{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.pn{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
-.pa{font-size:20px;color:var(--muted);transition:all .3s}
-.pt{font-size:18px;font-weight:700;letter-spacing:-.5px;margin-bottom:5px}
-.psrc{font-size:11px;color:var(--accent);font-style:italic;margin-bottom:9px}
-.pd{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:13px}
-.pd strong{color:var(--text);font-weight:500}
-.ptags{display:flex;gap:5px;flex-wrap:wrap}
-.ptag{font-size:9.5px;font-weight:500;padding:2px 8px;border-radius:5px;border:1px solid var(--border);color:var(--muted)}
-/* GRID LAYOUTS */
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
-.g32{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:16px}
-.pc.sm .pt{font-size:14px}
-.pc.sm .pd{font-size:11.5px}
-.pc.sm .pb{padding:15px 17px}
-/* AI SYSTEMS LAB */
-.lab-intro{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin:0 0 16px}
-.lab-copy{background:linear-gradient(135deg,rgba(212,245,100,.08),rgba(124,109,250,.08));border:1px solid rgba(212,245,100,.14);border-radius:20px;padding:28px}
-.lab-k{font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
-.lab-h{font-size:clamp(2rem,4vw,4.2rem);font-weight:700;line-height:.95;letter-spacing:-2px;margin-bottom:16px}
-.lab-p{font-size:14px;color:var(--muted);line-height:1.8;max-width:680px}
-.lab-panel{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.lab-m{border:1px solid var(--border);border-radius:14px;padding:16px;background:rgba(255,255,255,.025)}
-.lab-m strong{display:block;font-family:'DM Mono',monospace;font-size:2rem;line-height:1;color:var(--accent);margin-bottom:6px}
-.lab-m span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.ai-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}
-.ai-card{position:relative;min-height:250px;background:linear-gradient(180deg,var(--card),#09090b);border:1px solid var(--border);border-radius:18px;padding:18px;text-decoration:none;color:inherit;overflow:hidden;transition:.3s cubic-bezier(.16,1,.3,1)}
-.ai-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 10%,var(--glow,rgba(212,245,100,.16)),transparent 42%);opacity:.9;pointer-events:none}
-.ai-card:hover{transform:translateY(-5px);border-color:rgba(212,245,100,.22);box-shadow:0 18px 50px rgba(0,0,0,.45)}
-.ai-top{position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.ai-idx{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)}
-.ai-live{font-size:9px;font-weight:800;color:#10b981;border:1px solid rgba(16,185,129,.28);background:rgba(16,185,129,.09);padding:3px 8px;border-radius:99px}
-.ai-glyph{position:relative;width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);display:grid;place-items:center;margin-bottom:18px}
-.ai-glyph svg{width:40px;height:40px}
-.ai-card h3{position:relative;font-size:17px;line-height:1.15;letter-spacing:-.4px;margin-bottom:9px}
-.ai-card p{position:relative;font-size:11.5px;color:var(--muted);line-height:1.65;margin-bottom:14px}
-.ai-tags{position:relative;display:flex;flex-wrap:wrap;gap:5px}
-.ai-tags span{font-size:9px;color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:2px 7px}
-.repo-atlas{border:1px solid var(--border);border-radius:20px;background:var(--card);padding:22px;margin-bottom:36px}
-.atlas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:18px}
-.atlas-head h3{font-size:22px;letter-spacing:-.5px}
-.atlas-head p{font-size:12px;color:var(--muted);line-height:1.6;max-width:520px}
-.repo-cloud{display:flex;flex-wrap:wrap;gap:8px}
-.repo-chip{font-size:11px;color:var(--muted);text-decoration:none;border:1px solid var(--border);background:rgba(255,255,255,.025);padding:7px 10px;border-radius:10px;transition:.2s}
-.repo-chip:hover{color:var(--text);border-color:rgba(212,245,100,.22);background:rgba(212,245,100,.05);transform:translateY(-2px)}
-.repo-chip.prime{color:var(--accent);border-color:rgba(212,245,100,.2)}
-/* STATS */
-.stats{padding:0 48px;margin:80px 0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:20px;overflow:hidden}
-.sb{padding:36px 32px;border-right:1px solid var(--border);transition:.25s}
-.sb:last-child{border-right:none}
-.sb:hover{background:rgba(212,245,100,.03)}
-.sn{font-family:'DM Mono',monospace;font-size:3rem;font-weight:500;line-height:1;color:var(--text);margin-bottom:6px}
-.sn .u{font-size:1.4rem;color:var(--accent)}
-.sl2{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-/* ABOUT */
-.about{padding:100px 48px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.ah{font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-2px;margin-bottom:20px}
-.ah span{color:var(--accent)}
-.ap{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px}
-.ap strong{color:var(--text);font-weight:500}
-.skr{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.sknm{font-size:12px;color:var(--muted);min-width:130px}
-.skb{flex:1;height:2px;background:var(--border);border-radius:99px;overflow:hidden}
-.skf{height:100%;background:var(--accent);border-radius:99px;width:0;transition:width 1.6s cubic-bezier(.16,1,.3,1)}
-.skp{font-size:10.5px;font-family:'DM Mono',monospace;color:var(--muted);min-width:30px;text-align:right}
-.ac{display:flex;flex-direction:column;gap:12px}
-.acard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;transition:.25s}
-.acard:hover{border-color:rgba(212,245,100,.15);transform:translateX(4px)}
-.acl{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
-.acv{font-size:1.35rem;font-weight:700;letter-spacing:-.3px}
-.acs{font-size:11.5px;color:var(--muted);margin-top:3px}
-.pgb{height:3px;background:var(--border);border-radius:99px;overflow:hidden;margin-top:12px}
-.pgf{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;animation:pf 2s .5s cubic-bezier(.16,1,.3,1) forwards}
-@keyframes pf{to{width:20%}}
-/* CERTS */
-.certs{padding:80px 48px;border-top:1px solid var(--border)}
-.cgrid{display:flex;flex-wrap:wrap;gap:10px}
-.cpill{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:500;padding:8px 16px;border-radius:8px;border:1px solid var(--border);color:var(--muted);background:var(--card);transition:.2s;text-decoration:none}
-.cpill:hover{border-color:rgba(212,245,100,.2);color:var(--text)}
-/* CONTACT */
-.contact{padding:120px 48px;border-top:1px solid var(--border);text-align:center}
-.coh{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:12px}
-.coh::before,.coh::after{content:'';width:40px;height:1px;background:var(--border)}
-.cbig{font-size:clamp(3.5rem,9vw,8rem);font-weight:700;line-height:.92;letter-spacing:-4px;margin-bottom:48px}
-.cbig .out{-webkit-text-stroke:2px rgba(240,238,232,.2);color:transparent}
-.clinks{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.clink{display:flex;align-items:center;gap:9px;padding:13px 26px;border-radius:12px;border:1px solid var(--border);font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:.25s}
-.clink:hover{color:var(--text);border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.04);transform:translateY(-2px)}
-.clink.p{background:var(--accent);color:#050507;border-color:var(--accent)}
-.clink.p:hover{box-shadow:0 0 40px rgba(212,245,100,.3);transform:translateY(-3px)}
-footer{padding:22px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
-/* REVEAL */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.rv.vis{opacity:1;transform:translateY(0)}
-@media(max-width:1100px){
-  .ai-grid{grid-template-columns:repeat(2,1fr)}
-  .lab-intro{grid-template-columns:1fr}
-}
-@media(max-width:760px){
-  body{cursor:auto}
-  nav{padding:18px 20px;gap:12px;align-items:flex-start}
-  .n-right{flex-wrap:wrap;justify-content:flex-end}
-  .hero,.ps,.about,.certs,.contact{padding-left:20px;padding-right:20px}
-  .hf,.ph,.atlas-head{flex-direction:column;align-items:flex-start}
-  .hn,.stats,.g2,.g3,.g4,.g32,.ai-grid,.lab-panel{grid-template-columns:1fr;display:grid}
-  .stats{padding:0;margin:44px 20px}
-  .sb{border-right:none;border-bottom:1px solid var(--border)}
-  .sb:last-child{border-bottom:none}
-  .lab-h{font-size:2.5rem}
-  .ai-card{min-height:auto}
-  .about{grid-template-columns:1fr;gap:40px}
-  h1.hh{letter-spacing:-3px}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divya Dhole | DeveloperFolio Portfolio</title>
+  <meta name="description" content="Divya Dhole portfolio: AI engineering, data science, LLM systems, retrieval, analytics, and dashboards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #171c28;
+      --dark-2: #202636;
+      --text: #ffffff;
+      --muted: #d6d9e0;
+      --subtle: #9aa2b2;
+      --purple: #55198b;
+      --purple-light: #8c43ce;
+      --card: #ffffff;
+      --ink: #1f2430;
+      --soft: #f7f3ff;
+      --border: #e8e4f2;
+      --shadow: 0 16px 45px rgba(0, 0, 0, 0.16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Google Sans", Inter, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body.light {
+      --dark: #ffffff;
+      --dark-2: #f7f3ff;
+      --text: #1f2430;
+      --muted: #4c5567;
+      --subtle: #6f7788;
+      --card: #ffffff;
+      --ink: #1f2430;
+      --soft: #f7f3ff;
+      --border: #e8e4f2;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1180px, calc(100vw - 56px));
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 96px;
+      padding: 0 min(4vw, 54px);
+      background: var(--dark);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      font-family: Sacramento, cursive;
+      font-size: 42px;
+      color: var(--text);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      font-family: Inter, sans-serif;
+      font-size: 28px;
+      opacity: 0.8;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.2vw, 42px);
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: clamp(16px, 1.35vw, 24px);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover { color: var(--text); }
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 62px;
+      height: 32px;
+      border: 0;
+      border-radius: 999px;
+      padding: 0 5px;
+      background: #2196f3;
+      cursor: pointer;
+    }
+
+    .toggle span {
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    body.light .toggle { justify-content: flex-start; background: #ccc; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 46px;
+      align-items: center;
+      min-height: calc(100vh - 96px);
+      padding: 84px 0 92px;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: clamp(56px, 5.3vw, 96px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s infinite; }
+    @keyframes wave {
+      0%, 60%, 100% { transform: rotate(0deg); }
+      10%, 30% { transform: rotate(14deg); }
+      20%, 40% { transform: rotate(-8deg); }
+      50% { transform: rotate(6deg); }
+    }
+
+    .lead {
+      max-width: 790px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: clamp(25px, 2.4vw, 42px);
+      line-height: 1.45;
+    }
+
+    .socials {
+      display: flex;
+      gap: 13px;
+      margin-bottom: 66px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      display: grid;
+      width: 50px;
+      height: 50px;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .gh { background: #333; }
+    .in { background: #0e76a8; }
+    .mail { background: #ea4335; }
+    .gitlab { background: #fca326; }
+    .medium { background: #000; }
+    .stack { background: #f48024; }
+
+    .actions {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 68px;
+      padding: 0 34px;
+      border-radius: 6px;
+      background: var(--purple);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--purple-light);
+    }
+
+    .figure {
+      width: 100%;
+      max-width: 650px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .top-projects {
+      display: grid;
+      gap: 28px;
+    }
+
+    .top-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+      padding: 28px;
+      border-radius: 14px;
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+    }
+
+    .top-card:nth-child(even) {
+      grid-template-columns: minmax(360px, 1.1fr) minmax(0, 0.9fr);
+    }
+
+    .top-card:nth-child(even) .top-copy {
+      order: 2;
+    }
+
+    .top-rank {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: #efe8fb;
+      color: var(--purple);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .top-copy h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.08;
+    }
+
+    .top-copy p {
+      margin: 0 0 18px;
+      color: #666;
+      font-size: 17px;
+    }
+
+    .top-points {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .top-points span::before {
+      content: "⚡";
+      margin-right: 8px;
+      color: var(--purple);
+    }
+
+    .top-graph {
+      min-height: 320px;
+      border-radius: 12px;
+      background: #171c28;
+      overflow: hidden;
+      border: 1px solid #2b3142;
+    }
+
+    .top-graph svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .section {
+      padding: 96px 0;
+      background: var(--dark);
+    }
+
+    .section.alt {
+      background: var(--dark-2);
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      font-size: clamp(44px, 4.2vw, 76px);
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      margin: 0 0 44px;
+      max-width: 850px;
+      color: var(--muted);
+      font-size: clamp(20px, 2vw, 30px);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 18px;
+      color: var(--muted);
+      font-size: clamp(18px, 1.55vw, 24px);
+    }
+
+    .skill-list p { margin: 0; }
+
+    .icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .icons span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    body.light .icons span { background: #efe8fb; }
+
+    .progress {
+      display: grid;
+      gap: 20px;
+      max-width: 720px;
+    }
+
+    .bar-row span {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    body.light .bar { background: #e7deef; }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: #aaa5ff;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      min-height: 270px;
+      padding: 26px;
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .folder {
+      font-size: 34px;
+      color: var(--purple);
+    }
+
+    .chip {
+      border-radius: 999px;
+      background: #efe8fb;
+      color: var(--purple);
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.22;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+
+    .tags span {
+      border-radius: 999px;
+      border: 1px solid #e8e4f2;
+      color: #666;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .experience-grid,
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .experience-card,
+    .achievement-card {
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .experience-card h3,
+    .achievement-card h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: var(--ink);
+    }
+
+    .experience-card strong,
+    .achievement-card strong {
+      display: block;
+      color: var(--purple);
+      margin-bottom: 12px;
+    }
+
+    .experience-card p,
+    .achievement-card p {
+      margin: 0;
+      color: #666;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .resume-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 230px;
+      padding: 24px;
+      border-radius: 12px;
+      background: var(--card);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+    }
+
+    .resume-icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      border-radius: 16px;
+      background: #efe8fb;
+      color: var(--purple);
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .resume-card h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .resume-card p {
+      margin: 0 0 18px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .download-label {
+      margin-top: auto;
+      color: var(--purple);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .repo-toolbar {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .repo-toolbar input,
+    .repo-toolbar select {
+      min-height: 50px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      font: inherit;
+      padding: 0 14px;
+      font-weight: 700;
+    }
+
+    .repo-toolbar input {
+      flex: 1 1 320px;
+    }
+
+    .repo-toolbar select option {
+      color: #111827;
+    }
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .repo-card {
+      min-height: 116px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .repo-card strong {
+      display: block;
+      margin-bottom: 8px;
+      word-break: break-word;
+      font-size: 15px;
+    }
+
+    .repo-card span {
+      color: var(--subtle);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: clamp(20px, 2vw, 30px);
+      margin: 0 0 28px;
+    }
+
+    footer {
+      padding: 34px 0;
+      text-align: center;
+      color: var(--subtle);
+      background: var(--dark);
+    }
+
+    @media (max-width: 1060px) {
+      .nav a { font-size: 17px; }
+      .hero, .two-col, .contact, .top-card, .top-card:nth-child(even) { grid-template-columns: 1fr; }
+      .top-card:nth-child(even) .top-copy { order: 0; }
+      .hero { padding-top: 52px; }
+      .figure { max-width: 560px; }
+      .cards, .experience-grid, .achievement-grid, .repo-grid, .resume-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .header { align-items: flex-start; min-height: auto; padding: 18px; }
+      .nav { display: none; }
+      .container { width: min(100vw - 32px, 1180px); }
+      .hero { padding: 52px 0; }
+      h1 { font-size: 48px; }
+      .lead { font-size: 24px; }
+      .button { width: 100%; min-height: 58px; }
+      .cards, .experience-grid, .achievement-grid, .repo-grid, .resume-grid { grid-template-columns: 1fr; }
+      .section { padding: 66px 0; }
+    }
+  </style>
 </head>
 <body>
-<div class="cur" id="C"></div>
-<div class="cur-r" id="CR"></div>
+  <header class="header">
+    <a href="#home" class="logo"><span>&lt;</span> Divya Dhole <span>/&gt;</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#skills">Skills</a>
+      <a href="#top-projects">Top Projects</a>
+      <a href="#experience">Work Experiences</a>
+      <a href="#opensource">Open Source</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact Me</a>
+      <button class="toggle" type="button" id="themeToggle" aria-label="Toggle theme"><span>🌙</span></button>
+    </nav>
+  </header>
 
-<nav>
-  <div class="n-logo">DD.</div>
-  <div class="n-right">
-    
-    <a href="#ai-lab" class="n-link">AI Lab</a>
-    <a href="#other" class="n-link">All Work</a>
-    <a href="#about" class="n-link">About</a>
-    <a href="#certs" class="n-link">Certs</a>
-    <a href="#contact" class="n-link">Contact</a>
-    <a href="mailto:divya@arizona.edu" class="n-cta">Hire Me</a>
-  </div>
-</nav>
+  <main id="home">
+    <section class="container hero">
+      <div>
+        <h1>Hi all, I'm Divya <span class="wave">👋</span></h1>
+        <p class="lead">
+          A passionate Data Scientist and AI Engineer 🚀 building LLM systems, RAG applications, retrieval engines, dashboards, and real-world analytics with Python / SQL / FastAPI / React / Pydantic / ML and cloud-ready tooling.
+        </p>
+        <div class="socials" aria-label="Social links">
+          <a class="gh" href="https://github.com/Divyadhole" target="_blank" rel="noreferrer">GH</a>
+          <a class="in" href="https://www.linkedin.com/in/divyadhole/" target="_blank" rel="noreferrer">in</a>
+          <a class="mail" href="mailto:divya@arizona.edu">@</a>
+          <a class="gitlab" href="#opensource">AI</a>
+          <a class="medium" href="#projects">ML</a>
+          <a class="stack" href="#repos">SQL</a>
+        </div>
+        <div class="actions">
+          <a class="button" href="#contact">Contact Me</a>
+          <a class="button" href="#resume">Download My Resume</a>
+        </div>
+      </div>
+      <img class="figure" src="assets/images/femaleDeveloperClean.svg" alt="Female developer illustration working on a laptop" />
+    </section>
 
-<section class="hero">
-  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-  <div class="chip"><span class="chip-d"></span>Open to full-time roles — Tucson, AZ</div>
-  <h1 class="hh">
-    <span class="lw"><span class="si d1">Divya</span> <span class="si d2 ot">Dhole</span></span>
-    <span class="lw"><span class="si d3 lime">Data</span> <span class="si d4">Analyst</span></span>
-  </h1>
-  <div class="hf">
-    <p class="hb">MS Data Science at University of Arizona. I turn real government data from <strong>BLS, EPA, Federal Reserve</strong> and the <strong>Census Bureau</strong> into analysis that answers questions people actually care about. I use real government APIs — BLS, CMS, EPA, FRED, FBI, FEMA — to build analysis that answers questions people actually care about.</p>
-    <div class="hn">
-      <div class="hn-i"><div class="hn-n">40<span class="u">+</span></div><div class="hn-l">Projects Built</div></div>
-      <div class="hn-i"><div class="hn-n">5<span class="u">+</span></div><div class="hn-l">Live Dashboards</div></div>
-      <div class="hn-i"><div class="hn-n">44</div><div class="hn-l">GitHub Repos</div></div>
-    </div>
-  </div>
+    <section class="section alt" id="top-projects">
+      <div class="container">
+        <h2 class="section-title">Top 3 Projects</h2>
+        <p class="section-subtitle">The strongest AI engineering projects, shown with the kind of details and graphs recruiters can understand quickly.</p>
+        <div class="top-projects">
+          <a class="top-card" href="https://github.com/Divyadhole/document-qa-rag" target="_blank" rel="noreferrer">
+            <div class="top-copy">
+              <span class="top-rank">#1 · RAG System</span>
+              <h3>Document Q&amp;A With RAG</h3>
+              <p>A grounded document question-answering system that retrieves PDF chunks, scores relevance, cites source pages, and refuses weak-context answers instead of hallucinating.</p>
+              <div class="top-points">
+                <span>Chunk quality scoring shows exactly which evidence was retrieved.</span>
+                <span>Source attribution returns document name, page, preview, and confidence.</span>
+                <span>Failure gate returns “I don’t have enough information” for weak matches.</span>
+              </div>
+              <div class="tags"><span>RAG</span><span>FastAPI</span><span>React</span><span>Citations</span></div>
+            </div>
+            <div class="top-graph" aria-label="RAG retrieval quality graph">
+              <svg viewBox="0 0 620 340" role="img">
+                <rect width="620" height="340" fill="#171c28"/>
+                <text x="30" y="42" fill="#fff" font-size="20" font-family="Google Sans" font-weight="700">Retrieval Quality Snapshot</text>
+                <text x="30" y="66" fill="#9aa2b2" font-size="12" font-family="Inter">Top-k evidence scores for “What is the PTO policy?”</text>
+                <line x1="64" y1="275" x2="570" y2="275" stroke="#3a4054"/>
+                <line x1="64" y1="90" x2="64" y2="275" stroke="#3a4054"/>
+                <rect x="102" y="104" width="74" height="171" rx="8" fill="#8c43ce"/>
+                <rect x="226" y="142" width="74" height="133" rx="8" fill="#6c63ff"/>
+                <rect x="350" y="189" width="74" height="86" rx="8" fill="#2196f3"/>
+                <rect x="474" y="238" width="74" height="37" rx="8" fill="#667085"/>
+                <text x="122" y="96" fill="#fff" font-size="18" font-family="Inter" font-weight="800">0.79</text>
+                <text x="246" y="134" fill="#fff" font-size="18" font-family="Inter" font-weight="800">0.62</text>
+                <text x="370" y="181" fill="#fff" font-size="18" font-family="Inter" font-weight="800">0.41</text>
+                <text x="494" y="230" fill="#fff" font-size="18" font-family="Inter" font-weight="800">0.18</text>
+                <text x="94" y="304" fill="#d6d9e0" font-size="12" font-family="Inter">PTO policy</text>
+                <text x="218" y="304" fill="#d6d9e0" font-size="12" font-family="Inter">Carryover</text>
+                <text x="343" y="304" fill="#d6d9e0" font-size="12" font-family="Inter">Security</text>
+                <text x="470" y="304" fill="#d6d9e0" font-size="12" font-family="Inter">Off-topic</text>
+                <line x1="64" y1="160" x2="570" y2="160" stroke="#f97316" stroke-width="2" stroke-dasharray="8 7"/>
+                <text x="435" y="150" fill="#f97316" font-size="13" font-family="Inter" font-weight="800">relevance gate</text>
+                <circle cx="500" cy="70" r="31" fill="#0f9f8f"/>
+                <text x="500" y="76" text-anchor="middle" fill="#fff" font-size="18" font-family="Inter" font-weight="900">PASS</text>
+              </svg>
+            </div>
+          </a>
 
-  <!-- P16 US Housing Affordability -->
-  <div class="g2" style="margin-bottom:32px">
-    <a href="https://divyadhole.github.io/us-housing-affordability/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(46,134,171,.1);color:#2E86AB;border:1px solid rgba(46,134,171,.2)">Census ACS / HUD / FRED</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#080c12"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#141e2b" stroke-width=".5"/>
-        <!-- Price-to-income line chart 2000-2023 -->
-        <polyline points="40,178 67,172 94,163 121,158 148,144 175,133 202,129 229,131 256,142 283,150 310,154 337,156 364,148 391,143 418,140 445,135 472,120 499,85 526,72 553,95" fill="none" stroke="#2E86AB" stroke-width="2.5" opacity=".9"/>
-        <!-- Fill below line -->
-        <polygon points="40,178 67,172 94,163 121,158 148,144 175,133 202,129 229,131 256,142 283,150 310,154 337,156 364,148 391,143 418,140 445,135 472,120 499,85 526,72 553,95 553,210 40,210" fill="#2E86AB" opacity=".08"/>
-        <!-- 3x affordable threshold -->
-        <line x1="40" y1="180" x2="570" y2="180" stroke="#27AE60" stroke-width="1.2" stroke-dasharray="5,3" opacity=".7"/>
-        <text x="44" y="176" fill="#27AE60" font-size="8" font-family="monospace">3x affordable</text>
-        <!-- Peak annotation -->
-        <circle cx="499" cy="85" r="5" fill="#E74C3C" opacity=".9"/>
-        <text x="464" y="78" fill="#E74C3C" font-size="8" font-family="monospace" font-weight="bold">2022 peak: 6.1x</text>
-        <!-- Key stats box -->
-        <rect x="405" y="110" width="155" height="88" rx="5" fill="#0d1520" stroke="#2E86AB" stroke-width=".5"/>
-        <text x="482" y="130" text-anchor="middle" fill="#2E86AB" font-size="9" font-family="monospace" font-weight="bold">Payment Burden 2023</text>
-        <text x="482" y="158" text-anchor="middle" fill="#E74C3C" font-size="26" font-family="monospace" font-weight="bold">34.7%</text>
-        <text x="482" y="175" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">vs 28% lender guideline</text>
-        <text x="482" y="190" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">12 states in crisis tier</text>
-        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">Price-to-income ratio 2000–2023 · 3.9x → 6.1x peak · Sources: FRED + Census ACS + HUD</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P16 · US Housing Affordability Crisis</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Housing Affordability Analysis 2000–2023</div>
-        <div class="psrc">Census ACS + HUD Fair Market Rents + FRED</div>
-        <div class="pd">Home prices rose 161% from 2000 to 2023 while incomes rose 85%. Price-to-income hit <strong>6.1x</strong> in 2022. Monthly payment burden reached <strong>34.7%</strong> of income in 2023 vs the 28% lender guideline. 12 states in crisis or severely unaffordable tier. Hawaii worst at 9.6x.</div>
-        <div class="ptags"><span class="ptag">Census ACS</span><span class="ptag">HUD</span><span class="ptag">FRED</span><span class="ptag">SQL</span><span class="ptag">Python</span></div>
-      </div>
-    </a>
+          <a class="top-card" href="https://github.com/Divyadhole/structured-data-extraction" target="_blank" rel="noreferrer">
+            <div class="top-copy">
+              <span class="top-rank">#2 · Structured Outputs</span>
+              <h3>Structured Data Extraction</h3>
+              <p>A typed extraction system that converts job postings into validated Pydantic objects with salary normalization, batch processing, and field-level accuracy metrics.</p>
+              <div class="top-points">
+                <span>Pydantic catches impossible salary ranges and wrong field types.</span>
+                <span>Batch processor is designed for 100+ postings with async execution.</span>
+                <span>Metrics report precision, recall, exact match, and per-field scores.</span>
+              </div>
+              <div class="tags"><span>Pydantic</span><span>LLM Outputs</span><span>Async</span><span>Metrics</span></div>
+            </div>
+            <div class="top-graph" aria-label="Structured extraction metrics graph">
+              <svg viewBox="0 0 620 340" role="img">
+                <rect width="620" height="340" fill="#171c28"/>
+                <text x="30" y="42" fill="#fff" font-size="20" font-family="Google Sans" font-weight="700">Extraction Accuracy Metrics</text>
+                <text x="30" y="66" fill="#9aa2b2" font-size="12" font-family="Inter">Validated field quality across labeled job postings</text>
+                <circle cx="152" cy="176" r="78" fill="none" stroke="#2b3142" stroke-width="20"/>
+                <circle cx="152" cy="176" r="78" fill="none" stroke="#8c43ce" stroke-width="20" stroke-linecap="round" stroke-dasharray="455 490" transform="rotate(-90 152 176)"/>
+                <text x="152" y="170" text-anchor="middle" fill="#fff" font-size="34" font-family="Inter" font-weight="900">94%</text>
+                <text x="152" y="196" text-anchor="middle" fill="#d6d9e0" font-size="13" font-family="Inter">Precision</text>
+                <circle cx="360" cy="176" r="78" fill="none" stroke="#2b3142" stroke-width="20"/>
+                <circle cx="360" cy="176" r="78" fill="none" stroke="#2196f3" stroke-width="20" stroke-linecap="round" stroke-dasharray="441 490" transform="rotate(-90 360 176)"/>
+                <text x="360" y="170" text-anchor="middle" fill="#fff" font-size="34" font-family="Inter" font-weight="900">91%</text>
+                <text x="360" y="196" text-anchor="middle" fill="#d6d9e0" font-size="13" font-family="Inter">Recall</text>
+                <rect x="476" y="108" width="92" height="36" rx="8" fill="#202636" stroke="#3a4054"/>
+                <text x="522" y="131" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">100+ batch</text>
+                <rect x="476" y="158" width="92" height="36" rx="8" fill="#202636" stroke="#3a4054"/>
+                <text x="522" y="181" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">schema-first</text>
+                <rect x="476" y="208" width="92" height="36" rx="8" fill="#202636" stroke="#3a4054"/>
+                <text x="522" y="231" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">typed JSON</text>
+                <text x="54" y="306" fill="#9aa2b2" font-size="12" font-family="Inter">Fields: title · company · salary_min · salary_max · remote · required_skills</text>
+              </svg>
+            </div>
+          </a>
 
-    <a href="https://github.com/Divyadhole/us-housing-affordability" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb" style="background:#374151">GitHub</span>
-        <span class="cb" style="background:rgba(39,174,96,.1);color:#27AE60;border:1px solid rgba(39,174,96,.2)">Policy / Economics</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#080c12"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#141e2b" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#141e2b" stroke-width=".5"/>
-        <!-- State affordability bars (sorted) -->
-        <rect x="15"  y="50"  width="10" height="148" rx="1" fill="#E74C3C" opacity=".85"/><text x="20"  y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">HI</text>
-        <rect x="29"  y="55"  width="10" height="143" rx="1" fill="#E74C3C" opacity=".85"/><text x="34"  y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">CA</text>
-        <rect x="43"  y="82"  width="10" height="116" rx="1" fill="#E67E22" opacity=".85"/>
-        <rect x="57"  y="85"  width="10" height="113" rx="1" fill="#E67E22" opacity=".85"/>
-        <rect x="71"  y="88"  width="10" height="110" rx="1" fill="#E67E22" opacity=".85"/>
-        <rect x="85"  y="90"  width="10" height="108" rx="1" fill="#E67E22" opacity=".85"/>
-        <rect x="99"  y="93"  width="10" height="105" rx="1" fill="#E67E22" opacity=".85"/>
-        <rect x="113" y="98"  width="10" height="100" rx="1" fill="#F39C12" opacity=".85"/>
-        <rect x="127" y="100" width="10" height="98"  rx="1" fill="#F39C12" opacity=".85"/>
-        <rect x="141" y="103" width="10" height="95"  rx="1" fill="#F39C12" opacity=".85"/>
-        <rect x="155" y="108" width="10" height="90"  rx="1" fill="#F39C12" opacity=".85"/>
-        <rect x="169" y="112" width="10" height="86"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="183" y="115" width="10" height="83"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="197" y="118" width="10" height="80"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="211" y="120" width="10" height="78"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="225" y="123" width="10" height="75"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="239" y="128" width="10" height="70"  rx="1" fill="#3498DB" opacity=".8"/>
-        <rect x="253" y="132" width="10" height="66"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="267" y="135" width="10" height="63"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="281" y="138" width="10" height="60"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="295" y="142" width="10" height="56"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="309" y="145" width="10" height="53"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="323" y="150" width="10" height="48"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="337" y="155" width="10" height="43"  rx="1" fill="#27AE60" opacity=".8"/>
-        <rect x="351" y="158" width="10" height="40"  rx="1" fill="#27AE60" opacity=".8"/><text x="356" y="210" text-anchor="middle" fill="#9ca3af" font-size="6" font-family="monospace">IA</text>
-        <!-- Iowa annotation -->
-        <line x1="356" y1="198" x2="356" y2="212" stroke="#27AE60" stroke-width=".8"/>
-        <!-- Legend box -->
-        <rect x="390" y="40" width="190" height="110" rx="5" fill="#0d1520" stroke="#374151" stroke-width=".5"/>
-        <text x="485" y="60"  text-anchor="middle" fill="#f0eee8" font-size="9" font-family="monospace" font-weight="bold">State Rankings 2022</text>
-        <rect x="400" y="70" width="10" height="8" rx="1" fill="#E74C3C" opacity=".85"/><text x="415" y="78" fill="#9ca3af" font-size="8" font-family="monospace">Crisis &gt;8x</text>
-        <rect x="400" y="82" width="10" height="8" rx="1" fill="#E67E22" opacity=".85"/><text x="415" y="90" fill="#9ca3af" font-size="8" font-family="monospace">Severely unaffordable 6-8x</text>
-        <rect x="400" y="94" width="10" height="8" rx="1" fill="#F39C12" opacity=".85"/><text x="415" y="102" fill="#9ca3af" font-size="8" font-family="monospace">Unaffordable 4-6x</text>
-        <rect x="400" y="106" width="10" height="8" rx="1" fill="#3498DB" opacity=".8"/><text x="415" y="114" fill="#9ca3af" font-size="8" font-family="monospace">Moderate 3-4x</text>
-        <rect x="400" y="118" width="10" height="8" rx="1" fill="#27AE60" opacity=".8"/><text x="415" y="126" fill="#9ca3af" font-size="8" font-family="monospace">Affordable &lt;3x</text>
-        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">All 50 states ranked by price-to-income ratio · Iowa (3.0x) to Hawaii (9.6x)</text>
-        </svg><div class="pio"></div>
+          <a class="top-card" href="https://github.com/Divyadhole/two-tower-retrieval-system" target="_blank" rel="noreferrer">
+            <div class="top-copy">
+              <span class="top-rank">#3 · Retrieval Model</span>
+              <h3>Two-Tower Retrieval System</h3>
+              <p>A scalable e-commerce search system with separate query and product towers, metadata boosts, personalization controls, and ranking evaluation.</p>
+              <div class="top-points">
+                <span>Query tower and item tower embed search intent and product catalog features.</span>
+                <span>Metadata signals include category, price, rating, review count, and popularity.</span>
+                <span>Personalization changes rankings by segment, preferred category, and price sensitivity.</span>
+              </div>
+              <div class="tags"><span>Two-Tower</span><span>Embeddings</span><span>Search</span><span>Ranking</span></div>
+            </div>
+            <div class="top-graph" aria-label="Two-tower ranking graph">
+              <svg viewBox="0 0 620 340" role="img">
+                <rect width="620" height="340" fill="#171c28"/>
+                <text x="30" y="42" fill="#fff" font-size="20" font-family="Google Sans" font-weight="700">Personalized Ranking Lift</text>
+                <text x="30" y="66" fill="#9aa2b2" font-size="12" font-family="Inter">Top result score by query after metadata and segment boosts</text>
+                <path d="M75 258 C155 230 194 222 252 178 S365 122 438 92 S525 76 570 62" fill="none" stroke="#8c43ce" stroke-width="5" stroke-linecap="round"/>
+                <path d="M75 272 C162 260 230 246 292 224 S420 198 570 176" fill="none" stroke="#2196f3" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 8"/>
+                <circle cx="252" cy="178" r="7" fill="#8c43ce"/>
+                <circle cx="438" cy="92" r="7" fill="#8c43ce"/>
+                <circle cx="570" cy="62" r="7" fill="#8c43ce"/>
+                <text x="70" y="302" fill="#d6d9e0" font-size="12" font-family="Inter">cold search</text>
+                <text x="232" y="302" fill="#d6d9e0" font-size="12" font-family="Inter">category boost</text>
+                <text x="405" y="302" fill="#d6d9e0" font-size="12" font-family="Inter">segment match</text>
+                <rect x="70" y="96" width="150" height="52" rx="10" fill="#202636" stroke="#3a4054"/>
+                <text x="145" y="118" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">Semantic score</text>
+                <text x="145" y="138" text-anchor="middle" fill="#9aa2b2" font-size="12" font-family="Inter">query × item tower</text>
+                <rect x="250" y="96" width="150" height="52" rx="10" fill="#202636" stroke="#3a4054"/>
+                <text x="325" y="118" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">Metadata boost</text>
+                <text x="325" y="138" text-anchor="middle" fill="#9aa2b2" font-size="12" font-family="Inter">rating · price · reviews</text>
+                <rect x="430" y="96" width="130" height="52" rx="10" fill="#202636" stroke="#3a4054"/>
+                <text x="495" y="118" text-anchor="middle" fill="#fff" font-size="13" font-family="Inter" font-weight="800">Personalized</text>
+                <text x="495" y="138" text-anchor="middle" fill="#9aa2b2" font-size="12" font-family="Inter">segment lift</text>
+                <text x="446" y="252" fill="#8c43ce" font-size="13" font-family="Inter" font-weight="900">two-tower + metadata</text>
+                <text x="405" y="276" fill="#2196f3" font-size="13" font-family="Inter" font-weight="900">baseline lexical</text>
+              </svg>
+            </div>
+          </a>
+        </div>
       </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P16 · State Rankings + SQL Analysis</span><span class="pa">&#8599;</span></div>
-        <div class="pt">50-State Affordability Rankings</div>
-        <div class="psrc">Census ACS B19013_001E + HUD FMR + FRED MSPUS</div>
-        <div class="pd">Hawaii (9.6x) to Iowa (3.0x) — every state ranked by price-to-income ratio. 7 SQL queries with LAG() trends and RANK() window functions. 6-sheet Excel workbook. Why the Iowa exception exists and why Washington state has great sun but terrible solar economics.</div>
-        <div class="ptags"><span class="ptag">LAG() / RANK()</span><span class="ptag">SQLite</span><span class="ptag">matplotlib</span><span class="ptag">Excel</span></div>
-      </div>
-    </a>
-  </div>
+    </section>
 
-  <!-- end P16 -->
-  </section>
+    <section class="section" id="skills">
+      <div class="container two-col">
+        <img class="figure" src="assets/images/femaleDataScientist.svg" alt="Female data scientist illustration with AI dashboard" />
+        <div>
+          <h2 class="section-title">What I do</h2>
+          <p class="section-subtitle">AI and data systems that are measurable, inspectable, and useful.</p>
+          <div class="icons">
+            <span>Python</span><span>SQL</span><span>FastAPI</span><span>React</span><span>TypeScript</span><span>Pydantic</span><span>RAG</span><span>LLM Evals</span><span>Docker</span><span>Power BI</span><span>AWS</span><span>Databricks</span>
+          </div>
+          <div class="skill-list">
+            <p>⚡ Build RAG, structured-output, document intelligence, and retrieval systems.</p>
+            <p>⚡ Create dashboards and analytics workflows from real public and product data.</p>
+            <p>⚡ Ship portfolio-ready full-stack projects with APIs, tests, CI, Docker, and live sites.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="mbar"><div class="mq">
-  <div class="mi">Python<span class="md">✦</span></div><div class="mi">SQL<span class="md">✦</span></div><div class="mi">Power BI<span class="md">✦</span></div><div class="mi">BLS JOLTS API<span class="md">✦</span></div><div class="mi">Federal Reserve FRED<span class="md">✦</span></div><div class="mi">EPA AQS<span class="md">✦</span></div><div class="mi">Census Bureau<span class="md">✦</span></div><div class="mi">Machine Learning<span class="md">✦</span></div><div class="mi">Tableau<span class="md">✦</span></div><div class="mi">scikit-learn<span class="md">✦</span></div><div class="mi">AWS<span class="md">✦</span></div><div class="mi">GCP<span class="md">✦</span></div><div class="mi">Databricks<span class="md">✦</span></div><div class="mi">XGBoost<span class="md">✦</span></div>
-  <div class="mi">Python<span class="md">✦</span></div><div class="mi">SQL<span class="md">✦</span></div><div class="mi">Power BI<span class="md">✦</span></div><div class="mi">BLS JOLTS API<span class="md">✦</span></div><div class="mi">Federal Reserve FRED<span class="md">✦</span></div><div class="mi">EPA AQS<span class="md">✦</span></div><div class="mi">Census Bureau<span class="md">✦</span></div><div class="mi">Machine Learning<span class="md">✦</span></div><div class="mi">Tableau<span class="md">✦</span></div><div class="mi">scikit-learn<span class="md">✦</span></div><div class="mi">AWS<span class="md">✦</span></div><div class="mi">GCP<span class="md">✦</span></div><div class="mi">Databricks<span class="md">✦</span></div><div class="mi">XGBoost<span class="md">✦</span></div>
-</div></div>
+    <section class="section alt" id="experience">
+      <div class="container">
+        <h2 class="section-title">Work Experiences</h2>
+        <p class="section-subtitle">Focused project experience across applied AI, analytics, and production-style data tools.</p>
+        <div class="experience-grid">
+          <article class="experience-card"><h3>AI Systems Builder</h3><strong>Portfolio Lab · 2026</strong><p>Built multi-agent, RAG, evaluation, search, structured extraction, and document intelligence systems with public repos.</p></article>
+          <article class="experience-card"><h3>Data Scientist</h3><strong>Public Data Projects</strong><p>Used BLS, EPA, FRED, Census, FBI, FEMA, CMS, HUD, and other datasets to create analytics stories and dashboards.</p></article>
+          <article class="experience-card"><h3>MS Data Science</h3><strong>University of Arizona</strong><p>Graduate-level work in analytics, ML, public-interest data science, and applied AI systems.</p></article>
+        </div>
+      </div>
+    </section>
 
-<!-- ═══ 40-PROJECT SPRINT ═══ -->
-<section class="ps" id="projects">
-  <div class="ph rv">
-    <div class="sl">Data Projects</div>
-    
-  </div>
+    <section class="section" id="opensource">
+      <div class="container">
+        <h2 class="section-title">Open Source Projects</h2>
+        <p class="section-subtitle">Flagship AI systems and data products from my public GitHub portfolio.</p>
+        <div class="cards" id="projects"></div>
+      </div>
+    </section>
 
-  <!-- Featured 2 -->
-  <div class="g2">
-    <a href="https://divyadhole.github.io/great-resignation-bls/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(45,212,160,.12);color:#2dd4a0;border:1px solid rgba(45,212,160,.25)">Labor / BLS</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0a1f15"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#1a3a25" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1a3a25" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1a3a25" stroke-width=".5"/>
-        <line x1="40" y1="185" x2="560" y2="185" stroke="#2dd4a0" stroke-width="1" stroke-dasharray="6,4" opacity=".5"/>
-        <rect x="48" y="158" width="20" height="27" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="75" y="154" width="20" height="31" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="102" y="150" width="20" height="35" rx="2" fill="#2dd4a0" opacity=".75"/><rect x="129" y="153" width="20" height="32" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="156" y="148" width="20" height="37" rx="2" fill="#2dd4a0" opacity=".75"/>
-        <rect x="183" y="170" width="20" height="15" rx="2" fill="#f87171" opacity=".9"/><rect x="210" y="175" width="20" height="10" rx="2" fill="#f87171" opacity=".9"/>
-        <rect x="237" y="128" width="20" height="57" rx="2" fill="#2dd4a0" opacity=".8"/><rect x="264" y="112" width="20" height="73" rx="2" fill="#2dd4a0" opacity=".85"/><rect x="291" y="96" width="20" height="89" rx="2" fill="#fbbf24" opacity=".9"/><rect x="318" y="88" width="20" height="97" rx="2" fill="#fbbf24"/>
-        <rect x="345" y="82" width="20" height="103" rx="2" fill="#f87171"/><rect x="372" y="88" width="20" height="97" rx="2" fill="#f87171" opacity=".9"/><rect x="399" y="82" width="20" height="103" rx="2" fill="#f87171"/>
-        <rect x="426" y="110" width="20" height="75" rx="2" fill="#fbbf24" opacity=".85"/><rect x="453" y="135" width="20" height="50" rx="2" fill="#2dd4a0" opacity=".7"/><rect x="480" y="148" width="20" height="37" rx="2" fill="#2dd4a0" opacity=".65"/><rect x="507" y="153" width="20" height="32" rx="2" fill="#2dd4a0" opacity=".6"/><rect x="534" y="157" width="20" height="28" rx="2" fill="#2dd4a0" opacity=".55"/>
-        <circle cx="358" cy="80" r="5" fill="#f87171"/><line x1="358" y1="75" x2="410" y2="42" stroke="#f87171" stroke-width="1"/><text x="415" y="38" fill="#f87171" font-size="12" font-family="monospace" font-weight="bold">3.0% PEAK</text>
-        <text x="48" y="250" fill="#2dd4a0" font-size="9" font-family="monospace" opacity=".6">2019</text><text x="183" y="250" fill="#f87171" font-size="9" font-family="monospace" opacity=".7">COVID</text><text x="310" y="250" fill="#fbbf24" font-size="9" font-family="monospace" opacity=".8">Great Resignation</text><text x="500" y="250" fill="#2dd4a0" font-size="9" font-family="monospace" opacity=".6">2023</text>
-        </svg><div class="pio"></div>
+    <section class="section alt" id="repos">
+      <div class="container">
+        <h2 class="section-title">Repository Atlas</h2>
+        <p class="section-subtitle">Search all public work by name or category.</p>
+        <div class="repo-toolbar">
+          <input id="repoSearch" type="search" placeholder="Search projects..." />
+          <select id="repoFilter">
+            <option value="all">All work</option>
+            <option value="AI">AI / LLM</option>
+            <option value="Analytics">Analytics</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Public Data">Public Data</option>
+          </select>
+        </div>
+        <div class="repo-grid" id="repoGrid"></div>
       </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P05 · Labor Economics</span><span class="pa">&#8599;</span></div>
-        <div class="pt">The Great Resignation</div>
-        <div class="psrc">BLS JOLTS API — Real Government Data</div>
-        <div class="pd">Quit rate peaked at <strong>3.0%</strong> in Nov 2021, +19.7% above baseline. Workers behind inflation for <strong>27 of 48 months.</strong> Welch t-test p&lt;0.001, Cohen's d=3.82.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">scipy</span><span class="ptag">BLS API</span><span class="ptag">SQLite</span></div>
-      </div>
-    </a>
+    </section>
 
-    <a href="https://divyadhole.github.io/inflation-wages-fred/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(246,201,14,.1);color:#f6c90e;border:1px solid rgba(246,201,14,.2)">FRED / Economics</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0a0f1e"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#1e2a3a" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1e2a3a" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1e2a3a" stroke-width=".5"/>
-        <polyline points="40,195 80,193 120,190 160,185 200,200 240,165 280,95 320,48 360,44 400,56 440,75 480,115 520,140 560,145" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="40,195 80,193 120,190 160,185 200,200 240,165 280,95 320,48 360,44 400,56 440,75 480,115 520,140 560,145 560,240 40,240" fill="rgba(248,113,113,0.06)"/>
-        <polyline points="40,205 80,202 120,198 160,193 200,190 240,186 280,178 320,168 360,154 400,143 440,135 480,128 520,124 560,120" fill="none" stroke="#f6c90e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="40,210 80,210 120,210 160,210 200,210 240,210 280,210 320,210 360,205 400,172 440,94 480,62 520,57 560,57" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,4" stroke-linecap="round"/>
-        <circle cx="340" cy="44" r="5" fill="#f87171"/><line x1="340" y1="39" x2="390" y2="20" stroke="#f87171" stroke-width="1"/><text x="395" y="16" fill="#f87171" font-size="11" font-family="monospace" font-weight="bold">9.1% peak</text>
-        <rect x="40" y="248" width="10" height="3" rx="1" fill="#f87171"/><text x="55" y="253" fill="#f87171" font-size="9" font-family="monospace" opacity=".8">Inflation</text>
-        <rect x="110" y="248" width="10" height="3" rx="1" fill="#f6c90e"/><text x="125" y="253" fill="#f6c90e" font-size="9" font-family="monospace" opacity=".8">Wages</text>
-        <rect x="178" y="248" width="10" height="2" rx="1" fill="#a78bfa"/><text x="193" y="253" fill="#a78bfa" font-size="9" font-family="monospace" opacity=".8">Fed Rate</text>
-        </svg><div class="pio"></div>
+    <section class="section" id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements And Certifications 🏆</h2>
+        <p class="section-subtitle">A few signals behind the work.</p>
+        <div class="achievement-grid">
+          <article class="achievement-card"><h3>44 GitHub Repos</h3><strong>Public portfolio</strong><p>AI systems, analytics dashboards, public-data analysis, healthcare analytics, and ML projects.</p></article>
+          <article class="achievement-card"><h3>ROC-AUC 0.978</h3><strong>XGBoost model</strong><p>Best model score from applied ML project work.</p></article>
+          <article class="achievement-card"><h3>20+ Certifications</h3><strong>Databricks · AWS · Python · SQL</strong><p>Continuous learning across analytics, cloud, AI, and data engineering tools.</p></article>
+        </div>
       </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P07 · Economics</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Are Workers Falling Behind?</div>
-        <div class="psrc">Federal Reserve FRED + BLS CPI</div>
-        <div class="pd">CPI peaked at <strong>9.1%</strong> in June 2022. Fed hiked from <strong>0.05% to 5.33%</strong> in 18 months — fastest tightening cycle since Paul Volcker in the 1980s.</div>
-        <div class="ptags"><span class="ptag">FRED API</span><span class="ptag">BLS</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
-  </div>
+    </section>
 
-  <!-- Row of 3 -->
-  <div class="g3">
-    <a href="https://divyadhole.github.io/epa-air-quality/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(100,245,212,.1);color:#64f5d4;border:1px solid rgba(100,245,212,.2)">EPA / Environment</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#0d1f0f"/>
-        <line x1="0" y1="55" x2="400" y2="55" stroke="#1a3a1f" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#1a3a1f" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#1a3a1f" stroke-width=".5"/>
-        <!-- Heatmap style bars -->
-        <rect x="20" y="140" width="32" height="40" rx="3" fill="#22c55e" opacity=".3"/><text x="36" y="132" fill="#6b7280" font-size="8" text-anchor="middle" font-family="monospace">2000</text>
-        <rect x="58" y="120" width="32" height="60" rx="3" fill="#22c55e" opacity=".4"/>
-        <rect x="96" y="100" width="32" height="80" rx="3" fill="#22c55e" opacity=".5"/>
-        <rect x="134" y="75" width="32" height="105" rx="3" fill="#4ade80" opacity=".6"/>
-        <rect x="172" y="60" width="32" height="120" rx="3" fill="#4ade80" opacity=".7"/><text x="188" y="52" fill="#4ade80" font-size="8" text-anchor="middle" font-family="monospace">2019</text>
-        <rect x="210" y="70" width="32" height="110" rx="3" fill="#4ade80" opacity=".65"/>
-        <rect x="248" y="68" width="32" height="112" rx="3" fill="#4ade80" opacity=".7"/>
-        <rect x="286" y="65" width="32" height="115" rx="3" fill="#4ade80" opacity=".72"/>
-        <rect x="324" y="55" width="32" height="125" rx="3" fill="#f87171" opacity=".85"/><text x="340" y="47" fill="#f87171" font-size="8" text-anchor="middle" font-family="monospace">2023</text>
-        <line x1="20" y1="135" x2="370" y2="135" stroke="#4ade80" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
-        <text x="380" y="138" fill="#4ade80" font-size="8" font-family="monospace" opacity=".5">NAAQS</text>
-        <text x="20" y="210" fill="#64f5d4" font-size="9" font-family="monospace" opacity=".7">PM2.5 down -42% since 2000 · NYC AQI 218 in 2023</text>
-        </svg><div class="pio"></div>
+    <section class="section alt" id="resume">
+      <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <p class="section-subtitle">Choose the resume version that matches the role. Each download is tailored for a specific hiring path.</p>
+        <div class="resume-grid">
+          <a class="resume-card" href="assets/resumes/Divya_Dhole_Data_Scientist_Resume.docx" download>
+            <div class="resume-icon">📊</div>
+            <h3>Data Scientist Resume</h3>
+            <p>Best for data science, experimentation, modeling, public-data analytics, and ML-focused roles.</p>
+            <span class="download-label">Download .docx</span>
+          </a>
+          <a class="resume-card" href="assets/resumes/Divya_Dhole_Data_Analyst_Resume.docx" download>
+            <div class="resume-icon">📈</div>
+            <h3>Data Analyst Resume</h3>
+            <p>Best for SQL, dashboards, business analytics, reporting, insights, and product metrics roles.</p>
+            <span class="download-label">Download .docx</span>
+          </a>
+          <a class="resume-card" href="assets/resumes/Divya_Dhole_NLP_AI_Engineer_Resume.docx" download>
+            <div class="resume-icon">🧠</div>
+            <h3>NLP / AI Engineer Resume</h3>
+            <p>Best for LLM apps, RAG, document intelligence, structured extraction, and NLP engineering roles.</p>
+            <span class="download-label">Download .docx</span>
+          </a>
+          <a class="resume-card" href="assets/resumes/Divya_Dhole_ML_AI_Engineer_Resume.docx" download>
+            <div class="resume-icon">🤖</div>
+            <h3>ML / AI Engineer Resume</h3>
+            <p>Best for machine learning systems, retrieval, model evaluation, AI platforms, and applied ML roles.</p>
+            <span class="download-label">Download .docx</span>
+          </a>
+        </div>
       </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P08 · Environment</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Who Breathes Dirty Air?</div>
-        <div class="psrc">US EPA Air Quality System (AQS)</div>
-        <div class="pd">PM2.5 down <strong>-42%</strong> since 2000. But 2023 Canadian wildfire smoke pushed <strong>NYC AQI to 218</strong> — worst in modern US history.</div>
-        <div class="ptags"><span class="ptag">EPA API</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">seaborn</span></div>
-      </div>
-    </a>
+    </section>
 
-    <a href="https://divyadhole.github.io/us-retail-sales-census/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2)">Census / Retail</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#020f1e"/>
-        <line x1="0" y1="55" x2="400" y2="55" stroke="#0e3a6e" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#0e3a6e" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#0e3a6e" stroke-width=".5"/>
-        <rect x="25" y="90" width="50" height="85" rx="3" fill="#38bdf8" opacity=".5"/><text x="50" y="205" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">2019</text>
-        <rect x="90" y="100" width="50" height="75" rx="3" fill="#f87171" opacity=".7"/><text x="115" y="205" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">2020</text>
-        <rect x="155" y="60" width="50" height="115" rx="3" fill="#38bdf8" opacity=".75"/><text x="180" y="205" text-anchor="middle" fill="#38bdf8" font-size="8" font-family="monospace">2021</text>
-        <rect x="220" y="45" width="50" height="130" rx="3" fill="#38bdf8" opacity=".85"/><text x="245" y="205" text-anchor="middle" fill="#38bdf8" font-size="8" font-family="monospace">2022</text>
-        <rect x="285" y="38" width="50" height="137" rx="3" fill="#06b6d4"/><text x="310" y="205" text-anchor="middle" fill="#06b6d4" font-size="8" font-family="monospace">2023</text>
-        <text x="285" y="30" fill="#06b6d4" font-size="10" font-family="monospace" font-weight="bold">$8.5T</text>
-        <text x="90" y="92" fill="#f87171" font-size="8" font-family="monospace" text-anchor="middle">COVID</text><text x="90" y="101" fill="#f87171" font-size="8" font-family="monospace" text-anchor="middle">crash</text>
-        </svg><div class="pio"></div>
+    <section class="section" id="contact">
+      <div class="container contact">
+        <img class="figure" src="assets/images/contactMailDark.svg" alt="Contact mail illustration" />
+        <div>
+          <h2 class="section-title">Reach out to me!</h2>
+          <p>Discuss a project, internship, full-time role, or collaboration. I’m open to AI Engineer, Data Scientist, Data Analyst, and analytics-focused roles.</p>
+          <div class="actions">
+            <a class="button" href="mailto:divya@arizona.edu">Contact Me</a>
+            <a class="button" href="https://github.com/Divyadhole" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
       </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P06 · Retail / Economy</span><span class="pa">&#8599;</span></div>
-        <div class="pt">What America Buys</div>
-        <div class="psrc">Census Bureau Monthly Retail Trade Survey</div>
-        <div class="pd">COVID crashed retail <strong>-23.2%</strong> in April 2020. Recovered in 4 months. E-commerce accelerated <strong>5.5 years</strong> ahead of schedule. Total 2023: $8.5T.</div>
-        <div class="ptags"><span class="ptag">Census API</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
+    </section>
+  </main>
 
-    <a href="https://github.com/Divyadhole/hospital-readmissions" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">Healthcare / CMS</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#0e0817"/>
-        <!-- Donut chart -->
-        <circle cx="130" cy="110" r="70" fill="none" stroke="#1e1333" stroke-width="20"/>
-        <circle cx="130" cy="110" r="70" fill="none" stroke="#a78bfa" stroke-width="20" stroke-dasharray="103 336" stroke-dashoffset="0" transform="rotate(-90 130 110)" opacity=".8"/>
-        <circle cx="130" cy="110" r="70" fill="none" stroke="#534ab7" stroke-width="20" stroke-dasharray="230 209" stroke-dashoffset="-103" transform="rotate(-90 130 110)" opacity=".4"/>
-        <text x="130" y="105" text-anchor="middle" fill="#a78bfa" font-size="22" font-weight="bold" font-family="monospace">23.3%</text>
-        <text x="130" y="122" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">readmission</text>
-        <!-- Risk tiers -->
-        <rect x="225" y="40" width="12" height="12" rx="2" fill="#f87171"/><text x="242" y="50" fill="#e8eaf0" font-size="10" font-family="monospace">Critical</text>
-        <rect x="225" y="62" width="12" height="12" rx="2" fill="#fbbf24"/><text x="242" y="72" fill="#e8eaf0" font-size="10" font-family="monospace">High</text>
-        <rect x="225" y="84" width="12" height="12" rx="2" fill="#a78bfa"/><text x="242" y="94" fill="#e8eaf0" font-size="10" font-family="monospace">Moderate</text>
-        <rect x="225" y="106" width="12" height="12" rx="2" fill="#4ade80"/><text x="242" y="116" fill="#e8eaf0" font-size="10" font-family="monospace">Low</text>
-        <text x="225" y="150" fill="#6b7280" font-size="9" font-family="monospace">AUC: 0.614</text>
-        <text x="225" y="164" fill="#6b7280" font-size="9" font-family="monospace">5-fold CV</text>
-        <text x="225" y="178" fill="#a78bfa" font-size="9" font-family="monospace">p &lt; 0.001</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P01 · Healthcare</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Hospital Readmissions</div>
-        <div class="psrc">CMS HRRP Benchmarks</div>
-        <div class="pd">23.3% readmission rate. Logistic regression CV AUC: <strong>0.614.</strong> Uninsured patients +14% risk. 4-tier risk stratification model.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">ML</span><span class="ptag">SQL</span><span class="ptag">scikit-learn</span></div>
-      </div>
-    </a>
-  </div>
+  <footer>Made with developerFolio-inspired styling · Divya Dhole · MS Data Science</footer>
 
-  <!-- Row of 3 -->
-  <div class="g3">
-    <a href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2)">Investigative / CMS</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#1c0800"/>
-        <!-- Scatter plot -->
-        <line x1="50" y1="170" x2="370" y2="170" stroke="#4a2e15" stroke-width="1"/><line x1="50" y1="170" x2="50" y2="30" stroke="#4a2e15" stroke-width="1"/>
-        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Pharma Payments ($)</text>
-        <text x="20" y="100" fill="#6b7280" font-size="9" font-family="monospace" transform="rotate(-90 20 100)">Prescriptions</text>
-        <!-- Dots - no payment group -->
-        <circle cx="80" cy="140" r="4" fill="#fb923c" opacity=".6"/><circle cx="90" cy="150" r="3" fill="#fb923c" opacity=".5"/><circle cx="100" cy="130" r="4" fill="#fb923c" opacity=".6"/><circle cx="110" cy="145" r="3" fill="#fb923c" opacity=".5"/><circle cx="85" cy="160" r="4" fill="#fb923c" opacity=".6"/>
-        <!-- Dots - paid group -->
-        <circle cx="200" cy="90" r="5" fill="#f87171" opacity=".7"/><circle cx="230" cy="70" r="6" fill="#f87171" opacity=".8"/><circle cx="260" cy="50" r="7" fill="#f87171" opacity=".85"/><circle cx="290" cy="45" r="8" fill="#f87171" opacity=".9"/><circle cx="320" cy="38" r="7" fill="#f87171" opacity=".85"/>
-        <!-- Trend line -->
-        <line x1="60" y1="160" x2="360" y2="40" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="8,4" opacity=".6"/>
-        <text x="240" y="185" fill="#f87171" font-size="10" font-family="monospace" font-weight="bold">+64.1% MORE</text>
-        <text x="240" y="197" fill="#6b7280" font-size="9" font-family="monospace">if doctor was paid</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P03 · Investigative</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Follow the Money: Pharma</div>
-        <div class="psrc">CMS Open Payments + Medicare Part D</div>
-        <div class="pd">Paid doctors prescribe <strong>+64.1% more.</strong> Spearman r=0.134, p&lt;0.001. $10k+ recipients prescribe <strong>2.7x more.</strong></div>
-        <div class="ptags"><span class="ptag">CMS Data</span><span class="ptag">Python</span><span class="ptag">scipy</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
+  <script>
+    const flagshipProjects = [
+      ["Document Q&A RAG", "Grounded PDF question answering with chunk scoring, citations, and hallucination-safe fallback.", "https://github.com/Divyadhole/document-qa-rag", ["RAG", "FastAPI", "React"], "AI"],
+      ["Structured Data Extraction", "Typed job-posting extraction with Pydantic validation, async batch processing, and metrics.", "https://github.com/Divyadhole/structured-data-extraction", ["Pydantic", "LLM", "Batch"], "AI"],
+      ["Two-Tower Retrieval System", "E-commerce retrieval with query and item towers, personalization signals, and ranking metrics.", "https://github.com/Divyadhole/two-tower-retrieval-system", ["Retrieval", "Search", "Embeddings"], "AI"],
+      ["Enterprise AI Operating System", "Multi-agent enterprise task runner with tools, observability roadmap, Docker, and CI.", "https://divyadhole.github.io/enterprise-ai-os/", ["Agents", "FastAPI", "Docker"], "Live"],
+      ["LLM Evaluation Platform", "Prompt testing, golden datasets, model comparison, quality gates, and evaluation dashboard.", "https://divyadhole.github.io/llm-evaluation-platform/", ["Evals", "Quality", "LLMOps"], "Live"],
+      ["Document Intelligence Platform", "OCR-ready extraction, risk detection, citations, human review, and audit trail workflow.", "https://divyadhole.github.io/document-intelligence-platform/", ["OCR", "Review", "Audit"], "Live"],
+      ["Enterprise Knowledge Engine", "Hybrid retrieval, reranking, graph signals, analytics, and enterprise search dashboard.", "https://divyadhole.github.io/enterprise-knowledge-engine/", ["Search", "Rerank", "Graph"], "Live"],
+      ["Responsible AI Ticket Intelligence", "Support routing with human oversight, fairness monitoring, SQL analytics, and dashboard.", "https://github.com/Divyadhole/responsible-ai-support-ticket-intelligence", ["Fairness", "SQL", "AI"], "AI"],
+      ["Product Analytics A/B Testing", "SQL funnels, experiment guardrails, statistical testing, CI, and executive dashboard.", "https://github.com/Divyadhole/product-analytics-ab-testing", ["A/B Tests", "SQL", "Stats"], "Analytics"]
+    ];
 
-    <a href="https://github.com/Divyadhole/er-wait-time-analysis" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(100,180,245,.1);color:#64b4f5;border:1px solid rgba(100,180,245,.2)">Healthcare / SQL</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#020a18"/>
-        <line x1="0" y1="55" x2="400" y2="55" stroke="#0e2a45" stroke-width=".5"/><line x1="0" y1="110" x2="400" y2="110" stroke="#0e2a45" stroke-width=".5"/><line x1="0" y1="165" x2="400" y2="165" stroke="#0e2a45" stroke-width=".5"/>
-        <!-- Hourly bar chart -->
-        <rect x="15" y="145" width="20" height="30" rx="2" fill="#64b4f5" opacity=".4"/>
-        <rect x="38" y="135" width="20" height="40" rx="2" fill="#64b4f5" opacity=".5"/>
-        <rect x="61" y="120" width="20" height="55" rx="2" fill="#64b4f5" opacity=".6"/>
-        <rect x="84" y="100" width="20" height="75" rx="2" fill="#64b4f5" opacity=".7"/>
-        <rect x="107" y="80" width="20" height="95" rx="2" fill="#f87171" opacity=".8"/>
-        <rect x="130" y="65" width="20" height="110" rx="2" fill="#f87171" opacity=".9"/>
-        <rect x="153" y="70" width="20" height="105" rx="2" fill="#f87171" opacity=".85"/>
-        <rect x="176" y="85" width="20" height="90" rx="2" fill="#fbbf24" opacity=".7"/>
-        <rect x="199" y="100" width="20" height="75" rx="2" fill="#64b4f5" opacity=".7"/>
-        <rect x="222" y="115" width="20" height="60" rx="2" fill="#64b4f5" opacity=".65"/>
-        <rect x="245" y="130" width="20" height="45" rx="2" fill="#64b4f5" opacity=".6"/>
-        <rect x="268" y="140" width="20" height="35" rx="2" fill="#64b4f5" opacity=".5"/>
-        <rect x="291" y="120" width="20" height="55" rx="2" fill="#fbbf24" opacity=".65"/>
-        <rect x="314" y="105" width="20" height="70" rx="2" fill="#f87171" opacity=".75"/>
-        <rect x="337" y="90" width="20" height="85" rx="2" fill="#f87171" opacity=".8"/>
-        <rect x="360" y="100" width="20" height="75" rx="2" fill="#fbbf24" opacity=".65"/>
-        <line x1="15" y1="100" x2="385" y2="100" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="6,3" opacity=".6"/>
-        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Avg Door-to-Doc: 79.7 min · LWBS: 2.23%</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P02 · Healthcare SQL</span><span class="pa">&#8599;</span></div>
-        <div class="pt">ER Wait Time Analysis</div>
-        <div class="psrc">ACEP Benchmarks · 8,000 visits</div>
-        <div class="pd">Avg door-to-doc <strong>79.7 min</strong> (target &lt;60). LWBS rate <strong>2.23%.</strong> Night shift adds +55% wait. 10 SQL window function queries.</div>
-        <div class="ptags"><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">Excel</span><span class="ptag">SQLite</span></div>
-      </div>
-    </a>
+    const repos = [
+      ["document-qa-rag", "AI"], ["structured-data-extraction", "AI"], ["two-tower-retrieval-system", "AI"], ["enterprise-ai-os", "AI"], ["llm-evaluation-platform", "AI"], ["document-intelligence-platform", "AI"], ["enterprise-knowledge-engine", "AI"], ["responsible-ai-support-ticket-intelligence", "AI"], ["product-analytics-ab-testing", "Analytics"], ["meeting-ai", "AI"],
+      ["solar-roi-calculator", "Analytics"], ["us-student-loan-analysis", "Public Data"], ["prescription-drug-pricing", "Healthcare"], ["cms-medicare-fraud-intelligence", "Healthcare"], ["solar-incentive-intelligence", "Analytics"], ["us-housing-affordability", "Public Data"], ["fema-disasters-poverty", "Public Data"], ["fbi-crime-data-analysis", "Public Data"], ["sec-edgar-fortune500", "Analytics"], ["inflation-wages-fred", "Public Data"], ["us-retail-sales-census", "Public Data"], ["great-resignation-bls", "Public Data"], ["retail-sales-analysis", "Analytics"], ["pharma-payments-analysis", "Healthcare"], ["er-wait-time-analysis", "Healthcare"], ["hospital-readmissions", "Healthcare"], ["food-deserts-usda", "Public Data"], ["opioid-crisis-dea-cdc", "Healthcare"], ["epa-air-quality", "Public Data"], ["Detecting-Service-Gaps-and-Bias-Signals-in-Hospital-Reviews", "Healthcare"], ["Uber-Analytics-Executive-Dashboard", "Analytics"], ["HR-Recruitment-Funnel", "Analytics"], ["ecommerce-sales-analytics", "Analytics"], ["Coffee-Sales-Dashboard", "Analytics"], ["daily-data-analyst-job-scan", "Analytics"], ["The-Data-Miners-Datathon-project-", "Analytics"], ["Capstone-project", "Analytics"], ["demo_project", "Analytics"], ["INFO536_Spring2025", "Public Data"], ["Group-3", "Public Data"], ["INFO-536-Data-science-public-interset", "Public Data"], ["Ex-06-Classifying-Spam-Emails", "AI"]
+    ];
 
-    <a href="https://github.com/Divyadhole/retail-sales-analysis" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(245,198,100,.1);color:#f5c664;border:1px solid rgba(245,198,100,.2)">Retail / EDA</span>
-        <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="220" fill="#1a1200"/>
-        <!-- Seasonality heatmap style -->
-        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Monthly Revenue Seasonality Index</text>
-        <g>
-          <rect x="20" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".3"/><text x="34" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">85</text>
-          <rect x="52" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".35"/><text x="66" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">87</text>
-          <rect x="84" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".5"/><text x="98" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">96</text>
-          <rect x="116" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".55"/><text x="130" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">98</text>
-          <rect x="148" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="162" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">100</text>
-          <rect x="180" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".55"/><text x="194" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">98</text>
-          <rect x="212" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="226" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">101</text>
-          <rect x="244" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".65"/><text x="258" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">103</text>
-          <rect x="276" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".6"/><text x="290" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">99</text>
-          <rect x="308" y="35" width="28" height="28" rx="3" fill="#f5c664" opacity=".7"/><text x="322" y="54" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">107</text>
-          <rect x="340" y="35" width="28" height="28" rx="3" fill="#fb923c" opacity=".8"/><text x="354" y="54" text-anchor="middle" fill="#fb923c" font-size="8" font-family="monospace">118</text>
-          <rect x="372" y="35" width="20" height="28" rx="3" fill="#f87171"/><text x="382" y="54" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">131</text>
-        </g>
-        <text x="20" y="82" fill="#6b7280" font-size="8" font-family="monospace">Jan Feb Mar Apr May Jun  Jul Aug Sep Oct  Nov  Dec</text>
-        <!-- RFM chart -->
-        <text x="200" y="105" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">RFM Customer Segments</text>
-        <rect x="20" y="115" width="60" height="60" rx="5" fill="#f87171" opacity=".2"/><text x="50" y="148" text-anchor="middle" fill="#f87171" font-size="9" font-family="monospace">Champion</text><text x="50" y="161" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">12%</text>
-        <rect x="88" y="115" width="60" height="60" rx="5" fill="#f5c664" opacity=".2"/><text x="118" y="148" text-anchor="middle" fill="#f5c664" font-size="9" font-family="monospace">Loyal</text><text x="118" y="161" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">28%</text>
-        <rect x="156" y="115" width="60" height="60" rx="5" fill="#4ade80" opacity=".2"/><text x="186" y="148" text-anchor="middle" fill="#4ade80" font-size="9" font-family="monospace">Potential</text><text x="186" y="161" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">35%</text>
-        <rect x="224" y="115" width="60" height="60" rx="5" fill="#fb923c" opacity=".2"/><text x="254" y="148" text-anchor="middle" fill="#fb923c" font-size="9" font-family="monospace">At Risk</text><text x="254" y="161" text-anchor="middle" fill="#fb923c" font-size="8" font-family="monospace">18%</text>
-        <rect x="292" y="115" width="60" height="60" rx="5" fill="#6b7280" opacity=".2"/><text x="322" y="148" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">Lost</text><text x="322" y="161" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">7%</text>
-        <text x="200" y="210" text-anchor="middle" fill="#6b7280" font-size="9" font-family="monospace">50,000 transactions · 10 stores · $8.97M revenue</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P04 · Retail EDA</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Retail Sales Analysis</div>
-        <div class="psrc">50,000 transactions · 10 stores · 3 years</div>
-        <div class="pd">Seasonality index, RFM customer segmentation using NTILE(), YoY growth with LAG(). $8.97M total revenue across 10 product categories.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Excel</span><span class="ptag">seaborn</span></div>
-      </div>
-    </a>
-  </div>
+    document.getElementById("projects").innerHTML = flagshipProjects.map((project) => `
+      <a class="card" href="${project[2]}" target="_blank" rel="noreferrer">
+        <div class="card-top"><div class="folder">📁</div><span class="chip">${project[4]}</span></div>
+        <h3>${project[0]}</h3>
+        <p>${project[1]}</p>
+        <div class="tags">${project[3].map(tag => `<span>${tag}</span>`).join("")}</div>
+      </a>
+    `).join("");
 
-  <!-- Row of 2: P9 + P10 -->
-  <div class="g2">
-    <a href="https://divyadhole.github.io/opioid-crisis-dea-cdc/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2)">DEA + CDC / Investigative</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#1c0800"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#3a1500" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#3a1500" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#3a1500" stroke-width=".5"/>
-        <!-- Stacked bars by drug -->
-        <rect x="48"  y="180" width="38" height="20" rx="1" fill="#185FA5" opacity=".8"/>
-        <rect x="48"  y="160" width="38" height="20" rx="1" fill="#534AB7" opacity=".75"/>
-        <rect x="48"  y="148" width="38" height="12" rx="1" fill="#f56464" opacity=".6"/>
-        <rect x="48"  y="140" width="38" height="8"  rx="1" fill="#fbbf24" opacity=".6"/>
-        <rect x="100" y="170" width="38" height="30" rx="1" fill="#185FA5" opacity=".8"/>
-        <rect x="100" y="143" width="38" height="27" rx="1" fill="#534AB7" opacity=".75"/>
-        <rect x="100" y="123" width="38" height="20" rx="1" fill="#f56464" opacity=".75"/>
-        <rect x="100" y="113" width="38" height="10" rx="1" fill="#fbbf24" opacity=".65"/>
-        <rect x="152" y="155" width="38" height="45" rx="1" fill="#185FA5" opacity=".8"/>
-        <rect x="152" y="118" width="38" height="37" rx="1" fill="#534AB7" opacity=".75"/>
-        <rect x="152" y="88"  width="38" height="30" rx="1" fill="#f56464" opacity=".85"/>
-        <rect x="152" y="75"  width="38" height="13" rx="1" fill="#fbbf24" opacity=".7"/>
-        <rect x="204" y="148" width="38" height="52" rx="1" fill="#185FA5" opacity=".8"/>
-        <rect x="204" y="100" width="38" height="48" rx="1" fill="#534AB7" opacity=".75"/>
-        <rect x="204" y="62"  width="38" height="38" rx="1" fill="#f56464" opacity=".9"/>
-        <rect x="204" y="48"  width="38" height="14" rx="1" fill="#fbbf24" opacity=".75"/>
-        <rect x="256" y="138" width="38" height="62" rx="1" fill="#185FA5" opacity=".75"/>
-        <rect x="256" y="80"  width="38" height="58" rx="1" fill="#534AB7" opacity=".7"/>
-        <rect x="256" y="30"  width="38" height="50" rx="1" fill="#f56464"/>
-        <rect x="256" y="18"  width="38" height="12" rx="1" fill="#fbbf24" opacity=".85"/>
-        <!-- Fentanyl annotation -->
-        <circle cx="275" cy="28" r="5" fill="#f56464"/>
-        <line x1="275" y1="23" x2="340" y2="10" stroke="#f56464" stroke-width="1"/>
-        <text x="345" y="8" fill="#f56464" font-size="10" font-family="monospace" font-weight="bold">Fentanyl dominates</text>
-        <rect x="308" y="138" width="38" height="62" rx="1" fill="#185FA5" opacity=".7"/>
-        <rect x="308" y="75"  width="38" height="63" rx="1" fill="#534AB7" opacity=".65"/>
-        <rect x="308" y="28"  width="38" height="47" rx="1" fill="#f56464" opacity=".95"/>
-        <rect x="308" y="15"  width="38" height="13" rx="1" fill="#fbbf24" opacity=".85"/>
-        <rect x="360" y="142" width="38" height="58" rx="1" fill="#185FA5" opacity=".65"/>
-        <rect x="360" y="78"  width="38" height="64" rx="1" fill="#534AB7" opacity=".6"/>
-        <rect x="360" y="28"  width="38" height="50" rx="1" fill="#f56464" opacity=".95"/>
-        <rect x="360" y="14"  width="38" height="14" rx="1" fill="#fbbf24" opacity=".85"/>
-        <!-- Legend -->
-        <rect x="420" y="40" width="10" height="10" rx="2" fill="#185FA5"/><text x="435" y="50" fill="#e8eaf0" font-size="9" font-family="monospace">Rx Opioids</text>
-        <rect x="420" y="58" width="10" height="10" rx="2" fill="#534AB7"/><text x="435" y="68" fill="#e8eaf0" font-size="9" font-family="monospace">Heroin</text>
-        <rect x="420" y="76" width="10" height="10" rx="2" fill="#f56464"/><text x="435" y="86" fill="#e8eaf0" font-size="9" font-family="monospace">Fentanyl (Wave 3)</text>
-        <rect x="420" y="94" width="10" height="10" rx="2" fill="#fbbf24"/><text x="435" y="104" fill="#e8eaf0" font-size="9" font-family="monospace">Cocaine/Meth</text>
-        <text x="48" y="250" fill="#6b7280" font-size="9" font-family="monospace">2015</text><text x="152" y="250" fill="#6b7280" font-size="9" font-family="monospace">2017</text><text x="256" y="250" fill="#6b7280" font-size="9" font-family="monospace">2019</text><text x="360" y="250" fill="#6b7280" font-size="9" font-family="monospace">2021 — 109K deaths</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P09 · Investigative</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Follow the Pills: Opioid Crisis</div>
-        <div class="psrc">DEA ARCOS + CDC WONDER — Real Government Data</div>
-        <div class="pd">109,680 overdose deaths in 2022 — <strong>46% from fentanyl.</strong> West Virginia: <strong>79.2 per 100,000.</strong> DEA ARCOS: 2.83 billion pills shipped at 2010 peak. Three waves mapped.</div>
-        <div class="ptags"><span class="ptag">DEA ARCOS</span><span class="ptag">CDC WONDER</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
-
-    <a href="https://divyadhole.github.io/food-deserts-usda/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2)">USDA / Equity</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0e0817"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#1e1333" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1e1333" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1e1333" stroke-width=".5"/>
-        <!-- State bars -->
-        <rect x="30"  y="90"  width="32" height="110" rx="2" fill="#f87171" opacity=".9"/>
-        <rect x="68"  y="98"  width="32" height="102" rx="2" fill="#f87171" opacity=".85"/>
-        <rect x="106" y="104" width="32" height="96"  rx="2" fill="#f87171" opacity=".8"/>
-        <rect x="144" y="108" width="32" height="92"  rx="2" fill="#fbbf24" opacity=".85"/>
-        <rect x="182" y="112" width="32" height="88"  rx="2" fill="#fbbf24" opacity=".8"/>
-        <rect x="220" y="118" width="32" height="82"  rx="2" fill="#fbbf24" opacity=".75"/>
-        <rect x="258" y="124" width="32" height="76"  rx="2" fill="#a78bfa" opacity=".8"/>
-        <rect x="296" y="132" width="32" height="68"  rx="2" fill="#a78bfa" opacity=".7"/>
-        <rect x="334" y="140" width="32" height="60"  rx="2" fill="#a78bfa" opacity=".65"/>
-        <!-- National avg line -->
-        <line x1="30" y1="148" x2="540" y2="148" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,4" opacity=".5"/>
-        <!-- Racial disparity panel -->
-        <rect x="410" y="50"  width="50" height="20" rx="2" fill="#f87171" opacity=".3"/><text x="435" y="64"  text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">Native 17.6%</text>
-        <rect x="410" y="76"  width="50" height="20" rx="2" fill="#f87171" opacity=".25"/><text x="435" y="90"  text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">Black 10.8%</text>
-        <rect x="410" y="102" width="50" height="20" rx="2" fill="#fbbf24" opacity=".25"/><text x="435" y="116" text-anchor="middle" fill="#fbbf24" font-size="8" font-family="monospace">Hispanic 9.4%</text>
-        <rect x="410" y="128" width="50" height="20" rx="2" fill="#a78bfa" opacity=".25"/><text x="435" y="142" text-anchor="middle" fill="#a78bfa" font-size="8" font-family="monospace">Asian 6.2%</text>
-        <rect x="410" y="154" width="50" height="20" rx="2" fill="#4ade80" opacity=".25"/><text x="435" y="168" text-anchor="middle" fill="#4ade80" font-size="8" font-family="monospace">White 5.2%</text>
-        <text x="435" y="198" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Food Desert %</text>
-        <!-- state labels -->
-        <text x="46"  y="250" fill="#f87171" font-size="8" text-anchor="middle" font-family="monospace">MS</text>
-        <text x="84"  y="250" fill="#f87171" font-size="8" text-anchor="middle" font-family="monospace">NM</text>
-        <text x="122" y="250" fill="#f87171" font-size="8" text-anchor="middle" font-family="monospace">LA</text>
-        <text x="160" y="250" fill="#fbbf24" font-size="8" text-anchor="middle" font-family="monospace">AR</text>
-        <text x="198" y="250" fill="#fbbf24" font-size="8" text-anchor="middle" font-family="monospace">WV</text>
-        <text x="236" y="250" fill="#fbbf24" font-size="8" text-anchor="middle" font-family="monospace">AL</text>
-        <text x="274" y="250" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="monospace">OK</text>
-        <text x="312" y="250" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="monospace">TN</text>
-        <text x="350" y="250" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="monospace">KY</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P10 · Food Equity</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Where America Cannot Eat</div>
-        <div class="psrc">USDA Food Access Research Atlas — Real Government Data</div>
-        <div class="pd"><strong>16.1M Americans</strong> live in food deserts. Black rate: <strong>10.8%</strong> vs 5.2% White. Native Americans average <strong>5.8 miles</strong> to nearest store. Mississippi worst at 11.8%.</div>
-        <div class="ptags"><span class="ptag">USDA Atlas</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">seaborn</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- ═══ OTHER / PRE-EXISTING WORK ═══ -->
-  <!-- FLAGSHIP: CMS Medicare Fraud Intelligence P14-P18 -->
-  <div style="margin-bottom:8px">
-    <div class="sec-title rv" style="color:#ef4444;border-color:rgba(239,68,68,.2)">
-      Flagship Project — Healthcare Fraud Detection
-    </div>
-  </div>
-  <div class="g2" style="margin-bottom:32px">
-    <a href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank" class="pc rv" style="border-color:rgba(239,68,68,.3)">
-      <div class="pi-w">
-        <span class="lb" style="background:#ef4444">Live App</span>
-        <span class="cb" style="background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.25)">ML / Healthcare / Fraud Detection</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0d0505"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#2a0808" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#2a0808" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#2a0808" stroke-width=".5"/>
-        <!-- Score distribution histogram -->
-        <rect x="20"  y="185" width="28" height="10"  rx="1" fill="#22c55e" opacity=".7"/>
-        <rect x="52"  y="180" width="28" height="15"  rx="1" fill="#22c55e" opacity=".7"/>
-        <rect x="84"  y="170" width="28" height="25"  rx="1" fill="#22c55e" opacity=".7"/>
-        <rect x="116" y="148" width="28" height="47"  rx="1" fill="#22c55e" opacity=".7"/>
-        <rect x="148" y="120" width="28" height="75"  rx="1" fill="#22c55e" opacity=".75"/>
-        <rect x="180" y="85"  width="28" height="110" rx="1" fill="#22c55e" opacity=".75"/>
-        <rect x="212" y="60"  width="28" height="135" rx="1" fill="#eab308" opacity=".75"/>
-        <rect x="244" y="88"  width="28" height="107" rx="1" fill="#f97316" opacity=".8"/>
-        <rect x="276" y="130" width="28" height="65"  rx="1" fill="#f97316" opacity=".8"/>
-        <rect x="308" y="155" width="28" height="40"  rx="1" fill="#ef4444" opacity=".85"/>
-        <rect x="340" y="168" width="28" height="27"  rx="1" fill="#ef4444" opacity=".9"/>
-        <rect x="372" y="175" width="28" height="20"  rx="1" fill="#ef4444" opacity=".95"/>
-        <!-- Threshold lines -->
-        <line x1="300" y1="40" x2="300" y2="210" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3" opacity=".8"/>
-        <line x1="240" y1="40" x2="240" y2="210" stroke="#f97316" stroke-width="1.2" stroke-dasharray="4,3" opacity=".7"/>
-        <text x="302" y="52" fill="#ef4444" font-size="8" font-family="monospace">CRITICAL</text>
-        <text x="242" y="52" fill="#f97316" font-size="8" font-family="monospace">HIGH</text>
-        <!-- OIG confirmation box -->
-        <rect x="425" y="30" width="160" height="100" rx="6" fill="#1a0505" stroke="#ef4444" stroke-width=".8"/>
-        <text x="505" y="52"  text-anchor="middle" fill="#f87171" font-size="10" font-family="monospace" font-weight="bold">OIG Confirmation</text>
-        <text x="505" y="78"  text-anchor="middle" fill="#ef4444" font-size="28" font-family="monospace" font-weight="bold">98%</text>
-        <text x="505" y="96"  text-anchor="middle" fill="#6b7280" font-size="8"  font-family="monospace">746 / 761 CRITICAL</text>
-        <text x="505" y="108" text-anchor="middle" fill="#6b7280" font-size="8"  font-family="monospace">already confirmed fraud</text>
-        <text x="505" y="118" text-anchor="middle" fill="#9ca3af" font-size="7"  font-family="monospace">PR-AUC: 0.9996</text>
-        <text x="20" y="248" fill="#6b7280" font-size="9" font-family="monospace">Fraud score distribution · 50K providers · 761 CRITICAL · 98% OIG confirmed</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P14-P18 · Flagship · 24+ commits</span><span class="pa">&#8599;</span></div>
-        <div class="pt">CMS Medicare Fraud Intelligence</div>
-        <div class="psrc">CMS Part D 2022 + OIG Exclusions + XGBoost + Isolation Forest</div>
-        <div class="pd">98% of CRITICAL-tier flags confirmed on OIG exclusion list. XGBoost PR-AUC <strong>0.9996</strong> vs baseline 0.015. <strong>43.5x</strong> fraud/normal flag separation. SHAP explainability, Streamlit provider lookup, state choropleth, 5-page dashboard. The model found them purely from billing pattern anomalies.</div>
-        <div class="ptags"><span class="ptag">XGBoost</span><span class="ptag">Isolation Forest</span><span class="ptag">SHAP</span><span class="ptag">CMS Part D</span><span class="ptag">Streamlit</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
-    <div style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
-      <div style="font-size:11px;font-weight:700;color:#ef4444;text-transform:uppercase;letter-spacing:.1em">Why This Gets You Hired</div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.9">
-        Healthcare fraud costs the US <strong style="color:var(--text)">$60-90 billion per year.</strong> Every healthcare company, insurance company, and Medicaid contractor wants someone who can find it.<br><br>
-        This model analyzed <strong style="color:var(--text)">50,000 real CMS providers</strong> and flagged 761 as CRITICAL. Of those, <strong style="color:#ef4444">746 were already on the federal exclusion list.</strong> The model found them without ever seeing the labels during training.<br><br>
-        That sentence is a job offer.
-      </div>
-      <div style="margin-top:auto">
-        <a href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank"
-           style="display:inline-block;background:#ef4444;color:white;font-weight:700;font-size:12px;
-                  padding:10px 22px;border-radius:8px;text-decoration:none;margin-right:10px">
-          View on GitHub
-        </a>
-        <a href="https://cms-fraud-divyadhole.streamlit.app" target="_blank"
-           style="display:inline-block;background:transparent;color:#ef4444;font-weight:700;font-size:12px;
-                  padding:10px 22px;border-radius:8px;text-decoration:none;border:1px solid #ef4444">
-          Live App ↗
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Solar Projects — SOLON targeted -->
-  <div class="g2">
-
-    <a href="https://solar-roi-calcu-kvtumqm7wwyyd6hnr4zfoc.streamlit.app" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live App</span>
-        <span class="cb" style="background:rgba(255,107,53,.12);color:#FF6B35;border:1px solid rgba(255,107,53,.25)">Solar / Finance / Streamlit</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0d1a0a"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#1a3010" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#1a3010" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#1a3010" stroke-width=".5"/>
-        <!-- Cumulative cash flow curve -->
-        <path d="M40,200 C80,198 120,195 160,188 C200,182 220,175 240,165 C260,155 270,140 280,120 C290,100 295,80 300,55" fill="none" stroke="#f87171" stroke-width="2.5" opacity=".9"/>
-        <path d="M300,55 C310,40 330,35 360,38 C390,41 430,50 480,65 C510,73 540,85 560,95" fill="none" stroke="#4ade80" stroke-width="2.5" opacity=".9"/>
-        <!-- Zero line -->
-        <line x1="40" y1="200" x2="560" y2="200" stroke="#6b7280" stroke-width=".8" stroke-dasharray="4,3"/>
-        <!-- Payback marker -->
-        <line x1="300" y1="30" x2="300" y2="220" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,4"/>
-        <text x="308" y="48" fill="#fbbf24" font-size="9" font-family="monospace" font-weight="bold">Payback 7.3yr</text>
-        <!-- Annotations -->
-        <rect x="380" y="30" width="175" height="70" rx="5" fill="#0d1a0a" stroke="#FF6B35" stroke-width=".5"/>
-        <text x="468" y="50" text-anchor="middle" fill="#FF6B35" font-size="10" font-family="monospace" font-weight="bold">100kW · Arizona</text>
-        <text x="468" y="65" text-anchor="middle" fill="#4ade80" font-size="12" font-family="monospace" font-weight="bold">IRR 12.7%</text>
-        <text x="468" y="80" text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">NPV $147K</text>
-        <text x="468" y="92" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">30% ITC · MACRS</text>
-        <text x="40" y="250" fill="#6b7280" font-size="9" font-family="monospace">Cumulative cash flow · Red = pre-payback · Green = positive</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P14 · Solar ROI Calculator</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Solar Project Financial Calculator</div>
-        <div class="psrc">EIA Commercial Rates + NREL Solar Resource</div>
-        <div class="pd">Select a state → auto-fills real EIA utility rate + NREL capacity factor → instant <strong>IRR, NPV, payback period</strong>. 30% ITC + MACRS depreciation modeled. Downloadable Excel proposal report. Built to match SOLON's exact financial modeling requirements.</div>
-        <div class="ptags"><span class="ptag">IRR/NPV</span><span class="ptag">EIA API</span><span class="ptag">NREL</span><span class="ptag">Streamlit</span><span class="ptag">Excel</span></div>
-      </div>
-    </a>
-
-    <a href="https://divyadhole.github.io/solar-incentive-intelligence/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(39,174,96,.1);color:#27AE60;border:1px solid rgba(39,174,96,.2)">Solar / Policy / Market Research</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#060f08"/>
-        <line x1="0" y1="65" x2="600" y2="65" stroke="#0a2010" stroke-width=".5"/><line x1="0" y1="130" x2="600" y2="130" stroke="#0a2010" stroke-width=".5"/><line x1="0" y1="195" x2="600" y2="195" stroke="#0a2010" stroke-width=".5"/>
-        <!-- State IRR bars -->
-        <rect x="18"  y="28"  width="18" height="172" rx="2" fill="#f59e0b"/><text x="27" y="20" text-anchor="middle" fill="#f59e0b" font-size="7" font-family="monospace">HI 38%</text>
-        <rect x="42"  y="90"  width="18" height="110" rx="2" fill="#4ade80" opacity=".9"/>
-        <rect x="66"  y="112" width="18" height="88"  rx="2" fill="#4ade80" opacity=".85"/>
-        <rect x="90"  y="120" width="18" height="80"  rx="2" fill="#4ade80" opacity=".8"/>
-        <rect x="114" y="122" width="18" height="78"  rx="2" fill="#FF6B35" opacity=".9"/><text x="123" y="114" text-anchor="middle" fill="#FF6B35" font-size="7" font-family="monospace">AZ #5</text>
-        <rect x="138" y="124" width="18" height="76"  rx="2" fill="#4ade80" opacity=".8"/>
-        <rect x="162" y="130" width="18" height="70"  rx="2" fill="#4ade80" opacity=".75"/>
-        <rect x="186" y="138" width="18" height="62"  rx="2" fill="#4ade80" opacity=".7"/>
-        <rect x="210" y="143" width="18" height="57"  rx="2" fill="#4ade80" opacity=".7"/>
-        <rect x="234" y="148" width="18" height="52"  rx="2" fill="#60a5fa" opacity=".75"/>
-        <rect x="258" y="153" width="18" height="47"  rx="2" fill="#60a5fa" opacity=".7"/>
-        <rect x="282" y="158" width="18" height="42"  rx="2" fill="#60a5fa" opacity=".7"/>
-        <rect x="306" y="163" width="18" height="37"  rx="2" fill="#60a5fa" opacity=".65"/>
-        <rect x="330" y="168" width="18" height="32"  rx="2" fill="#6b7280" opacity=".65"/>
-        <rect x="354" y="173" width="18" height="27"  rx="2" fill="#6b7280" opacity=".6"/>
-        <rect x="378" y="177" width="18" height="23"  rx="2" fill="#f87171" opacity=".7"/>
-        <rect x="402" y="181" width="18" height="19"  rx="2" fill="#f87171" opacity=".65"/>
-        <!-- Hurdle rate line -->
-        <line x1="18" y1="168" x2="540" y2="168" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="5,3" opacity=".7"/>
-        <text x="445" y="164" fill="#a78bfa" font-size="8" font-family="monospace">8% hurdle rate</text>
-        <!-- Score inset -->
-        <rect x="455" y="25" width="120" height="85" rx="4" fill="#0a1a0c" stroke="#27AE60" stroke-width=".5"/>
-        <text x="515" y="44"  text-anchor="middle" fill="#27AE60" font-size="9" font-family="monospace" font-weight="bold">AZ Rank #5</text>
-        <text x="515" y="60"  text-anchor="middle" fill="#4ade80" font-size="14" font-family="monospace" font-weight="bold">13.0%</text>
-        <text x="515" y="75"  text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">IRR</text>
-        <text x="515" y="90"  text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">7.2yr payback</text>
-        <text x="515" y="104" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">EIA 11.7¢/kWh</text>
-        <text x="18" y="250" fill="#6b7280" font-size="9" font-family="monospace">State IRR ranking · EIA rates + NREL solar · Arizona = SOLON home market</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P15 · Solar Incentive Intelligence</span><span class="pa">&#8599;</span></div>
-        <div class="pt">US Solar Incentive &amp; Market Dashboard</div>
-        <div class="psrc">EIA Open Data + NREL Solar Resource + DSIRE</div>
-        <div class="pd">All 50 states ranked for commercial solar economics. Arizona ranks <strong>#5 nationally</strong> — IRR 13.0%, 7.2yr payback. Real EIA utility rates, NREL solar resource, and DSIRE state incentive programs combined into one composite score.</div>
-        <div class="ptags"><span class="ptag">EIA API</span><span class="ptag">NREL</span><span class="ptag">DSIRE</span><span class="ptag">Python</span><span class="ptag">SQL</span></div>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- P13 -->
-  <div class="g2" style="margin-bottom:16px">
-    <a href="https://divyadhole.github.io/fema-disasters-poverty/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(251,146,60,.1);color:#fb923c;border:1px solid rgba(251,146,60,.2)">FEMA + Census / Equity</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#0a0600"/>
-        <rect x="113" y="80"  width="17" height="120" rx="1" fill="#f87171"/>
-        <rect x="341" y="22"  width="17" height="178" rx="1" fill="#f56464"/>
-        <text x="349" y="16" text-anchor="middle" fill="#f56464" font-size="9" font-family="monospace" font-weight="bold">$312.7B 2017</text>
-        <rect x="18"  y="188" width="17" height="12" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="37"  y="175" width="17" height="25" rx="1" fill="#f87171" opacity=".7"/>
-        <rect x="56"  y="185" width="17" height="15" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="75"  y="180" width="17" height="20" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="94"  y="172" width="17" height="28" rx="1" fill="#f87171" opacity=".7"/>
-        <rect x="132" y="185" width="17" height="15" rx="1" fill="#fb923c" opacity=".5"/>
-        <rect x="151" y="188" width="17" height="12" rx="1" fill="#fb923c" opacity=".5"/>
-        <rect x="170" y="165" width="17" height="35" rx="1" fill="#fb923c" opacity=".7"/>
-        <rect x="189" y="190" width="17" height="10" rx="1" fill="#fb923c" opacity=".5"/>
-        <rect x="208" y="183" width="17" height="17" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="227" y="150" width="17" height="50" rx="1" fill="#f87171" opacity=".8"/>
-        <rect x="246" y="143" width="17" height="57" rx="1" fill="#f87171" opacity=".85"/>
-        <rect x="265" y="183" width="17" height="17" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="284" y="182" width="17" height="18" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="303" y="183" width="17" height="17" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="322" y="181" width="17" height="19" rx="1" fill="#fb923c" opacity=".6"/>
-        <rect x="360" y="130" width="17" height="70" rx="1" fill="#f87171" opacity=".85"/>
-        <rect x="379" y="180" width="17" height="20" rx="1" fill="#fb923c" opacity=".65"/>
-        <rect x="398" y="125" width="17" height="75" rx="1" fill="#f87171" opacity=".85"/>
-        <rect x="417" y="108" width="17" height="92" rx="1" fill="#f87171" opacity=".9"/>
-        <rect x="436" y="110" width="17" height="90" rx="1" fill="#f87171" opacity=".9"/>
-        <rect x="455" y="143" width="17" height="57" rx="1" fill="#f87171" opacity=".8"/>
-        <rect x="490" y="40" width="100" height="80" rx="4" fill="#1a0a00" stroke="#fb923c" stroke-width=".5"/>
-        <text x="540" y="58"  text-anchor="middle" fill="#fb923c" font-size="9" font-family="monospace">Recovery Gap</text>
-        <rect x="500" y="64" width="18" height="8" rx="1" fill="#4ade80" opacity=".8"/>
-        <text x="522" y="72" fill="#4ade80" font-size="8" font-family="monospace">Low poverty 8mo</text>
-        <rect x="500" y="78" width="80" height="8" rx="1" fill="#f87171" opacity=".85"/>
-        <text x="522" y="86" fill="#f87171" font-size="8" font-family="monospace">High poverty 39mo</text>
-        <text x="540" y="108" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">4.7x</text>
-        <text x="20" y="250" fill="#6b7280" font-size="9" font-family="monospace">Annual disaster cost 2000-2023 · 4.7x recovery gap by poverty level</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P13 · Disasters / Equity</span><span class="pa">&#8599;</span></div>
-        <div class="pt">When Disaster Strikes the Poor</div>
-        <div class="psrc">FEMA OpenFEMA API + Census Bureau SAIPE</div>
-        <div class="pd"><strong>$1.49 trillion</strong> in disasters 2000-2023. High-poverty counties take <strong>4.7x longer</strong> to recover. Tornadoes hit low-income counties 72% of the time. 2017: Harvey + Irma + Maria = <strong>$312.7B</strong>.</div>
-        <div class="ptags"><span class="ptag">FEMA OpenFEMA</span><span class="ptag">Census SAIPE</span><span class="ptag">SQL</span><span class="ptag">scipy</span></div>
-      </div>
-    </a>
-    <div></div>
-  </div>
-
-  <!-- P11 + P12 -->
-  <div class="g2">
-    <a href="https://divyadhole.github.io/sec-edgar-fortune500/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(245,198,100,.1);color:#f5c664;border:1px solid rgba(245,198,100,.2)">SEC EDGAR / Financials</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#1a1200"/>
-        <rect x="20"  y="40"  width="34" height="160" rx="2" fill="#f5c664" opacity=".9"/><text x="37" y="30" text-anchor="middle" fill="#f5c664" font-size="8" font-family="monospace">WMT $611B</text>
-        <rect x="60"  y="85"  width="34" height="115" rx="2" fill="#f5c664" opacity=".8"/>
-        <rect x="100" y="98"  width="34" height="102" rx="2" fill="#185FA5" opacity=".9"/>
-        <rect x="140" y="108" width="34" height="92"  rx="2" fill="#185FA5" opacity=".8"/>
-        <rect x="180" y="115" width="34" height="85"  rx="2" fill="#185FA5" opacity=".8"/>
-        <rect x="220" y="125" width="34" height="75"  rx="2" fill="#534AB7" opacity=".85"/>
-        <rect x="260" y="140" width="34" height="60"  rx="2" fill="#534AB7" opacity=".8"/>
-        <rect x="300" y="148" width="34" height="52"  rx="2" fill="#1D9E75" opacity=".85"/>
-        <rect x="340" y="158" width="34" height="42"  rx="2" fill="#1D9E75" opacity=".8"/>
-        <rect x="380" y="165" width="34" height="35"  rx="2" fill="#D85A30" opacity=".85"/>
-        <rect x="420" y="172" width="34" height="28"  rx="2" fill="#D85A30" opacity=".8"/>
-        <rect x="460" y="178" width="34" height="22"  rx="2" fill="#185FA5" opacity=".75"/>
-        <polyline points="37,180 77,120 117,80 157,95 197,105 237,145 277,155 317,135 357,148 397,175 437,182 477,75" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="5,3" opacity=".8"/>
-        <circle cx="477" cy="75" r="4" fill="#fbbf24"/><text x="510" y="72" fill="#fbbf24" font-size="9" font-family="monospace" font-weight="bold">MSFT 34.2%</text>
-        <text x="20" y="250" fill="#6b7280" font-size="9" font-family="monospace">Revenue bars · Dashed = net margin · MSFT 34.2% highest</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P11 · Fortune 500 / SEC</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Fortune 500 by the Numbers</div>
-        <div class="psrc">SEC EDGAR XBRL API — Real 10-K Filings</div>
-        <div class="pd">12 companies, 5 sectors, 2019-2023. Walmart leads at <strong>$611B</strong> but Microsoft wins on margins at <strong>34.2%</strong>. Apple generates <strong>$100B free cash flow</strong> — more than the entire energy sector.</div>
-        <div class="ptags"><span class="ptag">SEC EDGAR</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">POWER()</span></div>
-      </div>
-    </a>
-    <a href="https://divyadhole.github.io/fbi-crime-data-analysis/" target="_blank" class="pc rv">
-      <div class="pi-w">
-        <span class="lb">Live</span>
-        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2)">FBI UCR / Investigative</span>
-        <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="260" fill="#100808"/>
-        <rect x="20"  y="30"  width="26" height="170" rx="2" fill="#f56464"/><text x="33" y="22" text-anchor="middle" fill="#f56464" font-size="7" font-family="monospace">STL 65</text>
-        <rect x="52"  y="48"  width="26" height="152" rx="2" fill="#f56464" opacity=".9"/>
-        <rect x="84"  y="64"  width="26" height="136" rx="2" fill="#f87171" opacity=".85"/>
-        <rect x="116" y="95"  width="26" height="105" rx="2" fill="#fb923c" opacity=".8"/>
-        <rect x="148" y="108" width="26" height="92"  rx="2" fill="#fb923c" opacity=".75"/>
-        <rect x="180" y="116" width="26" height="84"  rx="2" fill="#fb923c" opacity=".7"/>
-        <rect x="212" y="122" width="26" height="78"  rx="2" fill="#fbbf24" opacity=".75"/>
-        <rect x="244" y="135" width="26" height="65"  rx="2" fill="#fbbf24" opacity=".7"/>
-        <rect x="276" y="148" width="26" height="52"  rx="2" fill="#fbbf24" opacity=".65"/>
-        <rect x="308" y="158" width="26" height="42"  rx="2" fill="#4ade80" opacity=".7"/>
-        <rect x="340" y="168" width="26" height="32"  rx="2" fill="#4ade80" opacity=".75"/>
-        <line x1="20" y1="190" x2="550" y2="190" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="6,4" opacity=".7"/>
-        <text x="440" y="186" fill="#a78bfa" font-size="9" font-family="monospace">National avg 6.3</text>
-        <rect x="440" y="60"  width="130" height="60" rx="5" fill="#1a0808" stroke="#f56464" stroke-width=".5"/>
-        <text x="505" y="80"  text-anchor="middle" fill="#f56464" font-size="10" font-family="monospace" font-weight="bold">COVID 2020</text>
-        <text x="505" y="96"  text-anchor="middle" fill="#f56464" font-size="13" font-family="monospace" font-weight="bold">+56%</text>
-        <text x="505" y="110" text-anchor="middle" fill="#6b7280" font-size="8"  font-family="monospace">homicide spike</text>
-        <text x="20" y="250" fill="#6b7280" font-size="9" font-family="monospace">City homicide rates per 100k · National avg 6.3</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">P12 · Crime / FBI UCR</span><span class="pa">&#8599;</span></div>
-        <div class="pt">Crime in America</div>
-        <div class="psrc">FBI Uniform Crime Reporting Program</div>
-        <div class="pd">St. Louis: <strong>65.4/100k</strong> — 10.4x the national average, higher than Brazil and South Africa. COVID caused the largest single-year homicide spike on record: <strong>+56% in 2020</strong>. Property crime down <strong>-21%</strong> since 2015.</div>
-        <div class="ptags"><span class="ptag">FBI UCR</span><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">scipy</span></div>
-      </div>
-    </a>
-  </div>
-
-  <div class="sec-title rv" id="ai-lab">AI Systems Lab · 2026 Portfolio Stack</div>
-
-  <div class="lab-intro rv">
-    <div class="lab-copy">
-      <div class="lab-k">Modern AI engineering portfolio</div>
-      <div class="lab-h">Production-shaped AI systems, not toy notebooks.</div>
-      <p class="lab-p">This layer highlights the projects most aligned with 2026 AI startup hiring: RAG, structured outputs, two-tower retrieval, LLM evaluation, document intelligence, enterprise search, multi-agent systems, responsible AI, analytics experimentation, and meeting intelligence.</p>
-    </div>
-    <div class="lab-panel">
-      <div class="lab-m"><strong>10</strong><span>Flagship AI systems</span></div>
-      <div class="lab-m"><strong>7</strong><span>Live portfolio apps</span></div>
-      <div class="lab-m"><strong>4</strong><span>Retrieval / eval projects</span></div>
-      <div class="lab-m"><strong>100%</strong><span>Public repos</span></div>
-    </div>
-  </div>
-
-  <div class="ai-grid">
-    <a href="https://github.com/Divyadhole/document-qa-rag" target="_blank" class="ai-card rv" style="--glow:rgba(100,245,212,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-01</span><span class="ai-live">Repo</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="10" width="36" height="42" rx="6" fill="none" stroke="#64f5d4" stroke-width="2"/><path d="M20 24h20M20 31h20M20 38h12" stroke="#64f5d4" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <h3>Document Q&amp;A With RAG</h3>
-      <p>Grounded PDF question answering with chunk scoring, citations, and hallucination-safe fallback.</p>
-      <div class="ai-tags"><span>RAG</span><span>FastAPI</span><span>React</span></div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/structured-data-extraction" target="_blank" class="ai-card rv" style="--glow:rgba(100,180,245,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-02</span><span class="ai-live">Repo</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M16 14h28v32H16z" fill="none" stroke="#64b4f5" stroke-width="2"/><path d="M22 24h16M22 31h11M22 38h18" stroke="#64b4f5" stroke-width="2" stroke-linecap="round"/><circle cx="42" cy="24" r="3" fill="#64b4f5"/></svg></div>
-      <h3>Structured Data Extraction</h3>
-      <p>Typed job-posting extraction with Pydantic validation, async batch processing, and metrics.</p>
-      <div class="ai-tags"><span>Pydantic</span><span>LLM Outputs</span><span>Metrics</span></div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/two-tower-retrieval-system" target="_blank" class="ai-card rv" style="--glow:rgba(124,109,250,.2)">
-      <div class="ai-top"><span class="ai-idx">AI-03</span><span class="ai-live">Repo</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="14" width="12" height="32" rx="3" fill="none" stroke="#7c6dfa" stroke-width="2"/><rect x="36" y="14" width="12" height="32" rx="3" fill="none" stroke="#7c6dfa" stroke-width="2"/><path d="M24 22h12M24 38h12" stroke="#7c6dfa" stroke-width="2"/></svg></div>
-      <h3>Two-Tower Retrieval System</h3>
-      <p>E-commerce retrieval with query and item towers, personalization signals, and ranking metrics.</p>
-      <div class="ai-tags"><span>Retrieval</span><span>Embeddings</span><span>Search</span></div>
-    </a>
-
-    <a href="https://divyadhole.github.io/enterprise-ai-os/" target="_blank" class="ai-card rv" style="--glow:rgba(212,245,100,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-04</span><span class="ai-live">Live</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="6" fill="#d4f564"/><circle cx="15" cy="18" r="4" fill="#d4f564"/><circle cx="45" cy="18" r="4" fill="#d4f564"/><circle cx="18" cy="45" r="4" fill="#d4f564"/><circle cx="44" cy="43" r="4" fill="#d4f564"/><path d="M19 20l8 7M41 21l-8 6M22 42l6-8M40 40l-7-7" stroke="#d4f564" stroke-width="2"/></svg></div>
-      <h3>Enterprise AI Operating System</h3>
-      <p>Multi-agent enterprise task runner with tools, observability roadmap, Docker, and CI.</p>
-      <div class="ai-tags"><span>Agents</span><span>FastAPI</span><span>Docker</span></div>
-    </a>
-
-    <a href="https://divyadhole.github.io/llm-evaluation-platform/" target="_blank" class="ai-card rv" style="--glow:rgba(245,198,100,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-05</span><span class="ai-live">Live</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M14 42l10-12 8 6 14-20" fill="none" stroke="#f5c664" stroke-width="3" stroke-linecap="round"/><path d="M14 46h34" stroke="#f5c664" stroke-width="2"/></svg></div>
-      <h3>LLM Evaluation Platform</h3>
-      <p>Prompt testing, golden datasets, model comparison, quality gates, and evaluation dashboard.</p>
-      <div class="ai-tags"><span>Evals</span><span>Quality Gates</span><span>LLMOps</span></div>
-    </a>
-
-    <a href="https://divyadhole.github.io/document-intelligence-platform/" target="_blank" class="ai-card rv" style="--glow:rgba(245,100,180,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-06</span><span class="ai-live">Live</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="12" y="12" width="36" height="36" rx="8" fill="none" stroke="#f564b4" stroke-width="2"/><path d="M21 25h18M21 32h18M21 39h10" stroke="#f564b4" stroke-width="2"/><path d="M39 12v10h9" stroke="#f564b4" stroke-width="2"/></svg></div>
-      <h3>Document Intelligence Platform</h3>
-      <p>OCR-ready extraction, risk detection, citations, human review, and audit trail workflow.</p>
-      <div class="ai-tags"><span>OCR</span><span>Review</span><span>Audit</span></div>
-    </a>
-
-    <a href="https://divyadhole.github.io/enterprise-knowledge-engine/" target="_blank" class="ai-card rv" style="--glow:rgba(100,245,160,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-07</span><span class="ai-live">Live</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><circle cx="20" cy="22" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><circle cx="40" cy="22" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><circle cx="30" cy="42" r="7" fill="none" stroke="#64f5a0" stroke-width="2"/><path d="M26 24h8M24 28l4 8M36 28l-4 8" stroke="#64f5a0" stroke-width="2"/></svg></div>
-      <h3>Enterprise Knowledge Engine</h3>
-      <p>Hybrid retrieval, reranking, graph signals, analytics, and enterprise search dashboard.</p>
-      <div class="ai-tags"><span>Search</span><span>Rerank</span><span>Graph</span></div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/responsible-ai-support-ticket-intelligence" target="_blank" class="ai-card rv" style="--glow:rgba(245,100,100,.18)">
-      <div class="ai-top"><span class="ai-idx">AI-08</span><span class="ai-live">Repo</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M30 10l18 8v12c0 12-8 18-18 22-10-4-18-10-18-22V18z" fill="none" stroke="#f56464" stroke-width="2"/><path d="M22 31l5 5 11-12" stroke="#f56464" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
-      <h3>Responsible AI Ticket Intelligence</h3>
-      <p>Support routing with human oversight, fairness monitoring, SQL analytics, and dashboard.</p>
-      <div class="ai-tags"><span>Responsible AI</span><span>Fairness</span><span>SQL</span></div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/product-analytics-ab-testing" target="_blank" class="ai-card rv" style="--glow:rgba(100,180,245,.16)">
-      <div class="ai-top"><span class="ai-idx">AI-09</span><span class="ai-live">Repo</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><path d="M15 44V18M30 44V12M45 44V25" stroke="#64b4f5" stroke-width="5" stroke-linecap="round"/><path d="M12 46h38" stroke="#64b4f5" stroke-width="2"/></svg></div>
-      <h3>Product Analytics A/B Testing</h3>
-      <p>SQL funnels, experiment guardrails, statistical testing, CI, and executive dashboard.</p>
-      <div class="ai-tags"><span>A/B Tests</span><span>SQL</span><span>Stats</span></div>
-    </a>
-
-    <a href="https://divyadhole.github.io/meeting-ai/" target="_blank" class="ai-card rv" style="--glow:rgba(245,198,100,.16)">
-      <div class="ai-top"><span class="ai-idx">AI-10</span><span class="ai-live">Live</span></div>
-      <div class="ai-glyph"><svg viewBox="0 0 60 60"><rect x="13" y="16" width="34" height="28" rx="8" fill="none" stroke="#f5c664" stroke-width="2"/><path d="M22 28h16M22 35h10" stroke="#f5c664" stroke-width="2" stroke-linecap="round"/><circle cx="42" cy="20" r="5" fill="#f5c664"/></svg></div>
-      <h3>Meeting AI</h3>
-      <p>Evidence-grounded meeting intelligence with summaries, citations, and evaluation workflow.</p>
-      <div class="ai-tags"><span>Meetings</span><span>Summaries</span><span>Evals</span></div>
-    </a>
-  </div>
-
-  <div class="repo-atlas rv">
-    <div class="atlas-head">
-      <h3>GitHub Repository Atlas</h3>
-      <p>Every public repo is reachable here, while the cards above keep the strongest portfolio story front and center.</p>
-    </div>
-    <div class="repo-cloud">
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/document-qa-rag" target="_blank">document-qa-rag</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/structured-data-extraction" target="_blank">structured-data-extraction</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/two-tower-retrieval-system" target="_blank">two-tower-retrieval-system</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/enterprise-ai-os" target="_blank">enterprise-ai-os</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/llm-evaluation-platform" target="_blank">llm-evaluation-platform</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/document-intelligence-platform" target="_blank">document-intelligence-platform</a>
-      <a class="repo-chip prime" href="https://github.com/Divyadhole/enterprise-knowledge-engine" target="_blank">enterprise-knowledge-engine</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/product-analytics-ab-testing" target="_blank">product-analytics-ab-testing</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/responsible-ai-support-ticket-intelligence" target="_blank">responsible-ai-support-ticket-intelligence</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/meeting-ai" target="_blank">meeting-ai</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/solar-roi-calculator" target="_blank">solar-roi-calculator</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/us-student-loan-analysis" target="_blank">us-student-loan-analysis</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/prescription-drug-pricing" target="_blank">prescription-drug-pricing</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/cms-medicare-fraud-intelligence" target="_blank">cms-medicare-fraud-intelligence</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/solar-incentive-intelligence" target="_blank">solar-incentive-intelligence</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/us-housing-affordability" target="_blank">us-housing-affordability</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/fema-disasters-poverty" target="_blank">fema-disasters-poverty</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/fbi-crime-data-analysis" target="_blank">fbi-crime-data-analysis</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/sec-edgar-fortune500" target="_blank">sec-edgar-fortune500</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/inflation-wages-fred" target="_blank">inflation-wages-fred</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/us-retail-sales-census" target="_blank">us-retail-sales-census</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/great-resignation-bls" target="_blank">great-resignation-bls</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/retail-sales-analysis" target="_blank">retail-sales-analysis</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/pharma-payments-analysis" target="_blank">pharma-payments-analysis</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/er-wait-time-analysis" target="_blank">er-wait-time-analysis</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/hospital-readmissions" target="_blank">hospital-readmissions</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/food-deserts-usda" target="_blank">food-deserts-usda</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/opioid-crisis-dea-cdc" target="_blank">opioid-crisis-dea-cdc</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/epa-air-quality" target="_blank">epa-air-quality</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Detecting-Service-Gaps-and-Bias-Signals-in-Hospital-Reviews" target="_blank">hospital-review-bias-signals</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Uber-Analytics-Executive-Dashboard" target="_blank">uber-analytics-dashboard</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/HR-Recruitment-Funnel" target="_blank">hr-recruitment-funnel</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/ecommerce-sales-analytics" target="_blank">ecommerce-sales-analytics</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Coffee-Sales-Dashboard" target="_blank">coffee-sales-dashboard</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/daily-data-analyst-job-scan" target="_blank">daily-data-analyst-job-scan</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/The-Data-Miners-Datathon-project-" target="_blank">data-miners-datathon</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Capstone-project" target="_blank">capstone-project</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/demo_project" target="_blank">demo-project</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank">info536-spring2025</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Group-3" target="_blank">group-3</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/INFO-536-Data-science-public-interset" target="_blank">info536-public-interest</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Ex-06-Classifying-Spam-Emails" target="_blank">spam-email-classifier</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/divyadhole.github.io" target="_blank">portfolio-source</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/Divyadhole" target="_blank">github-profile-readme</a>
-      <a class="repo-chip" href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank">info536-fork</a>
-    </div>
-  </div>
-
-  <div class="sec-title rv" id="other">All Other Projects</div>
-
-  <!-- Row of 4 smaller -->
-  <div class="g4" style="margin-top:20px">
-    <a href="https://github.com/Divyadhole/Detecting-Service-Gaps-and-Bias-Signals-in-Hospital-Reviews" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2);font-size:8px">NLP / Healthcare</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#0e0817"/>
-        <!-- Sentiment bars -->
-        <text x="150" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Hospital Review Sentiment</text>
-        <rect x="20" y="40" width="70" height="14" rx="3" fill="#4ade80" opacity=".7"/><text x="95" y="51" fill="#4ade80" font-size="9" font-family="monospace">Positive 58%</text>
-        <rect x="20" y="62" width="42" height="14" rx="3" fill="#fbbf24" opacity=".7"/><text x="67" y="73" fill="#fbbf24" font-size="9" font-family="monospace">Neutral 35%</text>
-        <rect x="20" y="84" width="8" height="14" rx="3" fill="#f87171" opacity=".7"/><text x="32" y="95" fill="#f87171" font-size="9" font-family="monospace">Negative 7%</text>
-        <!-- Word cloud style -->
-        <text x="20" y="125" fill="#a78bfa" font-size="11" font-family="monospace" font-weight="bold">wait</text>
-        <text x="65" y="120" fill="#a78bfa" font-size="8" font-family="monospace">staff</text>
-        <text x="100" y="128" fill="#a78bfa" font-size="13" font-family="monospace" font-weight="bold">care</text>
-        <text x="145" y="118" fill="#a78bfa" font-size="9" font-family="monospace">billing</text>
-        <text x="195" y="125" fill="#f87171" font-size="10" font-family="monospace">bias</text>
-        <text x="235" y="120" fill="#f87171" font-size="8" font-family="monospace">gap</text>
-        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">MIT License · Python</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">NLP</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Hospital Review Bias Detection</div>
-        <div class="psrc">Python · MIT License</div>
-        <div class="pd">Detecting service gaps and bias signals in hospital reviews using NLP sentiment analysis.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">NLP</span><span class="ptag">ML</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/Uber-Analytics-Executive-Dashboard" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(100,245,100,.1);color:#64f564;border:1px solid rgba(100,245,100,.2);font-size:8px">GCP / Analytics</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#050f05"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">10M+ Ride Records · Looker Studio</text>
-        <!-- Map dots simulation -->
-        <circle cx="80" cy="70" r="20" fill="none" stroke="#64f564" stroke-width="1" opacity=".3"/>
-        <circle cx="80" cy="70" r="12" fill="none" stroke="#64f564" stroke-width="1" opacity=".5"/>
-        <circle cx="80" cy="70" r="5" fill="#64f564" opacity=".8"/>
-        <circle cx="150" cy="90" r="15" fill="none" stroke="#fbbf24" stroke-width="1" opacity=".3"/>
-        <circle cx="150" cy="90" r="8" fill="none" stroke="#fbbf24" stroke-width="1" opacity=".5"/>
-        <circle cx="150" cy="90" r="4" fill="#fbbf24" opacity=".8"/>
-        <circle cx="220" cy="60" r="25" fill="none" stroke="#f87171" stroke-width="1" opacity=".3"/>
-        <circle cx="220" cy="60" r="16" fill="none" stroke="#f87171" stroke-width="1" opacity=".5"/>
-        <circle cx="220" cy="60" r="7" fill="#f87171" opacity=".8"/>
-        <!-- KPIs -->
-        <text x="20" y="130" fill="#64f564" font-size="11" font-family="monospace" font-weight="bold">10M+</text>
-        <text x="20" y="142" fill="#6b7280" font-size="8" font-family="monospace">rides</text>
-        <text x="90" y="130" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">GCP</text>
-        <text x="90" y="142" fill="#6b7280" font-size="8" font-family="monospace">pipeline</text>
-        <text x="155" y="130" fill="#64f564" font-size="11" font-family="monospace" font-weight="bold">Looker</text>
-        <text x="155" y="142" fill="#6b7280" font-size="8" font-family="monospace">dashboard</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Analytics</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Uber Analytics Dashboard</div>
-        <div class="psrc">GCP · Mage.ai · Looker Studio</div>
-        <div class="pd">Full-stack analytics on 10M+ ride records. Urban mobility trends visualized in Looker Studio.</div>
-        <div class="ptags"><span class="ptag">GCP</span><span class="ptag">Mage.ai</span><span class="ptag">Looker</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/HR-Recruitment-Funnel" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(245,100,180,.1);color:#f564b4;border:1px solid rgba(245,100,180,.2);font-size:8px">HR / ML</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#1a0818"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Recruitment Funnel Analysis</text>
-        <!-- Funnel -->
-        <polygon points="30,35 270,35 230,65 70,65" fill="#f564b4" opacity=".7"/>
-        <polygon points="70,70 230,70 200,100 100,100" fill="#f564b4" opacity=".55"/>
-        <polygon points="100,105 200,105 180,135 120,135" fill="#f564b4" opacity=".4"/>
-        <polygon points="120,140 180,140 165,155 135,155" fill="#f564b4" opacity=".3"/>
-        <text x="150" y="55" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace" font-weight="bold">Applications</text>
-        <text x="150" y="88" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace">Screening</text>
-        <text x="150" y="122" text-anchor="middle" fill="#fef9e7" font-size="9" font-family="monospace">Interview</text>
-        <text x="150" y="150" text-anchor="middle" fill="#fef9e7" font-size="8" font-family="monospace">Offer</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">HR Analytics</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">HR Recruitment Funnel</div>
-        <div class="psrc">Python · SQL · Streamlit</div>
-        <div class="pd">Enterprise ML-powered recruitment intelligence platform transforming HR data into actionable insights.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">SQL</span><span class="ptag">Streamlit</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/ecommerce-sales-analytics" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2);font-size:8px">E-commerce / BI</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#020f1e"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">KPI Dashboard · YoY Trends</text>
-        <!-- KPI boxes -->
-        <rect x="15" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
-        <text x="46" y="46" text-anchor="middle" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">$2.4M</text>
-        <text x="46" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Revenue</text>
-        <rect x="84" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
-        <text x="115" y="46" text-anchor="middle" fill="#4ade80" font-size="11" font-family="monospace" font-weight="bold">+18%</text>
-        <text x="115" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">YoY Growth</text>
-        <rect x="153" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
-        <text x="184" y="46" text-anchor="middle" fill="#fbbf24" font-size="11" font-family="monospace" font-weight="bold">3.2%</text>
-        <text x="184" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Conv Rate</text>
-        <rect x="222" y="30" width="62" height="40" rx="5" fill="#0e3a6e" stroke="#38bdf8" stroke-width=".5"/>
-        <text x="253" y="46" text-anchor="middle" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">$84</text>
-        <text x="253" y="60" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Avg Order</text>
-        <!-- Mini line chart -->
-        <polyline points="15,140 55,125 95,130 135,105 175,95 215,88 255,75 285,68" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-        <polyline points="15,140 55,125 95,130 135,105 175,95 215,88 255,75 285,68 285,155 15,155" fill="rgba(56,189,248,0.06)"/>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">E-commerce</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">E-commerce Analytics</div>
-        <div class="psrc">Python · Plotly · Power BI</div>
-        <div class="pd">Interactive sales dashboard with KPI tracking, YoY trends, and geographic visualizations.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Plotly</span><span class="ptag">Power BI</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- Row of 4 -->
-  <div class="g4">
-    <a href="https://github.com/Divyadhole/Coffee-Sales-Dashboard" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(245,198,100,.1);color:#f5c664;border:1px solid rgba(245,198,100,.2);font-size:8px">Jupyter / EDA</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#1a1000"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Coffee Sales by Product</text>
-        <rect x="20" y="40" width="35" height="95" rx="3" fill="#f5c664" opacity=".8"/><text x="37" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Espresso</text>
-        <rect x="65" y="60" width="35" height="75" rx="3" fill="#fb923c" opacity=".75"/><text x="82" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Latte</text>
-        <rect x="110" y="50" width="35" height="85" rx="3" fill="#f5c664" opacity=".7"/><text x="127" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Cappucino</text>
-        <rect x="155" y="75" width="35" height="60" rx="3" fill="#fb923c" opacity=".65"/><text x="172" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Mocha</text>
-        <rect x="200" y="85" width="35" height="50" rx="3" fill="#f5c664" opacity=".6"/><text x="217" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Cold Brew</text>
-        <rect x="245" y="95" width="35" height="40" rx="3" fill="#fb923c" opacity=".5"/><text x="262" y="148" text-anchor="middle" fill="#6b7280" font-size="7" font-family="monospace">Other</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">EDA</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Coffee Sales Dashboard</div>
-        <div class="psrc">Jupyter Notebook</div>
-        <div class="pd">Sales analysis and visualization across coffee product categories with trend analysis.</div>
-        <div class="ptags"><span class="ptag">Jupyter</span><span class="ptag">pandas</span><span class="ptag">matplotlib</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/The-Data-Miners-Datathon-project-" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(100,245,212,.1);color:#64f5d4;border:1px solid rgba(100,245,212,.2);font-size:8px">R / Datathon</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#050f1a"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Data Miners Datathon</text>
-        <!-- Scatter plot -->
-        <line x1="30" y1="130" x2="280" y2="130" stroke="#1a3a4e" stroke-width="1"/>
-        <line x1="30" y1="130" x2="30" y2="30" stroke="#1a3a4e" stroke-width="1"/>
-        <circle cx="60" cy="110" r="4" fill="#64f5d4" opacity=".7"/>
-        <circle cx="80" cy="95" r="5" fill="#64f5d4" opacity=".75"/>
-        <circle cx="100" cy="80" r="4" fill="#64f5d4" opacity=".7"/>
-        <circle cx="130" cy="70" r="6" fill="#fbbf24" opacity=".8"/>
-        <circle cx="160" cy="55" r="5" fill="#fbbf24" opacity=".75"/>
-        <circle cx="190" cy="50" r="7" fill="#fbbf24" opacity=".8"/>
-        <circle cx="220" cy="40" r="5" fill="#4ade80" opacity=".8"/>
-        <circle cx="250" cy="35" r="6" fill="#4ade80" opacity=".85"/>
-        <line x1="50" y1="115" x2="260" y2="32" stroke="#64f5d4" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
-        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Team project · R language</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Competition</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Data Miners Datathon</div>
-        <div class="psrc">R · Team Project</div>
-        <div class="pd">Competitive datathon project with team analysis and data-driven insights using R.</div>
-        <div class="ptags"><span class="ptag">R</span><span class="ptag">tidyverse</span><span class="ptag">ggplot2</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/Capstone-project" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid rgba(167,139,250,.2);font-size:8px">Bioinformatics</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#0e0817"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">PSMC Demographic Reconstruction</text>
-        <!-- DNA-like visualization -->
-        <path d="M 50 40 Q 100 80 50 120" fill="none" stroke="#a78bfa" stroke-width="2" opacity=".7"/>
-        <path d="M 80 40 Q 30 80 80 120" fill="none" stroke="#c084fc" stroke-width="2" opacity=".7"/>
-        <line x1="50" y1="47" x2="80" y2="47" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <line x1="37" y1="60" x2="92" y2="60" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <line x1="33" y1="73" x2="96" y2="73" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <line x1="35" y1="86" x2="94" y2="86" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <line x1="42" y1="99" x2="87" y2="99" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <line x1="50" y1="112" x2="80" y2="112" stroke="#a78bfa" stroke-width="1" opacity=".5"/>
-        <!-- Info -->
-        <text x="115" y="55" fill="#a78bfa" font-size="9" font-family="monospace">PSMC Analysis</text>
-        <text x="115" y="72" fill="#6b7280" font-size="8" font-family="monospace">ABBA-BABA test</text>
-        <text x="115" y="89" fill="#6b7280" font-size="8" font-family="monospace">Max-entropy dist.</text>
-        <text x="115" y="106" fill="#6b7280" font-size="8" font-family="monospace">Evolutionary analysis</text>
-        <text x="150" y="150" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Python · Jupyter · Bioinformatics</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Capstone</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Bioinformatics Capstone</div>
-        <div class="psrc">Python · Jupyter</div>
-        <div class="pd">PSMC demographic reconstruction, ABBA-BABA testing, and max-entropy distribution modeling.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">Bioinformatics</span><span class="ptag">Jupyter</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/Ex-06-Classifying-Spam-Emails" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(245,100,100,.1);color:#f56464;border:1px solid rgba(245,100,100,.2);font-size:8px">ML / Classification</span>
-        <svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg"><rect width="300" height="160" fill="#180808"/>
-        <text x="150" y="20" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Spam Email Classifier — Confusion Matrix</text>
-        <!-- Confusion matrix -->
-        <rect x="70" y="35" width="70" height="60" rx="3" fill="#4ade80" opacity=".2" stroke="#4ade80" stroke-width=".5"/>
-        <text x="105" y="62" text-anchor="middle" fill="#4ade80" font-size="16" font-family="monospace" font-weight="bold">TP</text>
-        <text x="105" y="80" text-anchor="middle" fill="#4ade80" font-size="10" font-family="monospace">97.2%</text>
-        <rect x="145" y="35" width="70" height="60" rx="3" fill="#f87171" opacity=".15" stroke="#f87171" stroke-width=".5"/>
-        <text x="180" y="62" text-anchor="middle" fill="#f87171" font-size="16" font-family="monospace" font-weight="bold">FP</text>
-        <text x="180" y="80" text-anchor="middle" fill="#f87171" font-size="10" font-family="monospace">2.8%</text>
-        <rect x="70" y="100" width="70" height="40" rx="3" fill="#f87171" opacity=".1" stroke="#f87171" stroke-width=".5"/>
-        <text x="105" y="125" text-anchor="middle" fill="#f87171" font-size="12" font-family="monospace">FN</text>
-        <rect x="145" y="100" width="70" height="40" rx="3" fill="#4ade80" opacity=".1" stroke="#4ade80" stroke-width=".5"/>
-        <text x="180" y="125" text-anchor="middle" fill="#4ade80" font-size="12" font-family="monospace">TN</text>
-        <text x="150" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Naive Bayes + SVM classifier</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">ML Classification</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Spam Email Classifier</div>
-        <div class="psrc">Python · Jupyter Notebook</div>
-        <div class="pd">Spam classification using Naive Bayes and SVM. Confusion matrix analysis and feature importance.</div>
-        <div class="ptags"><span class="ptag">Python</span><span class="ptag">scikit-learn</span><span class="ptag">NLP</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- Row of 3 remaining -->
-  <div class="g3">
-    <a href="https://github.com/Divyadhole/INFO536_Spring2025" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(100,245,160,.1);color:#64f5a0;border:1px solid rgba(100,245,160,.2);font-size:8px">R / Academic</span>
-        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#050f0a"/>
-        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Data Science and Public Interest · INFO536</text>
-        <polyline points="30,120 70,100 110,85 150,70 190,65 230,55 270,45 310,40 350,35" fill="none" stroke="#64f5a0" stroke-width="2" stroke-linecap="round"/>
-        <polyline points="30,130 70,125 110,118 150,105 190,95 230,80 270,65 310,58 350,52" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3" stroke-linecap="round"/>
-        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">R · tidyverse · ggplot2 · UArizona coursework</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Academic</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Data Science and Public Interest</div>
-        <div class="psrc">R · UArizona INFO536</div>
-        <div class="pd">Graduate coursework exploring data science applications in public policy and social interest domains.</div>
-        <div class="ptags"><span class="ptag">R</span><span class="ptag">tidyverse</span><span class="ptag">ggplot2</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/Group-3" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(56,189,248,.1);color:#38bdf8;border:1px solid rgba(56,189,248,.2);font-size:8px">R / Group Project</span>
-        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#020a14"/>
-        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Public Interest Research · Group Project</text>
-        <circle cx="100" cy="90" r="50" fill="rgba(56,189,248,0.08)" stroke="#38bdf8" stroke-width="1" opacity=".6"/>
-        <circle cx="200" cy="90" r="50" fill="rgba(100,245,160,0.08)" stroke="#64f5a0" stroke-width="1" opacity=".6"/>
-        <circle cx="300" cy="90" r="50" fill="rgba(251,191,36,0.08)" stroke="#fbbf24" stroke-width="1" opacity=".6"/>
-        <text x="100" y="94" text-anchor="middle" fill="#38bdf8" font-size="9" font-family="monospace">Data</text>
-        <text x="200" y="94" text-anchor="middle" fill="#64f5a0" font-size="9" font-family="monospace">Public</text>
-        <text x="300" y="94" text-anchor="middle" fill="#fbbf24" font-size="9" font-family="monospace">Policy</text>
-        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">Collaborative R project · UArizona</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Team Project</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">Group Data Science Project</div>
-        <div class="psrc">R · Data Science and Public Interest</div>
-        <div class="pd">Collaborative research project exploring data science for public interest outcomes.</div>
-        <div class="ptags"><span class="ptag">R</span><span class="ptag">Collaboration</span><span class="ptag">Research</span></div>
-      </div>
-    </a>
-
-    <a href="https://github.com/Divyadhole/INFO-536-Data-science-public-interset" target="_blank" class="pc sm rv">
-      <div class="pi-w">
-        <span class="cb" style="background:rgba(212,245,100,.1);color:#d4f564;border:1px solid rgba(212,245,100,.2);font-size:8px">R / Research</span>
-        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="160" fill="#080c00"/>
-        <text x="200" y="22" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">INFO-536 Research Analysis</text>
-        <rect x="30" y="50" width="70" height="80" rx="3" fill="#d4f564" opacity=".15" stroke="#d4f564" stroke-width=".5"/><text x="65" y="95" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Analysis</text>
-        <rect x="115" y="70" width="70" height="60" rx="3" fill="#d4f564" opacity=".2" stroke="#d4f564" stroke-width=".5"/><text x="150" y="105" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Insight</text>
-        <rect x="200" y="40" width="70" height="90" rx="3" fill="#d4f564" opacity=".25" stroke="#d4f564" stroke-width=".5"/><text x="235" y="90" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Impact</text>
-        <rect x="285" y="60" width="70" height="70" rx="3" fill="#d4f564" opacity=".15" stroke="#d4f564" stroke-width=".5"/><text x="320" y="100" text-anchor="middle" fill="#d4f564" font-size="8" font-family="monospace">Policy</text>
-        <text x="200" y="152" text-anchor="middle" fill="#6b7280" font-size="8" font-family="monospace">R · Public interest research · UArizona</text>
-        </svg><div class="pio"></div>
-      </div>
-      <div class="pb">
-        <div class="pm"><span class="pn">Research</span><span class="pa" style="font-size:16px">&#8599;</span></div>
-        <div class="pt">INFO-536 Data Science Research</div>
-        <div class="psrc">R · UArizona Graduate Course</div>
-        <div class="pd">Research on data science applications for public interest and social impact analysis.</div>
-        <div class="ptags"><span class="ptag">R</span><span class="ptag">Research</span><span class="ptag">Public Policy</span></div>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats rv">
-  <div class="sb"><div class="sn">44</div><div class="sl2">GitHub Repos</div></div>
-  <div class="sb"><div class="sn">40<span class="u">+</span></div><div class="sl2">Projects Built</div></div>
-  <div class="sb"><div class="sn">15<span class="u">+</span></div><div class="sl2">Live Dashboards</div></div>
-  <div class="sb"><div class="sn">20<span class="u">+</span></div><div class="sl2">Certifications</div></div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="rv">
-    <div class="ah">Real data.<br><span>Real findings.</span><br>Real impact.</div>
-    <p class="ap">I'm a <strong>Data Analyst and Scientist</strong> pursuing my MS in Data Science at the University of Arizona (2024-2025). My work focuses on real government APIs — the same sources that economists, journalists, and policy makers use daily. ROC-AUC 0.978 with XGBoost.</p>
-    <div class="skr"><span class="sknm">Python</span><div class="skb"><div class="skf" data-w="92"></div></div><span class="skp">92%</span></div>
-    <div class="skr"><span class="sknm">SQL</span><div class="skb"><div class="skf" data-w="88"></div></div><span class="skp">88%</span></div>
-    <div class="skr"><span class="sknm">Power BI</span><div class="skb"><div class="skf" data-w="85"></div></div><span class="skp">85%</span></div>
-    <div class="skr"><span class="sknm">Machine Learning</span><div class="skb"><div class="skf" data-w="82"></div></div><span class="skp">82%</span></div>
-    <div class="skr"><span class="sknm">R</span><div class="skb"><div class="skf" data-w="70"></div></div><span class="skp">70%</span></div>
-    <div class="skr"><span class="sknm">AWS</span><div class="skb"><div class="skf" data-w="75"></div></div><span class="skp">75%</span></div>
-  </div>
-  <div class="ac rv">
-    </div>
-    <div class="acard"><div class="acl">Best Score</div><div class="acv" style="color:var(--accent)">ROC-AUC 0.978</div><div class="acs">XGBoost model</div></div>
-    <div class="acard"><div class="acl">Location</div><div class="acv">Tucson, AZ</div><div class="acs">Open to remote and relocation</div></div>
-    <div class="acard"><div class="acl">Status</div><div class="acv" style="color:var(--accent)">Open to Work</div><div class="acs">Full-time Data Analyst or Data Scientist</div></div>
-  </div>
-</section>
-
-<!-- CERTS -->
-<section class="certs" id="certs">
-  <div class="sl rv">Certifications · 20+ Earned</div>
-  <div class="cgrid rv">
-    <a href="#" class="cpill">🤖 AI:BI Analyst — Databricks</a>
-    <a href="#" class="cpill">✨ Gen AI Fundamentals — Databricks</a>
-    <a href="#" class="cpill">🏆 ML at Scale — Databricks</a>
-    <a href="#" class="cpill">📊 SQL Analytics — Databricks</a>
-    <a href="#" class="cpill">🐍 Python Data Science Bootcamp</a>
-    <a href="#" class="cpill">🗄️ Practical SQL with SQLite</a>
-    <a href="#" class="cpill">🐍 Python Automation and DS</a>
-    <a href="#" class="cpill">🧠 Python for AI and ML</a>
-    <a href="#" class="cpill">🐍 Python Masterclass</a>
-    <a href="#" class="cpill">☁️ AWS Glue Getting Started</a>
-    <a href="#" class="cpill">☁️ AWS Data Foundations</a>
-    <a href="#" class="cpill">☁️ AWS StationOps</a>
-    <a href="#" class="cpill">☁️ Building LLMs on AWS</a>
-    <a href="#" class="cpill">☁️ Dynamic Data Masking — Aurora</a>
-    <a href="#" class="cpill">📊 Power BI Masterclass</a>
-    <a href="#" class="cpill">📊 Data Analysis and Viz — Copilot</a>
-    <a href="#" class="cpill">📈 Business Data Analysis</a>
-    <a href="#" class="cpill">📉 Visualization for Leaders</a>
-    <a href="#" class="cpill">🐳 Docker Deep Dive</a>
-    <a href="#" class="cpill">📝 Data Analysis with Copilot</a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="coh rv">Get In Touch</div>
-  <h2 class="cbig rv">Let's work<br><span class="out">together.</span></h2>
-  <div class="clinks rv">
-    <a href="mailto:divya@arizona.edu" class="clink p">Send an Email</a>
-    <a href="https://github.com/Divyadhole" target="_blank" class="clink">GitHub · 26 repos</a>
-    <a href="https://www.linkedin.com/in/divyadhole/" target="_blank" class="clink">LinkedIn</a>
-  </div>
-</section>
-
-<footer>
-  <span>Divya Dhole · 2025</span>
-  <span style="color:var(--accent)">Open to Data Analyst / Data Scientist roles</span>
-  <span>MS Data Science · University of Arizona</span>
-</footer>
-
-<script>
-// CURSOR
-var C=document.getElementById('C'),CR=document.getElementById('CR');
-var cx=0,cy=0,rx=0,ry=0;
-document.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;C.style.left=cx+'px';C.style.top=cy+'px'});
-(function loop(){rx+=(cx-rx)*.1;ry+=(cy-ry)*.1;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(loop)})();
-document.querySelectorAll('a,.pc').forEach(function(el){
-  el.addEventListener('mouseenter',function(){C.classList.add('g');CR.classList.add('g')});
-  el.addEventListener('mouseleave',function(){C.classList.remove('g');CR.classList.remove('g')});
-});
-// SCROLL REVEAL
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      e.target.classList.add('vis');
-      e.target.querySelectorAll('.skf').forEach(function(b){b.style.width=b.dataset.w+'%'});
+    const repoGrid = document.getElementById("repoGrid");
+    const repoSearch = document.getElementById("repoSearch");
+    const repoFilter = document.getElementById("repoFilter");
+    function renderRepos() {
+      const q = repoSearch.value.trim().toLowerCase();
+      const filter = repoFilter.value;
+      const visible = repos.filter(([name, category]) => {
+        return (filter === "all" || category === filter) && (name.toLowerCase().includes(q) || category.toLowerCase().includes(q));
+      });
+      repoGrid.innerHTML = visible.map(([name, category]) => `
+        <a class="repo-card" href="https://github.com/Divyadhole/${name}" target="_blank" rel="noreferrer"><strong>${name}</strong><span>${category}</span></a>
+      `).join("");
     }
-  });
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv').forEach(function(el,i){
-  el.style.transitionDelay=(i%6)*.06+'s';
-  obs.observe(el);
-});
-</script>
+    repoSearch.addEventListener("input", renderRepos);
+    repoFilter.addEventListener("change", renderRepos);
+    renderRepos();
+
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      themeToggle.querySelector("span").textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+    });
+  </script>
 </body>
 </html>

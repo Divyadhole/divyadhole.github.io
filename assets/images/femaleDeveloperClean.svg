@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="title desc">
+  <title id="title">Woman AI developer at laptop</title>
+  <desc id="desc">A clean flat illustration of a woman developer with long hair, headphones, laptop, code window, and analytics chart.</desc>
+  <defs>
+    <linearGradient id="purplePanel" x1="122" x2="608" y1="92" y2="424" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6c63ff"/>
+      <stop offset="1" stop-color="#55198b"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="370" x2="516" y1="286" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6c63ff"/>
+      <stop offset="1" stop-color="#5b2194"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="520" fill="none"/>
+  <path fill="#232a49" d="M86 390c-8-74 43-142 122-151 51-6 68-51 118-84 73-48 173-33 225 34 31 40 32 80 66 110 33 29 57 61 46 104-14 54-72 84-140 84H203c-65 0-110-34-117-97Z"/>
+  <ellipse cx="370" cy="468" rx="255" ry="24" fill="#111522" opacity=".45"/>
+
+  <g>
+    <rect x="90" y="106" width="188" height="140" rx="20" fill="#252c4e"/>
+    <circle cx="122" cy="139" r="8" fill="#ff6584"/>
+    <circle cx="148" cy="139" r="8" fill="#ffd15c"/>
+    <circle cx="174" cy="139" r="8" fill="#6c63ff"/>
+    <rect x="124" y="170" width="92" height="12" rx="6" fill="#a29bfe"/>
+    <rect x="124" y="198" width="118" height="10" rx="5" fill="#6c63ff"/>
+    <rect x="124" y="224" width="74" height="10" rx="5" fill="#4f5a91"/>
+    <path d="M237 173l22 18-22 18M114 173l-22 18 22 18" fill="none" stroke="#ffd15c" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/>
+  </g>
+
+  <g>
+    <rect x="498" y="82" width="132" height="140" rx="22" fill="#252c4e"/>
+    <rect x="526" y="165" width="18" height="28" rx="7" fill="#a29bfe"/>
+    <rect x="556" y="135" width="18" height="58" rx="7" fill="#6c63ff"/>
+    <rect x="586" y="111" width="18" height="82" rx="7" fill="#ffd15c"/>
+    <path d="M523 121c22 5 43-7 62-27" fill="none" stroke="#ff6584" stroke-linecap="round" stroke-width="7"/>
+  </g>
+
+  <g>
+    <circle cx="423" cy="255" r="112" fill="#171c28" opacity=".32"/>
+    <path fill="#221740" d="M374 174c-46 19-72 70-59 119 9 35 36 63 72 73 41 11 87 1 118-27 30-27 42-70 30-110-18-59-92-82-161-55Z"/>
+    <path fill="#0f0a28" d="M369 159c-47 20-75 66-76 119-1 62 38 116 96 134 15-29 21-67 16-114-4-45 13-76 51-91 22-8 44-9 67-2-19-42-75-69-154-46Z"/>
+    <path fill="#0f0a28" d="M391 179c33-46 96-43 137-8 36 31 42 83 13 126-8-40-28-69-61-88-29-17-59-25-89-30Z"/>
+
+    <path fill="none" stroke="#6c63ff" stroke-linecap="round" stroke-width="10" d="M321 249c0-67 50-118 119-118 71 0 124 50 124 118"/>
+    <circle cx="321" cy="250" r="24" fill="#6c63ff"/>
+    <circle cx="564" cy="250" r="24" fill="#6c63ff"/>
+
+    <circle cx="443" cy="238" r="62" fill="#c27682"/>
+    <path fill="#0f0a28" d="M391 230c17-43 58-70 103-65 40 5 69 34 76 76-54-4-101-22-142-53-13 10-26 24-37 42Z"/>
+    <circle cx="393" cy="248" r="16" fill="#c27682"/>
+    <circle cx="492" cy="248" r="16" fill="#c27682"/>
+    <circle cx="420" cy="252" r="5" fill="#171c28"/>
+    <circle cx="467" cy="252" r="5" fill="#171c28"/>
+    <path d="M426 277c15 11 33 11 48 0" fill="none" stroke="#7a3d50" stroke-linecap="round" stroke-width="5"/>
+
+    <path fill="#ffd15c" d="M405 305c25 17 52 17 79 0l20 42c-35 24-76 24-119 0l20-42Z"/>
+    <path fill="url(#shirt)" d="M358 352c20-32 48-48 86-48 40 0 71 16 92 48l23 98H336l22-98Z"/>
+
+    <path fill="#c27682" d="M350 359c-43 24-75 55-96 92-6 10-2 24 9 30 11 6 24 2 31-9 18-30 43-53 75-71l-19-42Z"/>
+    <path fill="#c27682" d="M535 359c43 24 75 55 96 92 6 10 2 24-9 30-11 6-24 2-31-9-18-30-43-53-75-71l19-42Z"/>
+  </g>
+
+  <g>
+    <path fill="#bfc3d1" d="M190 324h292c18 0 34 13 38 31l26 106H255c-18 0-34-12-38-30l-27-107Z"/>
+    <path fill="#e8e9ee" d="M207 338h256c13 0 25 9 28 22l18 74H258c-13 0-25-9-28-22l-23-74Z"/>
+    <circle cx="356" cy="390" r="24" fill="#d2d5df"/>
+    <path fill="#9da2b1" d="M510 434h129c14 0 25 11 25 25v6H518l-8-31Z"/>
+  </g>
+
+  <g opacity=".92">
+    <rect x="169" y="282" width="18" height="18" rx="4" fill="#6c63ff"/>
+    <rect x="199" y="282" width="18" height="18" rx="4" fill="#a29bfe"/>
+    <rect x="229" y="282" width="18" height="18" rx="4" fill="#ffd15c"/>
+    <rect x="259" y="282" width="18" height="18" rx="4" fill="#6c63ff"/>
+    <rect x="289" y="282" width="18" height="18" rx="4" fill="#a29bfe"/>
+    <rect x="319" y="282" width="18" height="18" rx="4" fill="#6c63ff"/>
+  </g>
+
+  <circle cx="649" cy="134" r="13" fill="#ffd15c"/>
+  <circle cx="661" cy="178" r="9" fill="#ff6584"/>
+  <circle cx="103" cy="298" r="12" fill="#6c63ff"/>
+</svg>
