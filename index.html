@@ -48,6 +48,66 @@
 
     a { color: inherit; }
 
+    .intro-video-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      background: rgba(23, 28, 40, 0.86);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .intro-video-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .intro-video-card {
+      position: relative;
+      width: min(920px, 100%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #0f1420;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+    }
+
+    .intro-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #0f1420;
+    }
+
+    .intro-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(15, 20, 32, 0.82);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .intro-close:hover {
+      transform: scale(1.05);
+      background: rgba(85, 25, 139, 0.92);
+    }
+
     .container {
       width: min(1180px, calc(100vw - 56px));
       margin: 0 auto;
@@ -645,10 +705,20 @@
       .button { width: 100%; min-height: 58px; }
       .cards, .experience-grid, .achievement-grid, .repo-grid, .resume-grid { grid-template-columns: 1fr; }
       .section { padding: 66px 0; }
+      .intro-video-overlay { padding: 16px; }
+      .intro-video-card { border-radius: 12px; }
+      .intro-close { width: 38px; height: 38px; font-size: 22px; }
     }
   </style>
 </head>
 <body>
+  <div class="intro-video-overlay" id="introVideoOverlay" aria-hidden="true">
+    <div class="intro-video-card">
+      <video class="intro-video" id="introVideo" src="assets/videos/portfolio-intro.mp4" muted playsinline preload="metadata"></video>
+      <button class="intro-close" type="button" id="introVideoClose" aria-label="Close intro video">×</button>
+    </div>
+  </div>
+
   <header class="header">
     <a href="#home" class="logo"><span>&lt;</span> Divya Dhole <span>/&gt;</span></a>
     <nav class="nav" aria-label="Primary navigation">
@@ -975,6 +1045,37 @@
     themeToggle.addEventListener("click", () => {
       document.body.classList.toggle("light");
       themeToggle.querySelector("span").textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+    });
+
+    const introVideoOverlay = document.getElementById("introVideoOverlay");
+    const introVideo = document.getElementById("introVideo");
+    const introVideoClose = document.getElementById("introVideoClose");
+    let introVideoDismissed = false;
+
+    function closeIntroVideo() {
+      introVideoDismissed = true;
+      introVideo.pause();
+      introVideo.currentTime = 0;
+      introVideoOverlay.classList.remove("show");
+      introVideoOverlay.setAttribute("aria-hidden", "true");
+    }
+
+    window.setTimeout(() => {
+      if (introVideoDismissed) return;
+      introVideoOverlay.classList.add("show");
+      introVideoOverlay.setAttribute("aria-hidden", "false");
+      introVideo.play().catch(() => {
+        introVideo.setAttribute("controls", "controls");
+      });
+    }, 10000);
+
+    introVideo.addEventListener("ended", closeIntroVideo);
+    introVideoClose.addEventListener("click", closeIntroVideo);
+    introVideoOverlay.addEventListener("click", (event) => {
+      if (event.target === introVideoOverlay) closeIntroVideo();
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && introVideoOverlay.classList.contains("show")) closeIntroVideo();
     });
   </script>
 </body>
