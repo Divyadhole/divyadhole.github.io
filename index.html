@@ -992,27 +992,6 @@
       themeToggle.querySelector("span").textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
     });
 
-    const introVideo = document.getElementById("introVideo");
-    let introAutoplayReady = false;
-
-    function playIntroVideoWithSound() {
-      introVideo.muted = false;
-      introVideo.volume = 1;
-      return introVideo.play().catch(() => {
-        introVideo.setAttribute("controls", "controls");
-      });
-    }
-
-    window.setTimeout(() => {
-      introAutoplayReady = true;
-      playIntroVideoWithSound();
-    }, 10000);
-
-    ["click", "keydown", "touchstart", "scroll"].forEach((eventName) => {
-      window.addEventListener(eventName, () => {
-        if (introAutoplayReady && introVideo.paused) playIntroVideoWithSound();
-      }, { passive: true });
-    });
   </script>
 </body>
 </html>
